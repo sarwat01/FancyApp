@@ -1,0 +1,66 @@
+ 
+
+<div class="my-container">
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <div class="user_card">
+        <div class="title">
+          <!--  <div class="brand_logo_container">
+          
+         <img src="assets\images\logo.jpg"  class="brand_logo" alt="Logo">
+        </div> -->
+          <td style="color: #fff; text-align: center" >
+            تکایە لەکاتی کارت داغڵکردن
+          </td>
+          <td style="color: #fff; text-align: center; margin-top: 13px">
+            دڵنیابە لە جۆری کارتەکەت
+          </td>
+        </div>
+        <div class="d-flex justify-content-center form_container">
+          <form [formGroup]="cardData">
+            <td class="formLabel" *transloco="let t; read: 'activeCard'">{{t("packageType")}}</td>
+            <div class="input-group mb-2">
+              <select
+                (change)="onChange($event.target.value)"
+                class="form-control"
+              >
+                <option selected>{{ currentPackage.profile_name }}</option>
+                <option
+                  *ngFor="let package of packages"
+                  value="{{ package.id }}"
+                >
+                  {{ package.name }}
+                </option>
+              </select>
+              <span class="input-group-text"
+                ><i class="fa fa-credit-card-alt"></i
+              ></span>
+            </div>
+            <td class="formLabel" style="padding-top: 10px" *transloco="let t; read: 'activeCard'" >{{t("card_number")}}</td>
+            <div class="input-group mb-4">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="pin"
+                placeholder="ژمارەی سەرکارتەکە"
+              />
+              <span class="input-group-text"
+                ><i class="fas fa-camera"></i>
+              </span>
+            </div>
+            <div class="d-flex justify-content-center mt-4 login_container">
+              <button
+                type="submit"
+                name="button"
+                class="btn login_btn"
+                (click)="submit()"
+              >
+                ok
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

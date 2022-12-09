@@ -1,0 +1,33 @@
+{
+    "balance": {
+    "username": "اسم الدخول ",
+    "password": "کلم الدخولة",
+    "login":"الدخول"
+    
+  },
+  "main": {
+    "main_card": "ادخال البطاقة ",
+    "main_person_info": "معلومات المستخدم",
+    "main_service": "مرکز الخدمات"
+  },
+    
+    "activeCard": {
+      "packageType": "تغيير الخدمة : ",
+      "card_number": "رقم البطاقة",
+      "pin": " PIN"
+    },
+
+   "user_info": {
+    "customer_Name": "الاسم ",
+    "username": "اسم الدخول",
+    "accountBalance": "رصید الحساب",
+    "Current Service": "الخدمةالحالیة",
+    "Debts": "الدیون",
+    "Subscription": "حالة الاشتراک",
+    "Expiration": "تأريخ الانتهاء",
+    "Service Price": "سعر الخدمة"
+   
+  }
+  
+}
+

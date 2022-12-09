@@ -1,0 +1,120 @@
+<div class="my-container">
+  <div class="container">
+ 
+ <div class="d-flex justify-content-center ">
+    <div class="user_card">
+      <div class="d-flex justify-content-center">
+        <div class="brand_logo_container">
+         <img src="assets\images\logo.jpg"  class="brand_logo" alt="Logo">
+        </div>
+      </div>
+      <div class="d-flex justify-content-center form_container">
+        <form  [formGroup]="loginForm">
+          <div class="input-group mb-4">
+             <input type="text" class="form-control" formControlName="username"*transloco="let t; read: 'balance'"  placeholder="{{t('username')}}">
+           <span class="input-group-text"><i class="fas fa-user"></i> </span>
+           </div>
+          <div class="input-group mb-4">
+             <input type="password"class="form-control "  formControlName="password" *transloco="let t; read: 'balance'"  placeholder="{{t('password')}}">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+     
+            <div class="input-group mb-2">
+              <select (change)="setLang($event)"class="form-control " >
+        
+                <option
+                  *ngFor="let l of this.langList"
+                  [selected]="l.id == this.currentLang"
+                  [value]="l.id"
+                >
+                  {{ l.label }}
+                </option>
+              </select>
+              <span class="input-group-text"><i class="fa fa-language"></i></span>
+             </div>
+           
+
+            
+            <div class="d-flex justify-content-center mt-4 login_container">
+         <button type="submit" name="button" class="btn login_btn" (click)="encryption()" *transloco="let t; read: 'balance'" >{{t("login")}}</button>
+         </div>
+        </form>
+      </div>
+  
+       <div class="mt-4">
+        <div class="d-flex justify-content-center links">
+           <a href="https://www.fancynet.net" class="ml-2">
+            <i style="font-size:30px ; margin: 5px; color: white;" class="fa fa-globe" aria-hidden="true"></i>
+         
+            </a>
+           <a href="https://www.facebook.com/FancyNetCompany/" class="ml-2">
+            <i style="font-size:30px ; margin: 5px;color: white;" class="fa fa-facebook-square" aria-hidden="true"></i>
+           
+           </a>
+        </div>
+        <div class="d-flex justify-content-center links">
+         
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+ 
+</div>
+
+
+<!-- <div class="my-container">
+  <div class="container">
+    <div class="screen">
+      <div class="screen__content">
+        <form
+          class="login text-left"
+          [formGroup]="loginForm"
+          
+        >
+          <div class="login__field">
+           
+            <input
+              type="text"
+              class="text-right login__input"
+              formControlName="username"
+              placeholder="کۆد"
+            />
+            <i class="login__icon fas fa-user"></i>
+          </div>
+          <div class="login__field">
+            
+            <input
+              type="password"
+              class="text-right login__input"
+              formControlName="password"
+              placeholder="تێپەڕە ووشە"
+            />
+            <i class="login__icon fas fa-lock"></i>
+          </div>
+         <div style="display: flex; justify-content:left">
+          <button  class="text-center button login__submit"(click)="encryption()">
+           <span class="text-center " >چوونەژورەوە</span>
+          </button>
+         </div>
+          
+        </form>
+       
+      </div>
+      <div class="screen__background">
+        <span
+          class="screen__background__shape screen__background__shape4"
+        ></span>
+        <span
+          class="screen__background__shape screen__background__shape3"
+        ></span>
+        <span
+          class="screen__background__shape screen__background__shape2"
+        ></span>
+        <span
+          class="screen__background__shape screen__background__shape1"
+        ></span>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,56 @@
+<div class="container-scroller">
+    <!-- partial:assets/partials/_navbar.html -->
+    <nav id="nav" class="flex-row p-0 navbar col-lg-12 col-12 fixed-top d-flex default-layout-navbar">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <div>
+          <i
+            (click)="logout()"
+            style="
+              color: #1f2935;
+              font-size: 20px;
+              padding-top: 10px;
+              margin-right: 10px;
+            "
+            class="fa fa-sign-out"
+            aria-hidden="true"
+          ></i>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-stretch" style="display: flex; flex-direction: row; justify-content: space-between;">
+        <div style="display: flex; flex-direction: column;margin-top: 15px;">
+          
+            <td  style="color: #1f2935; margin-top: 10px; font-weight: bolder;text-align: right;">
+               بەکارهێنەر :  {{ data.firstname }} {{data.lastname}}
+            </td>
+           
+          </div>
+       
+  
+        <div>
+          <select
+            (change)="setLang($event)"
+            style="background-color: #1f2935; color: white; border-radius: 15px;margin-top: 15px;"
+          >
+            <option
+              *ngFor="let l of this.langList"
+              [selected]="l.id == this.currentLang"
+              [value]="l.id"
+            >
+              {{ l.label }}
+            </option>
+          </select>
+        </div>
+
+
+      </div>
+    </nav>
+    
+    <!-- partial -->
+    <div style="margin-top: 70px;">
+      <router-outlet></router-outlet>
+      
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  

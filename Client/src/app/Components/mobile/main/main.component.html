@@ -1,0 +1,124 @@
+<!-- <nav class="flex-row p-0 navbar default-layout-navbar">
+  <div class="navbar-menu-wrapper align-items-stretch">
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 14px;
+      "
+    >
+      <div>
+        <i
+          (click)="logout()"
+          style="
+            color: #1f2935;
+            font-size: 20px;
+            padding-top: 10px;
+            margin-right: 10px;
+          "
+          class="fa fa-sign-out"
+          aria-hidden="true"
+        ></i>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <td style="color: #1f2935; margin-top: 10px; font-weight: bolder">
+          بەخێربێیت : {{ data.firstname }}
+        </td>
+         <td style="color: #1f2935; ">   کۆد : {{data.username}}</td> 
+      </div>
+
+      <div>
+        <select
+          (change)="setLang($event)"
+          style="background-color: #1f2935; color: white; border-radius: 15px"
+        >
+          <option
+            *ngFor="let l of this.langList"
+            [selected]="l.id == this.currentLang"
+            [value]="l.id"
+          >
+            {{ l.label }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</nav>
+ -->
+<div class="container">
+  <div class="screen">
+    <div class="screen__content">
+      <div class="row">
+        <div routerLink="/Home/activrCard" class="col-md-4">
+          <div
+            class="card-counter"
+            style="background-color: #1f2935; color: white"
+          >
+            <span class="count-numbers" *transloco="let t; read: 'main'">{{
+              t("main_card")
+            }}</span>
+            <i
+              style="display: flex; justify-content: end"
+              class="fa fa-credit-card-alt"
+              aria-hidden="true"
+            ></i>
+          </div>
+        </div>
+
+        <div routerLink="/Home/user" class="col-md-4">
+          <div
+            class="card-counter"
+            style="background-color: #1f2935; color: white"
+          >
+            <span class="count-numbers" *transloco="let t; read: 'main'">{{
+              t("main_person_info")
+            }}</span>
+            <i
+              style="display: flex; justify-content: end"
+              class="fa fa-user"
+              aria-hidden="true"
+            ></i>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div
+            class="card-counter"
+            style="background-color: #1f2935; color: white"
+          >
+            <span class="count-numbers" *transloco="let t; read: 'main'">{{
+              t("main_service")
+            }}</span>
+            <i
+              style="display: flex; justify-content: end"
+              class="fa fa-cogs"
+              aria-hidden="true"
+            ></i>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: center ; padding: 20px; margin: 30px;">
+        <circle-progress
+          [percent]="balanceSize"
+          [radius]="100"
+          units="{{ balanceInfo }}"
+          unitsFontSize="30"
+          unitsFontWeight="bold"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="20"
+          [outerStrokeColor]="'#1f2935'"
+          [innerStrokeColor]="'rgb(155, 205, 20)'"
+          [animation]="true"
+          [animationDuration]="390"
+          [showTitle]="false"
+          subtitle="ڕۆژی ماوە"
+          subtitleFontSize="17"
+          subtitleFontWeight="bold"
+          subtitleColor="#1f2935"
+         >
+        </circle-progress>
+      </div>
+    </div>
+  </div>
+</div>

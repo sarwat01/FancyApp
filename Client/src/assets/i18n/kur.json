@@ -1,0 +1,32 @@
+{
+  "balance": {
+    "username": "کۆدی بەکارهێنەر ",
+    "password": "تێپەڕە ووشە",
+    "login":"چوونەژورەوە"
+    
+  },
+    "activeCard": {
+      "packageType": "جۆری کارت : ",
+      "card_number": "ژمارەی کارت",
+      "pin": " PIN"
+    },
+    
+    "main": {
+      "main_card": "پڕکردنەوەی هێڵەکەت ",
+      "main_person_info": "زانیاری کەسی",
+      "main_service": "خزمەتگوزارییەکان"
+    },
+    "user_info": {
+      "customer_Name": "ناو ",
+      "username": "کۆدی بەکارهێنەر",
+      "accountBalance": "جزدان",
+      "Current Service": "جۆری پاکێجی ئێستا",
+      "Debts": "بڕی قەرز",
+      "Subscription": "دۆخی پاکێج",
+      "Expiration": "بەرواری تەواو بوون",
+      "Service Price": "نرخی پاکێج"
+     
+    }
+
+  }
+
