@@ -97,31 +97,37 @@
             ></i>
           </div>
         </div>
+
+        <div class="col-md-4">
+          <div style="display: flex; justify-content: center ; padding: 10px; margin: 20px;">
+            <circle-progress
+              [percent]="balanceSize"
+              [radius]="100"
+              title="{{ balanceInfo }}"
+              titleFontSize="15"
+              titleFontWeight="bold"
+              [showUnits] = "false"
+              [outerStrokeWidth]="16"
+              [innerStrokeWidth]="20"
+              [outerStrokeColor]="'#1f2935'"
+              [innerStrokeColor]="'rgb(155, 205, 20)'"
+              [animation]="true"
+              [animationDuration]="300"
+              [showTitle]="true"
+              [space]=3
+               subtitle="ڕۆژی ماوە"
+              subtitleFontSize="12"
+              subtitleFontWeight="bold"
+              subtitleColor="#1f2935"
+             >
+            </circle-progress>
+          </div>
+          
+
+        </div>
       </div>
       
-      <div style="display: flex; justify-content: center ; padding: 20px; margin: 30px;">
-        <circle-progress
-          [percent]="balanceSize"
-          [radius]="100"
-          title="{{ balanceInfo }}"
-          titleFontSize="30"
-          titleFontWeight="bold"
-          [showUnits] = "false"
-           [outerStrokeWidth]="16"
-          [innerStrokeWidth]="20"
-          [outerStrokeColor]="'#1f2935'"
-          [innerStrokeColor]="'rgb(155, 205, 20)'"
-          [animation]="true"
-          [animationDuration]="300"
-          [showTitle]="true"
-          [space]=3
-          subtitle="ڕۆژی ماوە"
-          subtitleFontSize="17"
-          subtitleFontWeight="bold"
-          subtitleColor="#1f2935"
-         >
-        </circle-progress>
-      </div>
+      
     </div>
   </div>
 </div>

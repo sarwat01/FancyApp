@@ -18,13 +18,18 @@
     },
 
    "user_info": {
+   "userInfo":"معلومات العميل",
+    "userCard":"معلومات الاشتراك",
     "customer_Name": "الاسم ",
     "username": "اسم الدخول",
+    "Phone":"الهاتف",
     "accountBalance": "رصید الحساب",
-    "Current Service": "الخدمةالحالیة",
+    "CurrentService": "الخدمةالحالیة",
     "Debts": "الدیون",
     "Subscription": "حالة الاشتراک",
     "Expiration": "تأريخ الانتهاء",
+    "remainigDays": "الايام المتبقية",
+    "days":"یوم",
     "Service Price": "سعر الخدمة"
    
   }

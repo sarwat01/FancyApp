@@ -1,0 +1,68 @@
+<div class="container" >
+    
+   
+
+  <div class="halfCard card" >
+    
+      <div class="card-body divideCard" >
+        <h5 class="text-right " style="font-weight: bolder;"   *transloco="let t; read: 'user_info'">{{t("userInfo")}}</h5>
+        <hr>
+        <table class="table table-bordered">
+             <tbody>
+              <tr class="text-right">
+                <td  *transloco="let t; read: 'user_info'" >{{t("username")}}</td>
+                <td >{{data.username}}</td>
+              </tr>
+              <tr class="text-right">
+                <td  *transloco="let t; read: 'user_info'" >{{t("customer_Name")}}</td>
+                <td  >{{data.name}}</td>
+              </tr >
+              <tr class="text-right">
+                <td  *transloco="let t; read: 'user_info'" >{{t("Phone")}}</td>
+                <td *ngIf="data.phone != null || data.phone != undefined" >{{data.phone }}</td>
+                <td *ngIf="data.phone == null || data.phone == undefined"  >N/A</td>
+              </tr >
+              <tr class="text-right">
+                <td  *transloco="let t; read: 'user_info'" >{{t("accountBalance")}}</td>
+                <td  >{{data.balance | number}}</td>
+              </tr >
+              <tr class="text-right">
+                <td  *transloco="let t; read: 'user_info'" >{{t("Debts")}}</td>
+                <td >{{data.loan_balance}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+
+      <div class="card-body divideCard" style="margin-top: 8px;">
+        <h5 class=" text-right " style="font-weight: bolder;"    *transloco="let t; read: 'user_info'">{{t("userCard")}}</h5>
+        <hr>
+        <table class="table table-bordered">
+          
+          <tbody>
+           <tr class="text-right">
+            <td  *transloco="let t; read: 'user_info'" >{{t("CurrentService")}}</td>
+                <td  >{{balanceInfo.profile_name}}</td>
+           </tr>
+           <tr class="text-right">
+            <td  *transloco="let t; read: 'user_info'" >{{t("remainigDays")}}</td>
+                <td  *transloco="let t; read: 'user_info'" >{{dashboard.remaining_days}} {{t("days")}}</td>
+           </tr>
+           <tr class="text-right">
+            <td  *transloco="let t; read: 'user_info'" >{{t("Expiration")}}</td>
+                <td  >{{balanceInfo.expiration | date : 'yyyy-MM-dd hh:mm aa'}}</td>
+           </tr>
+           <tr class="text-right">
+            <td  *transloco="let t; read: 'user_info'" >{{t("Subscription")}}</td>
+            <td  *ngIf="balanceInfo.subscription_status.expiration == true " style="color: green; font-weight: bold;">Active</td>
+            <td  *ngIf="balanceInfo.subscription_status.expiration == false " style="color: rgb(231, 21, 49); font-weight: bold;">Expired</td>
+            </tr>
+           <tr class="text-right">
+            <td  *transloco="let t; read: 'user_info'" >John</td>
+            <td  *transloco="let t; read: 'user_info'">Doe</td>
+           </tr>
+         </tbody>
+       </table>
+            
+    </div>
+  </div>

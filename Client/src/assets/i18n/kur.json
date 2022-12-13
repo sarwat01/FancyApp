@@ -17,13 +17,18 @@
       "main_service": "خزمەتگوزارییەکان"
     },
     "user_info": {
+      "userInfo":"زانیاری کەسی",
+      "userCard":"زانیاری پاکێج",
       "customer_Name": "ناو ",
+      "Phone":"موبایل",
       "username": "کۆدی بەکارهێنەر",
       "accountBalance": "جزدان",
-      "Current Service": "جۆری پاکێجی ئێستا",
+      "CurrentService": "جۆری پاکێجی ئێستا",
       "Debts": "بڕی قەرز",
       "Subscription": "دۆخی پاکێج",
       "Expiration": "بەرواری تەواو بوون",
+      "remainigDays": "ڕۆژی ماوە",
+      "days":"ڕۆژ",
       "Service Price": "نرخی پاکێج"
      
     }
