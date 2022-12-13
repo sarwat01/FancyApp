@@ -45,6 +45,8 @@ currentLang: string;
     this.getBalanceInfo();
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
+
+    
   }
 
  

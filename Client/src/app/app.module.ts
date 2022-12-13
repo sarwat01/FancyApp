@@ -61,7 +61,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       },
     }),
     NgCircleProgressModule.forRoot({
-     
+    
      
     }),
 
