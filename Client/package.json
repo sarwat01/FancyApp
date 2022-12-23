@@ -37,7 +37,7 @@
     "font-awesome": "^4.7.0",
     "form-group": "^3.0.8",
     "http": "^0.0.1-security",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "ng-circle-progress": "^1.6.0",
     "ng-form-group": "^1.4.2",
     "ng-http-interceptor": "^4.0.0",
