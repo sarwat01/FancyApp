@@ -1,30 +1,32 @@
- 
-
 <div class="my-container">
- 
-<div class="text-center">
- <button>Home</button> 
-</div>
+  <div class="text-center"></div>
 
   <div class="container">
     <div class="d-flex justify-content-center">
       <div class="user_card">
-     
         <div class="title">
           <!--  <div class="brand_logo_container">
           
          <img src="assets\images\logo.jpg"  class="brand_logo" alt="Logo">
         </div> -->
-          <td style="color: #fff; text-align: center" *transloco="let t; read: 'activeCard'">
-            {{t("title")}}
+          <td
+            style="color: #fff; text-align: center"
+            *transloco="let t; read: 'activeCard'"
+          >
+            {{ t("title") }}
           </td>
-          <td style="color: #fff; text-align: center; margin-top: 10px" *transloco="let t; read: 'activeCard'">
-            {{t("sunTitle")}}
+          <td
+            style="color: #fff; text-align: center; margin-top: 10px"
+            *transloco="let t; read: 'activeCard'"
+          >
+            {{ t("sunTitle") }}
           </td>
         </div>
         <div class="d-flex justify-content-center form_container">
           <form [formGroup]="cardData">
-            <td class="formLabel" *transloco="let t; read: 'activeCard'">{{t("packageType")}}</td>
+            <td class="formLabel" *transloco="let t; read: 'activeCard'">
+              {{ t("packageType") }}
+            </td>
             <div class="input-group mb-2">
               <select
                 (change)="onChange($event.target.value)"
@@ -42,7 +44,13 @@
                 ><i class="fa fa-credit-card-alt"></i
               ></span>
             </div>
-            <td class="formLabel" style="padding-top: 10px" *transloco="let t; read: 'activeCard'" >{{t("card_number")}}</td>
+            <td
+              class="formLabel"
+              style="padding-top: 10px"
+              *transloco="let t; read: 'activeCard'"
+            >
+              {{ t("card_number") }}
+            </td>
             <div class="input-group mb-4">
               <input
                 type="text"
@@ -65,12 +73,8 @@
               </button>
             </div>
           </form>
-          
         </div>
       </div>
-      
     </div>
-
   </div>
-
 </div>
