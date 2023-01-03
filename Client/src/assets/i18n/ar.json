@@ -10,12 +10,12 @@
     "main_service": "مرکز الخدمات"
   },
   "activeCard": {
-    "title": "arabic",
-    "sunTitle": "translate to arabic",
+    "title": "رجاء عند ادخال الكارت",
+    "sunTitle": "تاكد من نوع الكارت",
     "packageType": "تغيير الخدمة : ",
     "card_number": "رقم البطاقة",
     "pin": "PIN",
-    "rsp_service_change_user_active": "المشترك فعال, تغيير الخدمة سيتم عند انتهاء الاشتراك",
+    "rsp_service_change_user_active": "الاشتراك فعال, تغيير الخدمة سيتم بعد انتهاء الاشتراك",
     "rsp_service_change_success": "تم تغيير الخدمة",
     "rsp_card_used": "البطاقة المستخدمة",
     "rsp_invalid_card": "رقم البطاقة غير صحيح",
