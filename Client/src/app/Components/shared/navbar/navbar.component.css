@@ -16,3 +16,9 @@
     z-index: 1;
   }
   
+  .custumStyle{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+  }

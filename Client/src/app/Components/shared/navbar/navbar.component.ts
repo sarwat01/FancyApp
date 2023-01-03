@@ -38,21 +38,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
-    this.getInfo();
+ 
   }
-  getInfo() {
-    const link = `${environment.apiUrl}/api/index.php/api/user`;
-    this.apiRest.get(link).subscribe((ptr: any) => {
-      if (ptr.data.firstname != null) {
-        this.data = ptr.data;
-      } else {
-        this.data = ptr.data;
-        this.toastService.warning(
-          'بەشداربووی بەڕێز ناوت تۆمار نەکراوە بۆ تۆمار کردن پەیوەندی بکە بە کۆمپانیاوە'
-        );
-      }
-    });
-  }
+ 
 
   setLang(l) {
     this.translate.setActiveLang(l.target.value);

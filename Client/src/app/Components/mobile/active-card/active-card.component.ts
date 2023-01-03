@@ -149,8 +149,7 @@ export class ActiveCardComponent implements OnInit {
         this.router.navigate(['/Home']);
        }else {
         this.toastService.warning(this.translate.translate('activeCard.rsp_invalid_card_number')) 
-        this.toastService.warning('تکایە ژمارەی کارت بنووسە');
-       }
+        }
     });
     
   }
