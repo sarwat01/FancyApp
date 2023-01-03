@@ -3,11 +3,11 @@
     <div class="screen__content">
       <div class="row">
 
-        
+       
         <div routerLink="/Home/activrCard" class="col-md-4">
           <div
             class="card-counter"
-            style="background-color: #1f2935; color: white"
+            style="background-color: #1f2935; color: white;text-align: right;"
           >
             <span class="count-numbers" *transloco="let t; read: 'main'">{{
               t("main_card")
@@ -23,7 +23,7 @@
         <div routerLink="/Home/user" class="col-md-4">
           <div
             class="card-counter"
-            style="background-color: #1f2935; color: white"
+            style="background-color: #1f2935; color: white;text-align: right"
           >
             <span class="count-numbers" *transloco="let t; read: 'main'">{{
               t("main_person_info")
@@ -39,7 +39,7 @@
         <div class="col-md-4">
           <div
             class="card-counter"
-            style="background-color: #1f2935; color: white"
+            style="background-color: #1f2935; color: white;text-align: right"
           >
             <span class="count-numbers" *transloco="let t; read: 'main'">{{
               t("main_service")
@@ -65,7 +65,7 @@
               [percent]="balanceSize"
               [radius]="100"
               title="{{ balanceInfo }}"
-              titleFontSize="15"
+              titleFontSize="18"
               titleFontWeight="bold"
               [showUnits]="false"
               [outerStrokeWidth]="16"
@@ -75,9 +75,9 @@
               [animation]="true"
               [animationDuration]="300"
               [showTitle]="true"
-              [space]="3"
+              [space]="5"
               subtitle="ڕۆژی ماوە"
-              subtitleFontSize="12"
+              subtitleFontSize="15"
               subtitleFontWeight="bold"
               subtitleColor="#1f2935"
             >

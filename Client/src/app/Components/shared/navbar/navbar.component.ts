@@ -11,16 +11,13 @@ import { AuthService } from '../../Auth/services/auth.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
   Api = environment.apiUrl;
   langList: any[] = [];
   currentLang: string;
-  data:any
-
-
-
+  data: any;
 
   constructor(
     private apiRest: RestApiService,
@@ -30,36 +27,36 @@ export class NavbarComponent implements OnInit {
     private translate: TranslocoService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService,) { 
-      translate.langChanges$.subscribe(lang => {
-        this.currentLang = lang;
-        console.log('Language changed to', this.currentLang);
-  
-      });
-    }
+    private authService: AuthService
+  ) {
+    translate.langChanges$.subscribe((lang) => {
+      this.currentLang = lang;
+      console.log('Language changed to', this.currentLang);
+    });
+  }
 
   ngOnInit(): void {
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
-
     this.getInfo();
-
   }
-  getInfo(){
+  getInfo() {
     const link = `${environment.apiUrl}/api/index.php/api/user`;
     this.apiRest.get(link).subscribe((ptr: any) => {
-      if(ptr.data.firstname != null){
-         this.data = ptr.data 
+      if (ptr.data.firstname != null) {
+        this.data = ptr.data;
       } else {
-        this.data = ptr.data 
-        this.toastService.warning('بەشداربووی بەڕێز ناوت تۆمار نەکراوە بۆ تۆمار کردن پەیوەندی بکە بە کۆمپانیاوە')
+        this.data = ptr.data;
+        this.toastService.warning(
+          'بەشداربووی بەڕێز ناوت تۆمار نەکراوە بۆ تۆمار کردن پەیوەندی بکە بە کۆمپانیاوە'
+        );
       }
-      }); 
+    });
   }
 
- setLang(l) {
+  setLang(l) {
     this.translate.setActiveLang(l.target.value);
- }
+  }
 
   CloseSide() {
     let sidebar = document.getElementById('sidebar');
@@ -77,9 +74,13 @@ export class NavbarComponent implements OnInit {
       ? body.classList.remove('sidebar-icon-only')
       : body.classList.add('sidebar-icon-only');
   }
+
   logout() {
     this.authService.removeTokens();
     this.router.navigate(['/']);
-    
+  }
+
+  home() {
+    this.router.navigate(['/Home']);
   }
 }

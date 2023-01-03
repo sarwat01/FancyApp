@@ -32,13 +32,13 @@ export class BalanceComponent implements OnInit {
     translate.langChanges$.subscribe(lang => {
       this.currentLang = lang;
       console.log('Language changed to', this.currentLang);
-      this.authService.removeTokens();
+ 
   });
   
   }
 
   ngOnInit() {
- 
+    this.authService.removeTokens();
  this.loginForm = this.formBuilder.group({
       username: [''],
       password: [''],
@@ -55,8 +55,8 @@ export class BalanceComponent implements OnInit {
      
  }
 
-  
-
+/*  this.toastService.warning(this.translate.translate('activeCard.rsp_card_used')) 
+ */
   encryption() {
     if (
       this.loginForm.value.username == '' ||
@@ -90,7 +90,7 @@ export class BalanceComponent implements OnInit {
       } else {
         this.router.navigate(['/Home']);
       }
-      /*      */
+      
     });
   }
 }
