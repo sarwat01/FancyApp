@@ -1,38 +1,40 @@
 {
-    "balance": {
+  "balance": {
     "username": "اسم الدخول ",
     "password": "کلم الدخولة",
-    "login":"الدخول"
-    
+    "login": "الدخول"
   },
   "main": {
     "main_card": "ادخال البطاقة ",
     "main_person_info": "معلومات المستخدم",
     "main_service": "مرکز الخدمات"
   },
-    
-    "activeCard": {
-      "packageType": "تغيير الخدمة : ",
-      "card_number": "رقم البطاقة",
-      "pin": " PIN"
-    },
-
-   "user_info": {
-   "userInfo":"معلومات العميل",
-    "userCard":"معلومات الاشتراك",
+  "activeCard": {
+    "title": "arabic",
+    "sunTitle": "translate to arabic",
+    "packageType": "تغيير الخدمة : ",
+    "card_number": "رقم البطاقة",
+    "pin": "PIN",
+    "rsp_service_change_user_active": "المشترك فعال, تغيير الخدمة سيتم عند انتهاء الاشتراك",
+    "rsp_service_change_success": "تم تغيير الخدمة",
+    "rsp_card_used": "البطاقة المستخدمة",
+    "rsp_invalid_card": "رقم البطاقة غير صحيح",
+    "rsp_success": "تم نجاح البطاقة ",
+    "rsp_invalid_card_number": "يرجى كتابة رقم البطاقة"
+  },
+  "user_info": {
+    "userInfo": "معلومات العميل",
+    "userCard": "معلومات الاشتراك",
     "customer_Name": "الاسم ",
     "username": "اسم الدخول",
-    "Phone":"الهاتف",
+    "Phone": "الهاتف",
     "accountBalance": "رصید الحساب",
     "CurrentService": "الخدمةالحالیة",
     "Debts": "الدیون",
     "Subscription": "حالة الاشتراک",
     "Expiration": "تأريخ الانتهاء",
     "remainigDays": "الايام المتبقية",
-    "days":"یوم",
+    "days": "یوم",
     "Service Price": "سعر الخدمة"
-   
   }
-  
 }
-
