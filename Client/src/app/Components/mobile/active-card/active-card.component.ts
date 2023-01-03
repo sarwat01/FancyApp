@@ -111,9 +111,10 @@ export class ActiveCardComponent implements OnInit {
     this.apiRest.post(link, this.payload).subscribe((ptr: any) => {
       if (ptr.message == 'rsp_service_change_user_active') {
         this.getAllpackage();
-        this.toastService.warning('ببورە ناتوانی جۆری کارت بگۆڕی ');
+        this.toastService.warning(this.translate.translate('activeCard.rsp_service_change_user_active'))
+        
       } else if (ptr.message == 'rsp_service_change_success') {
-        this.toastService.success('بەسەرکەوتووی جۆری کارت گۆڕدرا بۆ ');
+        this.toastService.success(this.translate.translate('activeCard.rsp_service_change_success'))
       }
     });
   }
@@ -139,13 +140,15 @@ export class ActiveCardComponent implements OnInit {
     const link = `${this.Api}/api/index.php/api/redeem`;
     this.apiRest.post(link, this.cardPin).subscribe((ptr: any) => {
       if (ptr.message == 'rsp_card_used') {
-        this.toastService.warning('ببورە ئەم کارتە بەکارهاتووە');
+        this.toastService.warning(this.translate.translate('activeCard.rsp_card_used')) 
       } else if (ptr.message == 'rsp_invalid_card') {
-        this.toastService.warning('تکایە دڵنیابەرەوە لە ژمارەی کارتەکە');
+        this.toastService.warning(this.translate.translate('activeCard.rsp_invalid_card')) 
+      
       } else if(ptr.message == 'rsp_success') {
-        this.toastService.success('بەسەرکەوتووی هێڵەکەت کارا کرا');
+        this.toastService.warning(this.translate.translate('activeCard.rsp_success')) 
         this.router.navigate(['/Home']);
        }else {
+        this.toastService.warning(this.translate.translate('activeCard.rsp_invalid_card_number')) 
         this.toastService.warning('تکایە ژمارەی کارت بنووسە');
        }
     });

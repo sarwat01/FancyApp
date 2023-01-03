@@ -32,6 +32,7 @@ export class BalanceComponent implements OnInit {
     translate.langChanges$.subscribe(lang => {
       this.currentLang = lang;
       console.log('Language changed to', this.currentLang);
+      this.authService.removeTokens();
   });
   
   }
