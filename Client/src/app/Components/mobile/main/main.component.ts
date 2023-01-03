@@ -20,27 +20,32 @@ Api = environment.apiUrl;
 langList: any[] = [];
 currentLang: string;
 
+test:string='hello'
+
   constructor(
     private apiRest: RestApiService,
     public actRoute: ActivatedRoute,
     private toastService: ToastrService,
     private http: HttpClient,
     private translate: TranslocoService,
+    private translocoService: TranslocoService,
     private authService: AuthService,
     private router: Router,
+    
 
   ) {
 
   translate.langChanges$.subscribe(lang => {
       this.currentLang = lang;
       console.log('Language changed to', this.currentLang);
-
     });
 
 
    }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+   
+
     this.getInfo();
     this.getBalanceInfo();
     this.langList = this.translate.getAvailableLangs();
@@ -56,8 +61,7 @@ currentLang: string;
     const link = `${environment.apiUrl}/api/index.php/api/user`;
     this.apiRest.get(link).subscribe((ptr: any) => {
     this.data = ptr.data 
-    
-    }); 
+     }); 
   }
 
   getBalanceInfo(){
@@ -65,13 +69,14 @@ currentLang: string;
     this.apiRest.get(link).subscribe((ptr: any) => {
      this.balanceInfo = ptr.data.remaining_days
     this.balanceSize = ptr.data.remaining_days * 3.33
-    console.log(ptr);
+  
     
     }); 
   }
 
   setLang(l) {
      this.translate.setActiveLang(l.target.value);
+      
   }
 
   logout() {

@@ -9,11 +9,11 @@
           
          <img src="assets\images\logo.jpg"  class="brand_logo" alt="Logo">
         </div> -->
-          <td style="color: #fff; text-align: center" >
-            تکایە لەکاتی کارت داغڵکردن
+          <td style="color: #fff; text-align: center" *transloco="let t; read: 'activeCard'">
+            {{t("title")}}
           </td>
-          <td style="color: #fff; text-align: center; margin-top: 13px">
-            دڵنیابە لە جۆری کارتەکەت
+          <td style="color: #fff; text-align: center; margin-top: 10px" *transloco="let t; read: 'activeCard'">
+            {{t("sunTitle")}}
           </td>
         </div>
         <div class="d-flex justify-content-center form_container">

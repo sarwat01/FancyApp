@@ -78,7 +78,7 @@ export class NavbarComponent implements OnInit {
       : body.classList.add('sidebar-icon-only');
   }
   logout() {
-    this.authService.removeTokens()
+    this.authService.removeTokens();
     this.router.navigate(['/']);
     
   }
