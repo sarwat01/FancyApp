@@ -43,14 +43,22 @@ export class MainComponent implements OnInit {
     this.getBalanceInfo();
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
+    this.getInfo()
   }
 
   getInfo() {
     const link = `${environment.apiUrl}/api/index.php/api/user`;
     this.apiRest.get(link).subscribe((ptr: any) => {
-      this.data = ptr.data;
+      if (ptr.data.firstname != null) {
+        this.data = ptr.data;
+      } else {
+        this.data = ptr.data;
+        this.toastService.warning(this.translate.translate('sharedNavbar.infoMassage')) 
+       }
     });
   }
+
+  
 
   getBalanceInfo() {
     const link = `${environment.apiUrl}/api/index.php/api/dashboard`;
