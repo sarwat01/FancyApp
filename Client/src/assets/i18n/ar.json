@@ -1,17 +1,21 @@
 {
+   "sharedNavbar":{
+    "infoMassage":"Arabic"
+    },
   "balance": {
     "username": "اسم الدخول ",
-    "password": "کلم الدخولة",
+    "password": "کلمةالدخولة",
     "login": "الدخول"
   },
   "main": {
+    "userFullName":"الاسم المستخدم :",
     "main_card": "ادخال البطاقة ",
     "main_person_info": "معلومات المستخدم",
     "main_service": "مرکز الخدمات"
   },
   "activeCard": {
     "title": "رجاء عند ادخال الكارت",
-    "sunTitle": "تاكد من نوع الكارت",
+    "subTitle": "تاكد من نوع الكارت",
     "packageType": "تغيير الخدمة : ",
     "card_number": "رقم البطاقة",
     "pin": "PIN",
