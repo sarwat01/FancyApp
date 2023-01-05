@@ -38,7 +38,7 @@ export class BalanceComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.removeTokens();
+   /*  this.authService.removeTokens(); */
  this.loginForm = this.formBuilder.group({
       username: [''],
       password: [''],
