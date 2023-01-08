@@ -38,7 +38,7 @@ export class BalanceComponent implements OnInit {
   }
 
   ngOnInit() {
-   /*  this.authService.removeTokens(); */
+  this.authService.removeTokens(); 
  this.loginForm = this.formBuilder.group({
       username: [''],
       password: [''],
@@ -62,7 +62,8 @@ export class BalanceComponent implements OnInit {
       this.loginForm.value.username == '' ||
       this.loginForm.value.password == ''
     ) {
-      this.tostService.warning('تکایە کۆد و پاسۆرد بنوسە');
+      this.tostService.warning(this.translate.translate('balance.enptyUserPass')) 
+   
     } else {
       const CryptoJS = require('crypto-js');
       const cypData = CryptoJS.AES.encrypt(

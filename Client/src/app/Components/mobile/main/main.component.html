@@ -1,7 +1,7 @@
 <div class="container">
   <div class="screen">
     <div class="screen__content">
-      <div style="display: flex;  flex-direction: column; text-align: center;">
+      <!--  <div style="display: flex;  flex-direction: column; text-align: center;">
         <td  style="font-size: larger;  font-weight:bold;" >   <span class="count-numbers" *transloco="let t; read: 'main'">{{
           t("userFullName")
         }}</span></td>
@@ -9,15 +9,12 @@
          {{data.name}}
        
         </td>
-      </div>
+      </div> -->
       <div class="row">
-
-     
-       
         <div routerLink="/Home/activrCard" class="col-md-4">
           <div
             class="card-counter"
-            style="background-color: #1f2935; color: white;text-align: right;"
+            style="background-color: #1f2935; color: white; text-align: right"
           >
             <span class="count-numbers" *transloco="let t; read: 'main'">{{
               t("main_card")
@@ -33,7 +30,7 @@
         <div routerLink="/Home/user" class="col-md-4">
           <div
             class="card-counter"
-            style="background-color: #1f2935; color: white;text-align: right"
+            style="background-color: #1f2935; color: white; text-align: right"
           >
             <span class="count-numbers" *transloco="let t; read: 'main'">{{
               t("main_person_info")
@@ -49,7 +46,7 @@
         <div class="col-md-4">
           <div
             class="card-counter"
-            style="background-color: #1f2935; color: white;text-align: right"
+            style="background-color: #1f2935; color: white; text-align: right"
           >
             <span class="count-numbers" *transloco="let t; read: 'main'">{{
               t("main_service")
@@ -83,10 +80,10 @@
               [outerStrokeColor]="'#1f2935'"
               [innerStrokeColor]="'rgb(155, 205, 20)'"
               [animation]="true"
-              [animationDuration]="300"
+              [animationDuration]="3000"
               [showTitle]="true"
               [space]="5"
-              subtitle="ڕۆژی ماوە"
+              [subtitle]="dayRemainder"
               subtitleFontSize="15"
               subtitleFontWeight="bold"
               subtitleColor="#1f2935"

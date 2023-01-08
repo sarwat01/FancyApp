@@ -5,13 +5,16 @@
   "balance": {
     "username": "کۆدی بەکارهێنەر ",
     "password": "تێپەڕە ووشە",
-    "login": "چوونەژورەوە"
+    "login": "چوونەژورەوە",
+    "enptyUserPass":"تکایە کۆد و پاسۆرد بنوسە"
+
   },
   "main": {
     "userFullName":"ناوی بەکارهێنەر",
     "main_card": "پڕکردنەوەی هێڵەکەت ",
     "main_person_info": "زانیاری کەسی",
-    "main_service": "خزمەتگوزارییەکان"
+    "main_service": "خزمەتگوزارییەکان",
+    "remainigDays":"ڕۆژی ماوە"
   },
   "activeCard": {
     "title": "تکایە لەکاتی کارت داغڵکردن",
