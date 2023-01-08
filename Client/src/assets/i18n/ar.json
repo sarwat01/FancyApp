@@ -1,17 +1,19 @@
 {
    "sharedNavbar":{
-    "infoMassage":"Arabic"
+    "infoMassage":"المشترك العزيز معلوماتك غير مسجلة في النظام يرجى التواصل مع الشركة لتسجيل معلوماتك"
     },
   "balance": {
     "username": "اسم الدخول ",
     "password": "کلمةالدخولة",
-    "login": "الدخول"
+    "login": "الدخول",
+    "enptyUserPass":"رجاء ادخل الكود وكلمة السر"
   },
   "main": {
     "userFullName":"الاسم المستخدم :",
     "main_card": "ادخال البطاقة ",
     "main_person_info": "معلومات المستخدم",
-    "main_service": "مرکز الخدمات"
+    "main_service": "مرکز الخدمات",
+    "remainigDays":"یوم المتبقية"
   },
   "activeCard": {
     "title": "رجاء عند ادخال الكارت",

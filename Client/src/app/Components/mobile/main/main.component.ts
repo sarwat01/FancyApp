@@ -16,12 +16,11 @@ export class MainComponent implements OnInit {
   data: any = {};
   balanceInfo: number;
   balanceSize: number;
+  dayRemainder:string
   Api = environment.apiUrl;
   langList: any[] = [];
   currentLang: string;
-
-  test: string = 'hello';
-
+ 
   constructor(
     private apiRest: RestApiService,
     public actRoute: ActivatedRoute,
@@ -35,6 +34,7 @@ export class MainComponent implements OnInit {
     translate.langChanges$.subscribe((lang) => {
       this.currentLang = lang;
       console.log('Language changed to', this.currentLang);
+     
     });
   }
 
@@ -43,7 +43,7 @@ export class MainComponent implements OnInit {
     this.getBalanceInfo();
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
-    this.getInfo()
+ 
   }
 
   getInfo() {
