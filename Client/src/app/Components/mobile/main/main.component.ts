@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
   Api = environment.apiUrl;
   langList: any[] = [];
   currentLang: string;
- 
+ direction:''
   constructor(
     private apiRest: RestApiService,
     public actRoute: ActivatedRoute,
@@ -35,7 +35,7 @@ export class MainComponent implements OnInit {
       this.currentLang = lang;
       console.log('Language changed to', this.currentLang);
      
-    });
+    });  
   }
 
   ngOnInit(): void {
@@ -53,8 +53,7 @@ export class MainComponent implements OnInit {
         this.data = ptr.data;
       } else {
         this.data = ptr.data;
-        this.toastService.warning(this.translate.translate('sharedNavbar.infoMassage')) 
-       }
+      }
     });
   }
 
