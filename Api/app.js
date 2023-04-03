@@ -1,9 +1,20 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const port = 3000;
+const morgan = require('morgan')
 
-app.get('/', () => {});
 
-app.listen(port, () => {
-  console.log(`App running on port ${port}...`);
-});
+
+const fancyService = require('./routes/fancyService');
+
+// MIDLWARE
+app.use(morgan('dev'));
+
+app.use(express.json());
+
+
+//routes
+app.use('/api/v1/fancyService', fancyService);
+
+    
+
+    module.exports = app;
