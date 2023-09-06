@@ -16,7 +16,7 @@ export class MainComponent implements OnInit {
   data: any = {};
   balanceInfo: number;
   balanceSize: number;
-  dayRemainder:string
+  dayRemainder:string="ڕۆژ"
   Api = environment.apiUrl;
   langList: any[] = [];
   currentLang: string;
