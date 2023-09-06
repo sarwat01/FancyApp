@@ -1,29 +1,24 @@
- 
-
-
 @media screen and (max-width: 500px) {
-  .navCustom{
+  .navCustom {
     background-color: rgb(155, 205, 20);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 20px;
+    height: 50px;
     width: 100%;
-    padding-top: 10px; 
+    padding-top: 10px;
+    padding-bottom: 40px;
     padding-left: 10px;
     padding-right: 10px;
-   
   }
-  
-  .customBody{
+
+  .customBody {
     margin-top: 50px;
   }
-
 }
 
-
 @media screen and (min-width: 500px) {
-  .navCustom{
+  .navCustom {
     background-color: rgb(155, 205, 20);
     display: flex;
     flex-direction: row;
@@ -34,36 +29,32 @@
     padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
-   
   }
-  .customBody{
+  .customBody {
     margin-top: 70px;
   }
-
 }
 
-
 .sidenav-container {
-    height: 100%;
-  }
-  
-  .sidenav {
-    width: 200px;
-  }
-  
-  .sidenav .mat-toolbar {
-    background: inherit;
-  }
-  
-  .mat-toolbar.mat-primary {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-  
-  .custumStyle{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+  height: 100%;
+}
 
-  }
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.custumStyle {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}

@@ -79,3 +79,13 @@
   }
  
  
+  .main-container {
+    min-height: 100vh;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    height: 560px;
+    overflow: hidden;
+  }
+  

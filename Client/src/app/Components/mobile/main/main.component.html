@@ -59,7 +59,76 @@
           </div>
         </div>
 
-        <div class="col-md-4">
+        <div
+          style="
+            margin: 20px;
+            border: 10px solid #f7f8f9;
+            border-radius: 50%;
+            width: 330px;
+            height: 330px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              border: 10px solid #1f2935;
+              border-radius: 50%;
+              width: 300px;
+              height: 300px;
+              margin: 5px;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+              "
+            >
+              <td
+                style="font-weight: bold; font-size: 150px; color: #66bb6a"
+                *ngIf="balanceInfo >= 10"
+              >
+                {{ balanceInfo }}
+              </td>
+              <td
+                style="
+                  font-weight: bold;
+                  font-size: 150px;
+                  color: rgb(229, 163, 32);
+                "
+                *ngIf="balanceInfo < 10 && balanceInfo > 0"
+              >
+                {{ balanceInfo }}
+              </td>
+              <td
+                style="
+                  font-weight: bold;
+                  font-size: 150px;
+                  color: red;
+                  margin-top: -1px;
+                "
+                *ngIf="balanceInfo <= 0"
+              >
+                {{ balanceInfo }}
+              </td>
+              <td
+                style="
+                  color: black;
+                  font-size: 20px;
+                  font-weight: bolder;
+                  margin-bottom: 30px;
+                  text-align: center; 
+                "
+                *transloco="let t; read: 'main'"
+              >
+                {{ t("remainigDays") }}
+              </td>
+            </div>
+          </div>
+
+          <!--  <div class="col-md-4">
           <div
             style="
               display: flex;
@@ -90,6 +159,7 @@
             >
             </circle-progress>
           </div>
+        </div> -->
         </div>
       </div>
     </div>
