@@ -6,6 +6,7 @@ import { BalanceComponent } from './Components/mobile/balance/balance.component'
 import { MainComponent } from './Components/mobile/main/main.component';
 import {ActiveCardComponent} from './Components/mobile/active-card/active-card.component'
 import { HomeComponent } from './Components/home/home.component';
+import { NotificationComponent } from './Components/Web/notification/notification.component';
  
  
 
@@ -20,6 +21,7 @@ const routes: Routes = [
       
     ],
   },
+  {path:'adminPanelFN', component:NotificationComponent}
 ];
 
 

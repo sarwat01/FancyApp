@@ -28,7 +28,7 @@ import { ActiveCardComponent } from './Components/mobile/active-card/active-card
 import { HomeComponent } from './Components/home/home.component';
 import { NavbarComponent } from './Components/shared/navbar/navbar.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-
+import {NotificationComponent} from './Components/Web/notification/notification.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +37,9 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     MainComponent,
     ActiveCardComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    NotificationComponent
+    
     
   ],
   imports: [

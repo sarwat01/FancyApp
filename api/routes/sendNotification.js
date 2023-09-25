@@ -1,18 +1,22 @@
 const express = require('express');
 const router = express.Router()
-const fcmController = require('../controller/fcmController')
-
+const sendNotification = require('../controller/sendNotificationController')
+const notificationValidation = require('../validations/sendNotificationValidation')
+const {validate} = require('express-validation')
 
 router
 .route('/')
-.post(fcmController.create)
-.get(fcmController.getAll)
+.post(validate(notificationValidation.create),sendNotification.create)
+.get(validate(notificationValidation.getAll),sendNotification.getAll)
 
 
 router
 .route('/:id')
-.get(fcmController.getOne)
-.delete(fcmController.getOne)
+.get(validate(notificationValidation.getOne),sendNotification.getOne)
+.patch(validate(notificationValidation.update),sendNotification.update)
+.delete(validate(notificationValidation.deleteInfo),sendNotification.deleteinfo)
+ 
+ 
  
 
 module.exports = router;
