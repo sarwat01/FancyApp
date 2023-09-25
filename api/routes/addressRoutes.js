@@ -1,20 +1,20 @@
 const express = require('express');
  const addressController = require('../controller/addressController') 
 const router = express.Router();
-
-
-
+const addressValidation = require('../validations/addressValidation')
+const {validate} = require('express-validation')
+const auth = require('../controller/authController')
 router
   .route('/')
-  .post(addressController.createAddress)
-   .get(addressController.getAll)
+  .post(validate(addressValidation.create), addressController.createAddress)
+   .get(auth.protect,auth.restrictTo('developer'),validate(addressValidation.getAll),addressController.getAll)
  
  
   router
   .route('/:id')
-  .get(addressController.getOne)
-  .patch(addressController.updateAddress)
-  .delete(addressController.deleteAddress) 
+  .get(validate(addressValidation.getOne),addressController.getOne)
+  .patch(validate(addressValidation.update),addressController.updateAddress)
+  .delete(validate(addressValidation.deleteInfo),addressController.deleteAddress) 
 
 
 

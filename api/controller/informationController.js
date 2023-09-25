@@ -13,7 +13,7 @@ const createinformation = catchAsync(async (req, res) => {
       status: "sucess",
       length: information.length,
       data: {
-        information,
+        information
       },
     });
   });
