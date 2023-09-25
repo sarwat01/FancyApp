@@ -2,13 +2,10 @@ const mongoose = require("mongoose");
 
 const sendNotificationSchema = new mongoose.Schema({
   title: {
-    type: String, 
-    min: [3, "title character must more than 3 character"],
-    max: [20, "title character must less than 20 character"],
+    type: String,
   },
   detail: {
-    type: String,
-    required: true,
+    type: String, 
   },
   createdAt: {
     type: Date,
