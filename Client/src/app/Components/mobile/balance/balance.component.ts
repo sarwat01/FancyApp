@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../Auth/services/auth.service';
 import { TranslocoService } from '@ngneat/transloco';
+import { RestApiService } from '../../Auth/shared.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-balance',
@@ -27,7 +29,8 @@ export class BalanceComponent implements OnInit {
     private router: Router,
     private tostService: ToastrService,
     private service:TranslocoService, 
-    private translate: TranslocoService
+    private translate: TranslocoService,
+    private apiRest: RestApiService,
   ) {
     translate.langChanges$.subscribe(lang => {
       this.currentLang = lang;
@@ -37,7 +40,7 @@ export class BalanceComponent implements OnInit {
   
   }
 
-  ngOnInit() {
+  ngOnInit() { 
   this.authService.removeTokens(); 
  this.loginForm = this.formBuilder.group({
       username: [''],
@@ -53,10 +56,7 @@ export class BalanceComponent implements OnInit {
   setLang(l) {
     this.translate.setActiveLang(l.target.value);
      
- }
-
-/*  this.toastService.warning(this.translate.translate('activeCard.rsp_card_used')) 
- */
+ } 
   encryption() {
     if (
       this.loginForm.value.username == '' ||
@@ -82,7 +82,7 @@ export class BalanceComponent implements OnInit {
       this.originalText = bytes.toString(CryptoJS.enc.Utf8);
     }
   }
-
+ 
   
   login() {
     this.authService.login(this.payload).subscribe((success) => {
