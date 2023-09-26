@@ -18,20 +18,12 @@ export class AuthService {
 
   constructor(private http: HttpClient,private tostService :ToastrService) {}
 
+ 
   
   login(payload:any): Observable<boolean> {
-  
-
-  /*   const CryptoJS = require("crypto-js");
-     
-    const cipherText:[] = payload.payload;
-     const bytes  = CryptoJS.AES.decrypt(cipherText, 'abcdefghijuklmno0123456789012345');
-     const originalText = bytes.toString(CryptoJS.enc.Utf8);
-console.log(originalText.toString());
- */
-
-
-      return this.http.post<any>(`${environment.apiUrl}/api/index.php/api/auth/login`, payload)
+/* /api/index.php/api/auth/login */
+    /* api/v1/user/login */
+     return this.http.post<any>(`${environment.localserver}/api/v1/user/login`, payload)
     .pipe(
         tap(token => this.doLoginUser(token)),
          mapTo(false),

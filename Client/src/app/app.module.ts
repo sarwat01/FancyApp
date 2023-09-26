@@ -14,6 +14,7 @@ import { AuthGuard } from './Components/Auth/guards/auth.guard';
 import { RandomGuard } from './Components/Auth/guards/random.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastrModule } from 'ngx-toastr';
+import {LoginComponent } from './Components/Web/login/login.component'
 import { BalanceComponent } from './Components/mobile/balance/balance.component';
 import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,7 +39,8 @@ import {NotificationComponent} from './Components/Web/notification/notification.
     ActiveCardComponent,
     HomeComponent,
     NavbarComponent,
-    NotificationComponent
+    NotificationComponent,
+    LoginComponent
     
     
   ],

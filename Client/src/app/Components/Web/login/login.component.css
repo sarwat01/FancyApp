@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  }
+  
+ 
+    
+     
+    .my-container {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;	
+    font-family: Raleway, sans-serif;
+    }
+    
+    .my-container {
+		background: linear-gradient(80deg, #619c9a, #2a7882);		
+    }
+    
+		.user_card {
+			height: 400px;
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: linear-gradient(80deg, #2a7882, #619c9a);	 	
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(225, 213, 213, 0.2), 0 6px 20px 0 rgba(185, 139, 139, 0.19);
+			-webkit-box-shadow: 0 2px 8px 0 rgb(155, 205, 20), 0 6px 20px 0 rgba(232, 220, 220, 0.928);
+			-moz-box-shadow: 0 2px 6px 0 rgba(118, 239, 32, 0.872), 0 6px 20px 0 rgba(215, 72, 72, 0.861);
+			border-radius: 5px;
+
+		}
+		 
+		.form_container {
+			margin-top: 100px;
+		}
+		.login_btn {
+			width: 100%;
+			background: linear-gradient(80deg, #2a7882, #619c9a);		
+			color: rgb(155, 205, 20) !important;
+			box-shadow: 0 4px 8px 0 rgba(222, 63, 63, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 2px 8px 0 rgb(232, 239, 229), 0 6px 20px 0 rgba(232, 220, 220, 0.928);
+			-moz-box-shadow: 0 2px 6px 0 rgba(118, 239, 32, 0.872), 0 6px 20px 0 rgba(215, 72, 72, 0.861);
+			
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 2rem;
+		}
+		.input-group-text {
+			background: linear-gradient(80deg, #2a7882, #619c9a);	 
+			 color: rgb(155, 205, 20) !important;
+			border: 0 !important;
+			border-radius: 0.5rem 0 0 0.5rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+      	box-shadow: none !important;
+			 
+		}
+	 
