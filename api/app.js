@@ -19,6 +19,9 @@ const hpp = require('hpp')
 
 
 app.use(cors())
+app.use(cors({
+  origin: '*'
+}));
 app.use(helmet())
 
  
@@ -26,7 +29,7 @@ app.use(helmet())
  
 
 const limiter = ratelimit({
-max:100,
+max:1000,
 windowMs: 60 * 60 * 1000,
 message:'Too many rquests from this ip, please try again in an hour!'
 

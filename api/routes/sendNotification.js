@@ -3,11 +3,11 @@ const router = express.Router()
 const sendNotification = require('../controller/sendNotificationController')
 const notificationValidation = require('../validations/sendNotificationValidation')
 const {validate} = require('express-validation')
-
+const auth = require('../controller/authController')
 router
 .route('/')
-.post(validate(notificationValidation.create),sendNotification.create)
-.get(validate(notificationValidation.getAll),sendNotification.getAll)
+.post(auth.protect,validate(notificationValidation.create),sendNotification.create)
+.get(auth.protect,validate(notificationValidation.getAll),sendNotification.getAll)
 
 
 router
