@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
+import { AuthServiceFancy } from '../Web/Auth/services/auth.service';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, filter, take, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
@@ -11,23 +12,32 @@ export class TokenInterceptor implements HttpInterceptor {
   private isRefreshing = false;
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(public authService: AuthService,private toastService:ToastrService) { }
+  constructor(public AuthServiceFancy:AuthServiceFancy ,public authService: AuthService,private toastService:ToastrService) { }
+ 
+
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
-    if (this.authService.getJwtToken()) {
-       request = this.addToken(request, this.authService.getJwtToken());
+  
+   
+    if(request.url.split('/')[2] == 'fcm.googleapis.com'){ 
+      
     }
+    if(request.url.split('/')[2] == 'biling.fancynet.net'){
+      request = this.addToken(request, this.authService.getJwtToken());  
+   }
+   if(request.url.split('/')[2] == '127.0.0.1:1995'){
+    request = this.addToken(request, this.AuthServiceFancy.getJwtToken());  
+ } 
+   
   return next.handle(request).pipe(catchError(error => {
-      const route = error.url.split('/')[error.url.split('/').length - 1];
+       const route = error.url.split('/')[error.url.split('/').length - 1];
       if (error instanceof HttpErrorResponse && error.status === 401 && route!=='login') {
         return this.handle401Error(request, next);
       } else {
          let arr=error.error.message.replaceAll('"','?').split('?');
         arr=arr.filter(item=>item!=="")
-        
-        this.toastService.warning('تکایە دڵنیابەرەوە لە کۆد و پاسۆردەکەت');
-        return throwError(error.message);
+         console.log(error.error);
+         return throwError(error.message);
       }
     }));
   }
@@ -40,7 +50,17 @@ export class TokenInterceptor implements HttpInterceptor {
     });
   }
 
+  private addTokenFancy(request: HttpRequest<any>, token: string) {
+     return request.clone({
+      setHeaders: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+  }
+
+
   private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
+      
     if (!this.isRefreshing) {
       this.isRefreshing = true;
       this.refreshTokenSubject.next(null);
@@ -51,6 +71,7 @@ export class TokenInterceptor implements HttpInterceptor {
           this.refreshTokenSubject.next(token);
           return next.handle(this.addToken(request, token.token));
         }));
+
     } else {
       return this.refreshTokenSubject.pipe(
         filter(token => token != null),

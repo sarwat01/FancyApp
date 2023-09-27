@@ -23,7 +23,7 @@ export class AuthService {
   login(payload:any): Observable<boolean> {
 /* /api/index.php/api/auth/login */
     /* api/v1/user/login */
-     return this.http.post<any>(`${environment.localserver}/api/v1/user/login`, payload)
+     return this.http.post<any>(`${environment.apiUrl}/api/index.php/api/auth/login`, payload)
     .pipe(
         tap(token => this.doLoginUser(token)),
          mapTo(false),

@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanLoad, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthServiceFancy } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RandomGuard implements CanActivate, CanLoad {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthServiceFancy, private router: Router) { }
 
   canActivate() {
-     return this.canLoad();
+      return this.canLoad();
   }
   canLoad() {
     if (!this.authService.isLoggedIn()) {

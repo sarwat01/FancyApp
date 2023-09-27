@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+ import {IndexComponent } from './Components/Web/index/index.component'
 import {
   HttpClientModule,
   HTTP_INTERCEPTORS,
@@ -8,6 +9,7 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TokenInterceptor } from 'src/app/Components/Auth/token-interceptor.service';
+
 import { RestApiService } from './Components/Auth/shared.service';
 import { AuthService } from './Components/Auth/services/auth.service';
 import { AuthGuard } from './Components/Auth/guards/auth.guard';
@@ -29,6 +31,7 @@ import { ActiveCardComponent } from './Components/mobile/active-card/active-card
 import { HomeComponent } from './Components/home/home.component';
 import { NavbarComponent } from './Components/shared/navbar/navbar.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import {WebMainComponent} from'./Components/Web/web-main/web-main.component'
 import {NotificationComponent} from './Components/Web/notification/notification.component'
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import {NotificationComponent} from './Components/Web/notification/notification.
     HomeComponent,
     NavbarComponent,
     NotificationComponent,
-    LoginComponent
+    LoginComponent,
+    WebMainComponent,
+    IndexComponent
     
     
   ],
@@ -81,7 +86,7 @@ import {NotificationComponent} from './Components/Web/notification/notification.
     ReactiveFormsModule,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
+      useClass: TokenInterceptor, 
       multi: true,
     },
   ],

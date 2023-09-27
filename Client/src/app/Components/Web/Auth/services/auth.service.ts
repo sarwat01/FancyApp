@@ -9,10 +9,10 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
-  private readonly JWT_TOKEN = 'JWT_TOKEN';
-  private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
-  private readonly translocoLang = 'translocoLang';
+export class AuthServiceFancy {
+  private readonly JWT_TOKEN_Fancy = 'JWT_TOKEN';
+  private readonly REFRESH_TOKEN_Fancy = 'REFRESH_TOKEN';
+  private readonly translocoLang_Fancy = 'translocoLang';
   private loggedUser: string;
 
   constructor(private http: HttpClient, private tostService: ToastrService) {}
@@ -60,7 +60,7 @@ export class AuthService {
   }
 
   getJwtToken() {
-    return localStorage.getItem(this.JWT_TOKEN);
+    return localStorage.getItem(this.JWT_TOKEN_Fancy);
   }
 
   private doLoginUser(token: any) {
@@ -73,7 +73,7 @@ export class AuthService {
   }
 
   private getRefreshToken() {
-    let value = localStorage.getItem(this.REFRESH_TOKEN);
+    let value = localStorage.getItem(this.REFRESH_TOKEN_Fancy);
     return value;
   }
 
@@ -83,17 +83,17 @@ export class AuthService {
   }
 
   private storeJwtToken(jwt: any) {
-    localStorage.setItem(this.JWT_TOKEN, jwt.token);
-    localStorage.setItem(this.REFRESH_TOKEN, jwt.token);
+    localStorage.setItem(this.JWT_TOKEN_Fancy, jwt.token);
+    localStorage.setItem(this.REFRESH_TOKEN_Fancy, jwt.token);
   }
   private storeTokens(data: any) {
-    localStorage.setItem(this.JWT_TOKEN, data.token);
-    localStorage.setItem(this.REFRESH_TOKEN, data.token);
+    localStorage.setItem(this.JWT_TOKEN_Fancy, data.token);
+    localStorage.setItem(this.REFRESH_TOKEN_Fancy, data.token);
   }
 
   removeTokens() {
-    localStorage.removeItem(this.JWT_TOKEN);
-    localStorage.removeItem(this.REFRESH_TOKEN);
-    localStorage.removeItem(this.translocoLang);
+    localStorage.removeItem(this.JWT_TOKEN_Fancy);
+    localStorage.removeItem(this.REFRESH_TOKEN_Fancy);
+    localStorage.removeItem(this.translocoLang_Fancy);
   }
 }
