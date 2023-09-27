@@ -22,7 +22,7 @@ export class RestApiService {
 
   // HttpClient API get() method => Fetch  list
   get(path:any): Observable<Employee> {
-    return this.http.get<Employee>(path)
+     return this.http.get<Employee>(path)
     .pipe( retry(0), catchError(this.handleError)
     )
   }
@@ -39,8 +39,6 @@ export class RestApiService {
  
  
   post(link,employee): Observable<Employee> {
-    console.log(employee);
-    
      return this.http.post<Employee>(link, JSON.stringify(employee), this.httpOptions)
     .pipe(
       retry(0),
