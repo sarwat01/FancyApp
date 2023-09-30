@@ -4,8 +4,8 @@ const { objectId } = require("./customValidation");
 const create = {
   body: Joi.object().keys({
     name: Joi.string().required(),
-    phone1: Joi.string(),
-    Phone2: Joi.string(), 
+    phone1: Joi.string().required(),
+    phone2: Joi.string(), 
     addressId:Joi.string().required(),
     note: Joi.string(), 
   }),
@@ -15,7 +15,7 @@ const getAll = {
   query: Joi.object().keys({
     name: Joi.string(),
     phone1: Joi.string(),
-    Phone2: Joi.string(), 
+    phone2: Joi.string(), 
     addressId:Joi.string(),
     note: Joi.string(),
   }),
@@ -35,7 +35,7 @@ const update = {
     .keys({
       name: Joi.string().required(),
       phone1: Joi.string(),
-      Phone2: Joi.string(), 
+      phone2: Joi.string(), 
       addressId:Joi.string().required(),
       note: Joi.string(),
     })

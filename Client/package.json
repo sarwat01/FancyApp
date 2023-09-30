@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "prod": "ng build --watch --configuration development",
-     "test": "ng test"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +30,7 @@
     "@ngx-translate/http-loader": "7.0.0",
     "@vicoders/reactive-form": "^1.0.134",
     "angular-http-interceptor": "^2.0.1",
+    "angular-ng-autocomplete": "^2.0.12",
     "angular-reactive-form": "^1.0.0",
     "bootstrap": "^4.6.2",
     "catcherror": "^0.0.4",

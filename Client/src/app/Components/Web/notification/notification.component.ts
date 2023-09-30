@@ -42,92 +42,69 @@ this.apiRest.get(path).subscribe((res:any)=>{
 
 addNotification(){
    let path = `${environment.localserver}/api/v1/sendFcmNotification`
+   Object.entries(this.model).forEach((item) => {
+    const [key, value] = item;
+    if (value === '') {
+      delete this.model[key];
+    }
+  });
   this.apiRest.post(path,this.model).subscribe((req)=>{
     this.ngOnInit();
     
   })
 }
 
-
-sendNotification(title,detail){
  
-  var headers = new HttpHeaders({
-    'Content-MD5': 'application/json',
-    Authorization: 'Bearer AAAAWxuwUeY:APA91bHgLO0QiMTXAYfq19rlf5Z7QxNwHDEQ4H9KiPF7fcRRPx-3YwMlO94qVUwpHfxFufrzKppBghr7X3hNzOsA6--odXShtLQT1KXQNpHlvCHRFv5atmHlx5goDI82cZCQRJkdu7eW'
-  });
-  let data = {
-    notification: {
-      title: title,
-      body:detail
-     },
-  to:"dbxAAv-2SrmVQMdzdLhhU3:APA91bGPPDM5DqRN97jTGnqOIc4pBMfvLH_Vm8e8Y9rk0FmrD4qKLULPX6KHPpl2WwkljHkmGBKHeiKQ9cg1v9GuM_9wItLWdfJQKF_PmL_7f-EVRGxlkf6lXYNcTzc9E8Yd9fUNnTfw"
-   
-  };
-  return this.http
-    .post('https://fcm.googleapis.com/fcm/send', data, {
-      headers: headers,
-    })
-    .subscribe(
-      (res: any) => {
-         window.open(`https://fcm.googleapis.com/fcm/send`, "_blank");
-      
-      },
-      (err) => {
-        console.log(err.message);
-      }
-    );
-}
 
+sendNoti(title , detail){
 
-sendNoti(){
-
- /*  const headers = { 'Authorization': 'Bearer my-token', 'My-Custom-Header': 'foobar' };
-  const body = { title: 'Angular POST Request Example' };
-  this.http.post<any>('https://reqres.in/api/posts', body, { headers }).subscribe(data => {
-      
-  });
- */
   let sendData = {
     notification: {
-      title: 'title',
-      body:"Hello Dear customer , this notification just for test"
-      
-  },
-  To:'dbxAAv-2SrmVQMdzdLhhU3:APA91bGPPDM5DqRN97jTGnqOIc4pBMfvLH_Vm8e8Y9rk0FmrD4qKLULPX6KHPpl2WwkljHkmGBKHeiKQ9cg1v9GuM_9wItLWdfJQKF_PmL_7f-EVRGxlkf6lXYNcTzc9E8Yd9fUNnTfw'
-   
-   
-   }
+      title: title,
+      body:detail 
+     },
+  to:''
+    }
+    let headers;
     let path = `${environment.localserver}/api/v1/fcm`
     this.apiRest.get(path).subscribe((res:any)=>{
-    for (let index = 0; index < res.length; index++) {
+
+
+       for (let index = 0; index < res.length; index++) {
       const element = res[index].fcmToken; 
-       sendData.To = element
-        
+       sendData.to = element
+       console.log(sendData);
+       
        const headers = { 
-       'Authorization': 'Bearer AAAAWxuwUeY:APA91bHgLO0QiMTXAYfq19rlf5Z7QxNwHDEQ4H9KiPF7fcRRPx-3YwMlO94qVUwpHfxFufrzKppBghr7X3hNzOsA6--odXShtLQT1KXQNpHlvCHRFv5atmHlx5goDI82cZCQRJkdu7eW',
-        'Content-MD5':'application/json', };
-        this.http.post<any>('https://fcm.googleapis.com/fcm/send', sendData, { headers }).subscribe(data => {
+        Authorization: 'Bearer AAAAWxuwUeY:APA91bHgLO0QiMTXAYfq19rlf5Z7QxNwHDEQ4H9KiPF7fcRRPx-3YwMlO94qVUwpHfxFufrzKppBghr7X3hNzOsA6--odXShtLQT1KXQNpHlvCHRFv5atmHlx5goDI82cZCQRJkdu7eW',
+        'Content-MD5': 'application/json', }; 
+       this.http.post<any>('https://fcm.googleapis.com/fcm/send', sendData, { headers }).subscribe(data => {
+        console.log(data);
+        
+       });
            
-      });
-  
    }
-    })
+    }) 
   
  }
   
  getOne(id){
   let path = `${environment.localserver}/api/v1/sendFcmNotification/`
   this.apiRest.getbyid(path,id).subscribe((res)=>{
-    this.getItem = res
-console.log(res);
+    this.getItem = res 
 
   })
  }
   updateNotification(id){ 
     let payload = this.getItem
     delete payload._id,delete payload.createdAt,delete payload.__v
-    console.log(payload);
-    
+     
+    Object.entries(payload).forEach((item) => {
+      const [key, value] = item;
+      if (value === '') {
+        delete this.model[key];
+      }
+    });
       let path = `${environment.localserver}/api/v1/sendFcmNotification/`
     this.apiRest.patch(path,id,payload).subscribe((res)=>{
 this.ngOnInit()

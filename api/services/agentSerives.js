@@ -8,12 +8,12 @@ const create = async (body) => {
   }
 };
 const getAll = async (req, res) => {
-  const Agent = agentModule.find()
+  const Agent = agentModule.find().populate("addressId")
   return Agent;
 };
  
 const getOne = async (id) => {
-  const Agent = agentModule.findById(id)
+  const Agent = agentModule.findById(id).populate("addressId")
   return Agent;
 };
 
@@ -21,7 +21,7 @@ const update = async (id, newBody) => {
   const agent = await agentModule.findByIdAndUpdate(id, newBody, {
     new: true,
     runValidators: true,
-  });
+  }); 
   return agent;
 };
 

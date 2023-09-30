@@ -33,25 +33,32 @@ import { NavbarComponent } from './Components/shared/navbar/navbar.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import {WebMainComponent} from'./Components/Web/web-main/web-main.component'
 import {NotificationComponent} from './Components/Web/notification/notification.component'
+import {AgentsComponent} from './Components/Web/agents/agents.component'
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import {AddressComponent} from './Components/Web/address/address.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     UserInfoComponent,
     BalanceComponent,
     MainComponent,
+    AgentsComponent,
     ActiveCardComponent,
     HomeComponent,
     NavbarComponent,
     NotificationComponent,
     LoginComponent,
     WebMainComponent,
-    IndexComponent
+    IndexComponent,
+    AddressComponent
     
     
   ],
   imports: [
     
     BrowserModule,
+    AutocompleteLibModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,

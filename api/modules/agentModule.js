@@ -6,7 +6,7 @@ const agentSchema = new mongoose.Schema({
     trim: true,
   },
   phone1: String,
-  Phone2: String, 
+  phone2: String, 
   addressId: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: 'address',

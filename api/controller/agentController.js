@@ -28,11 +28,10 @@ const getOne = catchAsync(async (req, res, next) => {
 });
 
 const update = catchAsync(async (req, res, next) => {
-  console.log(req.body);
-  const Agent = await service.update(req.params.id, req.body);
+   const Agent = await service.update(req.params.id, req.body);
   if (!Agent) {
     return next(new AppError("No agent found with that ID", 404));
-  }
+  } 
   res.send(Agent);
 });
 
@@ -43,6 +42,12 @@ const deleteAgent = catchAsync(async (req, res, next) => {
   }
   res.send(Agent);
 }); 
+
+
+ 
+const getAgentByAddressId = catchAsync(async (req, res, next) => {
+  console.log(req.params);
+})
 
 module.exports = {
   createAgent,
