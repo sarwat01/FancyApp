@@ -11,6 +11,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { NotificationComponent } from './Components/Web/notification/notification.component';
 import { LoginComponent } from './Components/Web/login/login.component';
 import { IndexComponent } from './Components/Web/index/index.component';
+import { AgentsComponent } from './Components/Web/agents/agents.component';
+import { AddressComponent } from './Components/Web/address/address.component';
 
 const routes: Routes = [
   { path: '', component: BalanceComponent },
@@ -34,6 +36,8 @@ const routes: Routes = [
     children: [  
       { path: '', component: WebMainComponent },
       { path: 'Notification', component: NotificationComponent },
+      { path: 'Agent', component: AgentsComponent },
+      { path: 'address', component: AddressComponent },
     ],
   },
  
