@@ -14,6 +14,7 @@
     "main_card": "پڕکردنەوەی هێڵەکەت ",
     "main_person_info": "زانیاری کەسی",
     "main_service": "خزمەتگوزارییەکان",
+    "main_agents": "بریکارەکان",
     "remainigDays":"ڕۆژی ماوە"
   },
   "activeCard": {
@@ -43,5 +44,15 @@
     "remainigDays": "ڕۆژی ماوە",
     "days": "ڕۆژ",
     "Service Price": "نرخی پاکێج"
+  },
+  "agents": {
+    "details": "بریکارەکانی فانسی نێت",
+    "select":"تکایە شوێنەکەت دیاری بکە",
+    "name": "ناو",
+    "address": "ناونیشان",
+    "phone1": "ژ.موبایل ١ ",
+    "phone2": "ژ.موبایل ٢",
+    "note": "تێبینی"
+     
   }
 }

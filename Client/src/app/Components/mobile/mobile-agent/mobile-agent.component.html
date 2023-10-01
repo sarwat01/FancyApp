@@ -1,0 +1,51 @@
+ 
+ <div class="my-container container table-responsive py-5"> 
+   
+    <p style="text-align: center; font-size: 22px; ;" *transloco="let t; read: 'agents'">{{ t("details") }}  </p>
+    <div class="modal-body" >
+        <p style="text-align: center;" *transloco="let t; read: 'agents'">{{ t("select") }} </p>
+        <ng-autocomplete 
+        [initialValue]="selectCity"
+          [data]="address"
+          [searchKeyword]="keyword"
+          [itemTemplate]="itemTemplate"
+          placeholder= 'ناونیشان'
+          [notFoundTemplate]="notFoundTemplate"
+          (selected)="selectAddress($event)"
+        >
+        </ng-autocomplete>
+
+        <ng-template #itemTemplate let-item>
+          <a [innerHTML]="item.name"></a>
+        </ng-template>
+
+        <ng-template #notFoundTemplate let-notFound>
+          <div [innerHTML]="notFound"></div>
+        </ng-template>
+      </div>
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr class="text-center">
+          <th >#</th>
+          <th style="min-width: 20px;" *transloco="let t; read: 'agents'">{{ t("name") }}</th>
+          <th style="min-width: 110px;"*transloco="let t; read: 'agents'">{{ t("address") }}</th>
+          <th style="min-width: 110px;"*transloco="let t; read: 'agents'">{{ t("phone1") }}</th>
+          <th style="min-width: 110px;"*transloco="let t; read: 'agents'">{{ t("phone2") }}</th>
+          <th style="min-width: 210px;" *transloco="let t; read: 'agents'">{{ t("note") }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center" *ngFor="let info of data; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{info.name}}</td>
+          <td>{{info.addressId.name}}</td>
+          <td>{{info.phone1}}</td>
+          <td>{{info.phone2}}</td>
+          <td>{{info.note}}</td>
+        </tr>
+        
+        
+      </tbody>
+    </table>
+    </div>
+    

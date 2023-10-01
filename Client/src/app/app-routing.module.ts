@@ -13,6 +13,8 @@ import { LoginComponent } from './Components/Web/login/login.component';
 import { IndexComponent } from './Components/Web/index/index.component';
 import { AgentsComponent } from './Components/Web/agents/agents.component';
 import { AddressComponent } from './Components/Web/address/address.component';
+import { MobileAddressComponent } from './Components/mobile/mobile-address/mobile-address.component';
+import { MobileAgentComponent } from './Components/mobile/mobile-agent/mobile-agent.component';
 
 const routes: Routes = [
   { path: '', component: BalanceComponent },
@@ -24,6 +26,8 @@ const routes: Routes = [
       { path: '', component: MainComponent },
       { path: 'user', component: UserInfoComponent },
       { path: 'activrCard', component: ActiveCardComponent }, 
+      { path: 'mobileAddress', component: MobileAddressComponent }, 
+      { path: 'mobileAgent', component: MobileAgentComponent }, 
     ],
   }, 
 

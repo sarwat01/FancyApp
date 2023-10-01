@@ -7,13 +7,17 @@
     "password": "کلمةالدخولة",
     "login": "الدخول",
     "enptyUserPass":"رجاء ادخل الكود وكلمة السر"
+    
+    
   },
   "main": {
     "userFullName":"الاسم المستخدم :",
     "main_card": "ادخال البطاقة ",
     "main_person_info": "معلومات المستخدم",
     "main_service": "مرکز الخدمات",
+    "main_agents": "الوكلاء",
     "remainigDays":"یوم المتبقية"
+    
   },
   "activeCard": {
     "title": "رجاء عند ادخال الكارت",
