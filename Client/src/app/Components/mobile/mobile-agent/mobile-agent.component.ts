@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';  
+import { environment } from 'src/environments/environment';
 import { RestApiService } from '../../Auth/shared.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -12,13 +12,13 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-mobile-agent',
   templateUrl: './mobile-agent.component.html',
-  styleUrls: ['./mobile-agent.component.css']
+  styleUrls: ['./mobile-agent.component.css'],
 })
 export class MobileAgentComponent implements OnInit {
-data:any={}
-keyword = 'name';
-address:any={}
-  selectCity:any
+  data: any = {};
+  keyword = 'name';
+  address: any = {};
+  selectCity: any;
   constructor(
     private apiRest: RestApiService,
     public actRoute: ActivatedRoute,
@@ -28,31 +28,26 @@ address:any={}
     private translocoService: TranslocoService,
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.getAgents()
-    this.getAddress()
+    this.getAgents();
+    this.getAddress();
   }
 
-  getAgents(){
-    let path = `${environment.localserver}/api/v1/agent`
-  this.apiRest.get(path).subscribe((res:any)=>{
-    this.data = res.data.agent 
-    console.log(this.data);
-    
-  
-  }) 
+  getAgents() {
+    let path = `${environment.localserver}/api/v1/agent`;
+    this.apiRest.get(path).subscribe((res: any) => {
+      this.data = res.data.agent;
+      console.log(this.data);
+    });
   }
 
-  getAddress(){
-    let path = `${environment.localserver}/api/v1/address` 
-  this.apiRest.get(path).subscribe((res:any)=>{
-    this.address = res.data.address 
-  }) 
+  getAddress() {
+    let path = `${environment.localserver}/api/v1/address`;
+    this.apiRest.get(path).subscribe((res: any) => {
+      this.address = res.data.address;
+    });
   }
-  selectAddress(value){
-    
-  
-  }
+  selectAddress(value) {}
 }

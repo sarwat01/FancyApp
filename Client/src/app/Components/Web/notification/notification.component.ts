@@ -73,14 +73,13 @@ sendNoti(title , detail){
        for (let index = 0; index < res.length; index++) {
       const element = res[index].fcmToken; 
        sendData.to = element
-       console.log(sendData);
+        
        
        const headers = { 
         Authorization: 'Bearer AAAAWxuwUeY:APA91bHgLO0QiMTXAYfq19rlf5Z7QxNwHDEQ4H9KiPF7fcRRPx-3YwMlO94qVUwpHfxFufrzKppBghr7X3hNzOsA6--odXShtLQT1KXQNpHlvCHRFv5atmHlx5goDI82cZCQRJkdu7eW',
         'Content-MD5': 'application/json', }; 
        this.http.post<any>('https://fcm.googleapis.com/fcm/send', sendData, { headers }).subscribe(data => {
-        console.log(data);
-        
+         
        });
            
    }
