@@ -7,7 +7,7 @@ const auth = require('../controller/authController')
 router
   .route('/')
   .post(validate(addressValidation.create), addressController.createAddress)
-   .get(auth.protect,auth.restrictTo('developer'),validate(addressValidation.getAll),addressController.getAll)
+   .get(validate(addressValidation.getAll),addressController.getAll)
  
  
   router
