@@ -1,11 +1,14 @@
-<div class="my-container container table-responsive py-5">
+<div class="my-container">
+  <div class="container"> 
+<div class="  table-responsive py-5">
+
   <p
-    style="text-align: center; font-size: 22px"
+    style="text-align: center; font-size: 22px;color: floralwhite;"
     *transloco="let t; read: 'agents'"
   >
     {{ t("details") }}
   </p>
-  <div class="modal-body">
+  <div class="modal-body" style="margin: 10px 0px 0px 10px;">
     <!--  <p style="text-align: center;" *transloco="let t; read: 'agents'">{{ t("select") }} </p>
         -->
     <ng-autocomplete
@@ -29,7 +32,7 @@
     </ng-template>
   </div>
   <table class="table table-bordered table-hover">
-    <thead class="thead-dark">
+    <thead style="  background-color: rgb(155, 205, 20); color: #1f2935;">
       <tr class="text-center">
         <th>#</th>
         <th style="min-width: 20px" *transloco="let t; read: 'agents'">
@@ -60,4 +63,6 @@
       </tr>
     </tbody>
   </table>
+</div>
+</div>
 </div>
