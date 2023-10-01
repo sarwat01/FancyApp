@@ -33,6 +33,18 @@ export class AuthService {
 
   }
 
+  loginFancy(payload: any): Observable<boolean> {
+    return this.http
+      .post<any>(`${environment.localserver}/api/v1/user/login`, payload)
+      .pipe(
+        tap((token) => this.doLoginUser(token)),
+        mapTo(true),
+        catchError((error) => {
+          return of(false);
+        })
+      );
+  }
+
   logout() {
     return this.http.post<any>(`${environment.apiUrl}/api/index.php/api/auth/logout`, {
       'refreshToken': this.getRefreshToken()

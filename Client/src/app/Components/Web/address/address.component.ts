@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment'; 
-import { RestApiService } from '../Auth/shared.service';
+import { RestApiService } from '../../Auth/shared.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

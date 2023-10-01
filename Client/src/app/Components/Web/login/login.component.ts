@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthServiceFancy } from '../Auth/services/auth.service';
+import {AuthService} from '../../Auth/services/auth.service' 
 import { TranslocoService } from '@ngneat/transloco';
 import { RestApiService } from '../../Auth/shared.service';
 
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   currentLang: string;
 
   constructor(
-    private authService: AuthServiceFancy,
+    private authService: AuthService, 
     private formBuilder: FormBuilder,
     private router: Router,
     private tostService: ToastrService,
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     const payload = this.loginForm.value;
-    this.authService.login(payload).subscribe((success) => {
+    this.authService.loginFancy(payload).subscribe((success) => {
       if (success == true) {
         this.router.navigate(['/Index']);
       } else {
