@@ -1,8 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserInfoComponent } from './Components/mobile/user-info/user-info.component';
-import { AuthGuard } from './Components/Auth/guards/auth.guard';
-import {AuthGuardFancy} from './Components/Web/Auth/guards/auth.guard'
+import { AuthGuard } from './Components/Auth/guards/auth.guard'; 
 import { BalanceComponent } from './Components/mobile/balance/balance.component';
 import { MainComponent } from './Components/mobile/main/main.component';
 import{WebMainComponent} from './Components/Web/web-main/web-main.component'
@@ -35,7 +34,7 @@ const routes: Routes = [
   
   {
       path: 'Index',
-     canActivate: [AuthGuardFancy],
+     canActivate: [AuthGuard],
      component: IndexComponent,
     children: [  
       { path: '', component: WebMainComponent },

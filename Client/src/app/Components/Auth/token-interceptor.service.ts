@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
-import { AuthService } from './services/auth.service';
-import { AuthServiceFancy } from '../Web/Auth/services/auth.service';
+import { AuthService } from './services/auth.service'; 
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, filter, take, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
@@ -12,7 +11,7 @@ export class TokenInterceptor implements HttpInterceptor {
   private isRefreshing = false;
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(public AuthServiceFancy:AuthServiceFancy ,public authService: AuthService,private toastService:ToastrService) { }
+  constructor(public authService: AuthService,private toastService:ToastrService) { }
  
 
 
@@ -22,12 +21,11 @@ export class TokenInterceptor implements HttpInterceptor {
     if(request.url.split('/')[2] == 'fcm.googleapis.com'){ 
       
     }
-    if(request.url.split('/')[2] == 'biling.fancynet.net'){
+    if(request.url.split('/')[2] != 'fcm.googleapis.com'){ 
       request = this.addToken(request, this.authService.getJwtToken());  
-   }
-   if(request.url.split('/')[2] == '127.0.0.1:1995'){
-    request = this.addToken(request, this.AuthServiceFancy.getJwtToken());  
- } 
+  
+    }
+     
    
   return next.handle(request).pipe(catchError(error => {
        const route = error.url.split('/')[error.url.split('/').length - 1];
