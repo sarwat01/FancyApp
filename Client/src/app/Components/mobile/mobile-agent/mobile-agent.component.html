@@ -3,13 +3,14 @@
    
     <p style="text-align: center; font-size: 22px; ;" *transloco="let t; read: 'agents'">{{ t("details") }}  </p>
     <div class="modal-body" >
-        <p style="text-align: center;" *transloco="let t; read: 'agents'">{{ t("select") }} </p>
-        <ng-autocomplete 
+       <!--  <p style="text-align: center;" *transloco="let t; read: 'agents'">{{ t("select") }} </p>
+        --> <ng-autocomplete 
         [initialValue]="selectCity"
           [data]="address"
           [searchKeyword]="keyword"
           [itemTemplate]="itemTemplate"
-          placeholder= 'ناونیشان'
+          *transloco="let t; read: 'agents'"
+          placeholder= '{{ t("select") }}'
           [notFoundTemplate]="notFoundTemplate"
           (selected)="selectAddress($event)"
         >
