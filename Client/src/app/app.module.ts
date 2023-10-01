@@ -36,6 +36,9 @@ import {NotificationComponent} from './Components/Web/notification/notification.
 import {AgentsComponent} from './Components/Web/agents/agents.component'
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import {AddressComponent} from './Components/Web/address/address.component';
+import {MobileAddressComponent} from './Components/mobile/mobile-address/mobile-address.component';
+import {MobileAgentComponent} from './Components/mobile/mobile-agent/mobile-agent.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +54,9 @@ import {AddressComponent} from './Components/Web/address/address.component';
     LoginComponent,
     WebMainComponent,
     IndexComponent,
-    AddressComponent
+    AddressComponent,
+    MobileAddressComponent,
+    MobileAgentComponent
     
     
   ],
