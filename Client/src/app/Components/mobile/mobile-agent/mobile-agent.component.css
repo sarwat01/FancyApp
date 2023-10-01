@@ -1,0 +1,10 @@
+.container {
+    
+    min-height: 100vh;
+  }
+  
+  
+  
+  .my-container {
+    background: linear-gradient(130deg, #1f2935, #597494);
+  }

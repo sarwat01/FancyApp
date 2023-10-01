@@ -55,9 +55,7 @@ selectAddress(value){
    this.getItem.addressId = value._id
 
 }
-add(){
-  console.log(this.model);
-  
+add(){ 
    let path = `${environment.localserver}/api/v1/address`
     
    Object.entries(this.model).forEach((item) => {
