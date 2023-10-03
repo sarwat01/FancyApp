@@ -1,15 +1,6 @@
 <div class="container">
   <div class="screen">
     <div class="screen__content">
-      <!--  <div style="display: flex;  flex-direction: column; text-align: center;">
-        <td  style="font-size: larger;  font-weight:bold;" >   <span class="count-numbers" *transloco="let t; read: 'main'">{{
-          t("userFullName")
-        }}</span></td>
-        <td  style="font-size:large;  font-weight:bold; margin-bottom:10px;">
-         {{data.name}}
-       
-        </td>
-      </div> -->
       <div class="row">
         <div routerLink="/Home/activrCard" class="col-md-4">
           <div
@@ -43,7 +34,7 @@
           </div>
         </div>
 
-        <div routerLink="/Home/mobileAgent"  class="col-md-4">
+        <div routerLink="/Home/mobileAgent" class="col-md-4">
           <div
             class="card-counter"
             style="background-color: #1f2935; color: white; text-align: right"
@@ -51,7 +42,7 @@
             <span class="count-numbers" *transloco="let t; read: 'main'">{{
               t("main_agents")
             }}</span>
-           
+
             <i
               style="display: flex; justify-content: end"
               class="fas fa-store-alt"
@@ -60,112 +51,103 @@
           </div>
         </div>
 
-        <div
-          style="
-            margin: 20px;
-            border: 10px solid #f7f8f9;
-            border-radius: 50%;
-            width: 330px;
-            height: 330px;
-          "
-        >
+        <div routerLink="/Home/mobileNotification" class="col-md-4">
           <div
-            style="
-              display: flex;
-              justify-content: center;
-              border: 10px solid #1f2935;
-              border-radius: 50%;
-              width: 300px;
-              height: 300px;
-              margin: 5px;
-            "
+            class="card-counter"
+            style="background-color: #1f2935; color: white; text-align: right"
           >
-            <div
-              style="
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-              "
-            >
-              <td
-                style="font-weight: bold; font-size: 150px; color: #66bb6a"
-                *ngIf="balanceInfo >= 10"
-              >
-                {{ balanceInfo }}
-              </td>
-              <td
-                style="
-                  font-weight: bold;
-                  font-size: 150px;
-                  color: rgb(229, 163, 32);
-                "
-                *ngIf="balanceInfo < 10 && balanceInfo > 0"
-              >
-                {{ balanceInfo }}
-              </td>
-              <td
-                style="
-                  font-weight: bold;
-                  font-size: 150px;
-                  color: red;
-                  margin-top: -1px;
-                "
-                *ngIf="balanceInfo <= 0"
-              >
-                {{ balanceInfo }}
-              </td>
-              <td
-                style="
-                  color: black;
-                  font-size: 20px;
-                  font-weight: bolder;
-                  margin-bottom: 30px;
-                  text-align: center; 
-                "
-                *transloco="let t; read: 'main'"
-              >
-                {{ t("remainigDays") }}
-              </td>
-            </div>
-          </div>
+            <span class="count-numbers" *transloco="let t; read: 'main'">{{
+              t("main_notification")
+            }}</span>
 
-          <!--  <div class="col-md-4">
-          <div
-            style="
-              display: flex;
-              justify-content: center;
-              padding: 10px;
-              margin: 20px;
-            "
-          >
-            <circle-progress
-              [percent]="balanceSize"
-              [radius]="100"
-              title="{{ balanceInfo }}"
-              titleFontSize="18"
-              titleFontWeight="bold"
-              [showUnits]="false"
-              [outerStrokeWidth]="16"
-              [innerStrokeWidth]="20"
-              [outerStrokeColor]="'#1f2935'"
-              [innerStrokeColor]="'rgb(155, 205, 20)'"
-              [animation]="true"
-              [animationDuration]="3000"
-              [showTitle]="true"
-              [space]="5"
-              [subtitle]="dayRemainder"
-              subtitleFontSize="15"
-              subtitleFontWeight="bold"
-              subtitleColor="#1f2935"
-            >
-            </circle-progress>
+            <i
+              style="display: flex; justify-content: end"
+              class="fas fa-bell"
+              aria-hidden="true"
+            ></i>
           </div>
-        </div> -->
+        </div>
+        <div routerLink="/Home/mobileToturials" class="col-md-4">
+          <div
+            class="card-counter"
+            style="background-color: #1f2935; color: white; text-align: right"
+          >
+            <span class="count-numbers" *transloco="let t; read: 'main'">فێڕکاری</span>
+
+            <i
+              style="display: flex; justify-content: end"
+              class="fas fa-bell"
+              aria-hidden="true"
+            ></i>
+          </div>
         </div>
       </div>
     </div>
 
- 
-
+    <div
+      style="
+        margin: 20px;
+        border: 10px solid #f7f8f9;
+        border-radius: 50%;
+        width: 330px;
+        height: 330px;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          border: 10px solid #1f2935;
+          border-radius: 50%;
+          width: 300px;
+          height: 300px;
+          margin: 5px;
+        "
+      >
+        <div
+          style="display: flex; justify-content: center; flex-direction: column"
+        >
+          <td
+            style="font-weight: bold; font-size: 150px; color: #66bb6a"
+            *ngIf="balanceInfo >= 10"
+          >
+            {{ balanceInfo }}
+          </td>
+          <td
+            style="
+              font-weight: bold;
+              font-size: 150px;
+              color: rgb(229, 163, 32);
+            "
+            *ngIf="balanceInfo < 10 && balanceInfo > 0"
+          >
+            {{ balanceInfo }}
+          </td>
+          <td
+            style="
+              font-weight: bold;
+              font-size: 150px;
+              color: red;
+              margin-top: -1px;
+            "
+            *ngIf="balanceInfo <= 0"
+          >
+            {{ balanceInfo }}
+          </td>
+          <td
+            style="
+              color: black;
+              font-size: 20px;
+              font-weight: bolder;
+              margin-bottom: 30px;
+              text-align: center;
+            "
+            *transloco="let t; read: 'main'"
+          >
+            {{ t("remainigDays") }}
+          </td>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -7,7 +7,7 @@ const auth = require('../controller/authController')
 router
 .route('/')
 .post(auth.protect,validate(notificationValidation.create),sendNotification.create)
-.get(auth.protect,validate(notificationValidation.getAll),sendNotification.getAll)
+.get(validate(notificationValidation.getAll),sendNotification.getAll)
 
 
 router

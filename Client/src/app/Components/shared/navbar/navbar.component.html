@@ -2,15 +2,18 @@
     <!-- partial:assets/partials/_navbar.html -->
     <nav id="nav" class="flex-row p-0 navbar col-lg-12 col-12 fixed-top d-flex default-layout-navbar">
       <div class="navCustom">
-      <div>
-         <i
-           class="fa fa-home"
-           aria-hidden="true"
-           style="color: #1f2935; font-size: 30px;"
-           (click)="home()"
-           
-         ></i>
-        </div>
+        <div>
+          <i
+            (click)="logout()"
+            style="
+              color: #1f2935;
+              font-size: 30px;
+             "
+            class="fa fa-window-close"
+            aria-hidden="true"
+          ></i>
+         </div>
+     
         
         <div>
          <select
@@ -28,18 +31,17 @@
         </div>
         
         <div>
-         <i
-           (click)="logout()"
-           style="
-             color: #1f2935;
-             font-size: 30px;
-            "
-           class="fa fa-window-close"
-           aria-hidden="true"
-         ></i>
-        </div>
+          <i
+            class="fa fa-home"
+            aria-hidden="true"
+            style="color: #1f2935; font-size: 30px;"
+            (click)="home()"
+            
+          ></i>
+         </div>
         </div>
        
+        
   
     </nav>
     
