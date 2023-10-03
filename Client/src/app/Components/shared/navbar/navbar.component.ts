@@ -7,7 +7,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TranslocoService } from '@ngneat/transloco';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../Auth/services/auth.service';
+import { AuthService } from '../../Auth/services/auth.service'; 
+ 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -18,7 +20,7 @@ export class NavbarComponent implements OnInit {
   langList: any[] = [];
   currentLang: string;
   data: any;
-
+  info = false;
   constructor(
     private apiRest: RestApiService,
     public actRoute: ActivatedRoute,
@@ -37,8 +39,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.langList = this.translate.getAvailableLangs();
-    this.currentLang = this.translate.getActiveLang();
- 
+    this.currentLang = this.translate.getActiveLang(); 
+    
   }
  
 
@@ -69,5 +71,10 @@ export class NavbarComponent implements OnInit {
 
   home() {
     this.router.navigate(['/Home']);
+  }
+
+   notification(a){ 
+  this.toastService.warning('sa')
+  this.toastService.success(a)
   }
 }

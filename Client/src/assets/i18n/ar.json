@@ -16,7 +16,12 @@
     "main_person_info": "معلومات المستخدم",
     "main_service": "مرکز الخدمات",
     "main_agents": "الوكلاء",
+    "main_notification": "إشعار",
     "remainigDays":"یوم المتبقية"
+    
+  },
+  "notification": {
+    "main_pageNotification": "صفحة الإخطارات"
     
   },
   "activeCard": {

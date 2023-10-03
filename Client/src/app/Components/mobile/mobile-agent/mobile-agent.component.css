@@ -8,3 +8,15 @@
   .my-container {
     background: linear-gradient(130deg, #1f2935, #597494);
   }
+
+  .table{
+    box-shadow: 0 4px 8px 0 rgba(222, 63, 63, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 2px 8px 0 rgb(155, 205, 20), 0 6px 20px 0 rgba(232, 220, 220, 0.928);
+			-moz-box-shadow: 0 2px 6px 0 rgba(118, 239, 32, 0.872), 0 6px 20px 0 rgba(215, 72, 72, 0.861);
+			
+  }
+
+ .table  td{
+    font-weight: bold;
+    font-size: 14px;
+  }

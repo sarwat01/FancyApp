@@ -1,0 +1,26 @@
+<div class="my-container" >
+    <p class="header"  *transloco="let t; read: 'notification'"
+    >
+      {{ t("main_pageNotification") }} </p>
+    <div class="container"> 
+       
+   <p class="title" (click)="getOne(data._id)" data-toggle="modal" data-target="#myModal" *ngFor="let data of data">{{data.title}}</p>
+   
+  </div>
+  </div>
+
+
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+         
+        <!-- Modal body -->
+        <div class="modal-body">
+          <td>{{getItem.detail}} </td>
+        </div>
+  
+        
+      </div>
+    </div>
+  </div>

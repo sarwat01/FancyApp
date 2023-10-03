@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "skipLibCheck": true,
    "strictPropertyInitialization": false,
     "noImplicitAny": false,
     "strictNullChecks":false,
@@ -29,6 +30,7 @@
   },
   "angularCompilerOptions": {
     "noImplicitAny": false,
+    "enableIvy": false,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

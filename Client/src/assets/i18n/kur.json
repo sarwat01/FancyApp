@@ -15,8 +15,13 @@
     "main_person_info": "زانیاری کەسی",
     "main_service": "خزمەتگوزارییەکان",
     "main_agents": "بریکارەکان",
+    "main_notification": "ئاگادارکردنەوە",
+   
     "remainigDays":"ڕۆژی ماوە"
   },
+  "notification": {
+    "main_pageNotification": "لاپەڕەی ئاگادارکردنەوەکان"
+   },
   "activeCard": {
     "title": "تکایە لەکاتی کارت داغڵکردن",
     "subTitle": "دڵنیابە لە جۆری کارتەکەت",

@@ -36,6 +36,7 @@ export class MainComponent implements OnInit {
       console.log('Language changed to', this.currentLang);
      
     });  
+ 
   }
 
   ngOnInit(): void {
