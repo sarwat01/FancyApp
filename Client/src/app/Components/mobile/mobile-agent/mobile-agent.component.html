@@ -1,4 +1,4 @@
-<div class="my-container">
+<div class="my-container" >
   <div class="container"> 
 <div class="  table-responsive py-5">
 
@@ -11,7 +11,7 @@
   <div class="modal-body" style="margin: 10px 0px 0px 10px;">
     <!--  <p style="text-align: center;" *transloco="let t; read: 'agents'">{{ t("select") }} </p>
         -->
-    <ng-autocomplete
+    <ng-autocomplete dir="auto"  class="text-center"
       [initialValue]="selectCity"
       [data]="address"
       [searchKeyword]="keyword"
@@ -53,9 +53,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="text-center" *ngFor="let info of data; let i = index">
-        <th scope="row">{{ i + 1 }}</th>
-        <td>{{ info.name }}</td>
+      <tr style="color: aliceblue;" class="text-center" *ngFor="let info of data; let i = index">
+        <td >{{ i + 1 }}</td>
+        <td >{{ info.name }}</td>
         <td>{{ info.addressId.name }}</td>
         <td>{{ info.phone1 }}</td>
         <td>{{ info.phone2 }}</td>

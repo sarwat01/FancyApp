@@ -38,8 +38,9 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import {AddressComponent} from './Components/Web/address/address.component';
 import {MobileAddressComponent} from './Components/mobile/mobile-address/mobile-address.component';
 import {MobileAgentComponent} from './Components/mobile/mobile-agent/mobile-agent.component';
-
-
+import { MobileNotificationComponent } from './Components/mobile/mobile-notification/mobile-notification.component';
+import { MobileToturialsComponent } from './Components/mobile/mobile-toturials/mobile-toturials.component';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,12 +57,14 @@ import {MobileAgentComponent} from './Components/mobile/mobile-agent/mobile-agen
     IndexComponent,
     AddressComponent,
     MobileAddressComponent,
-    MobileAgentComponent
+    MobileAgentComponent,
+    MobileNotificationComponent,
+    MobileToturialsComponent
     
     
   ],
   imports: [
-    
+    NgxYoutubePlayerModule,
     BrowserModule,
     AutocompleteLibModule,
     AppRoutingModule,
@@ -84,9 +87,7 @@ import {MobileAgentComponent} from './Components/mobile/mobile-agent/mobile-agen
     NgCircleProgressModule.forRoot({
     
      
-    }),
-
-    
+    }), 
   ],
   
   providers: [

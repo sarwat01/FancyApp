@@ -14,6 +14,8 @@ import { AgentsComponent } from './Components/Web/agents/agents.component';
 import { AddressComponent } from './Components/Web/address/address.component';
 import { MobileAddressComponent } from './Components/mobile/mobile-address/mobile-address.component';
 import { MobileAgentComponent } from './Components/mobile/mobile-agent/mobile-agent.component';
+import { MobileNotificationComponent } from './Components/mobile/mobile-notification/mobile-notification.component';
+import { MobileToturialsComponent } from './Components/mobile/mobile-toturials/mobile-toturials.component';
 
 const routes: Routes = [
   { path: '', component: BalanceComponent },
@@ -27,6 +29,8 @@ const routes: Routes = [
       { path: 'activrCard', component: ActiveCardComponent }, 
       { path: 'mobileAddress', component: MobileAddressComponent }, 
       { path: 'mobileAgent', component: MobileAgentComponent }, 
+      { path: 'mobileNotification', component: MobileNotificationComponent }, 
+      { path: 'mobileToturials', component: MobileToturialsComponent }, 
     ],
   }, 
 

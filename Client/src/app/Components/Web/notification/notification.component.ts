@@ -7,14 +7,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TranslocoService } from '@ngneat/transloco';
 import { AuthService } from '../../Auth/services/auth.service';
 import { Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser'; 
+import{MainComponent} from '../../mobile/main/main.component'
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent implements OnInit {
-
+ a:MainComponent
   data:any
   model = { title: '', detail: '' };
   getItem : any ={}
@@ -25,8 +26,7 @@ export class NotificationComponent implements OnInit {
     private http: HttpClient,
     private translate: TranslocoService,
     private translocoService: TranslocoService,
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService,   
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +39,15 @@ this.apiRest.get(path).subscribe((res:any)=>{
   this.data = res.data.notification 
 }) 
 }
+
+  
+getOne(id){
+  let path = `${environment.localserver}/api/v1/sendFcmNotification/`
+  this.apiRest.getbyid(path,id).subscribe((res)=>{
+    this.getItem = res 
+
+  })
+ }
 
 addNotification(){
    let path = `${environment.localserver}/api/v1/sendFcmNotification`
@@ -86,14 +95,7 @@ sendNoti(title , detail){
     }) 
   
  }
-  
- getOne(id){
-  let path = `${environment.localserver}/api/v1/sendFcmNotification/`
-  this.apiRest.getbyid(path,id).subscribe((res)=>{
-    this.getItem = res 
 
-  })
- }
   updateNotification(id){ 
     let payload = this.getItem
     delete payload._id,delete payload.createdAt,delete payload.__v
@@ -118,5 +120,7 @@ deleteNotification(id) {
     this.ngOnInit();
   });
 }
+
+ 
 
 }
