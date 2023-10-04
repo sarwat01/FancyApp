@@ -1,13 +1,16 @@
+ 
+ <div class="my-container" >
+ <div class="container" style=" padding: 16px;">
+
+ <div class="card">     
 <div id="instructions">
     <video
-      
-      class="video-js vjs-default-skin"
+       class="video-js vjs-default-skin"
       width="100%"
       height="50%"
       controls="true"
       preload="true"
-      autoplay
-      playsinline
+        playsinline
       muted
       data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'
     >
@@ -16,5 +19,12 @@
         type="video/mp4"
       />
     </video>
-    
-  </div>
+  </div> 
+  <p *transloco="let t; read: 'mobileToturials'"> {{
+    t("tplink_change_Password")
+  }}</p>
+ </div>
+</div>
+
+
+</div>

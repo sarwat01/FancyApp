@@ -61,5 +61,8 @@
     "phone2":"رقم تلفون٢",
     "note": "ملاحضة"
      
+  }, 
+  "mobileToturials":{
+ "tplink_change_Password":"تغيير كلمة المرور TP-Link"
   }
 }

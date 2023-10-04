@@ -10,8 +10,10 @@ export class MobileToturialsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+   
   }
   playPause() {
+   
     var myVideo: any = document.getElementById('my_video_1');
     if (myVideo.paused) myVideo.play();
     else myVideo.pause();
