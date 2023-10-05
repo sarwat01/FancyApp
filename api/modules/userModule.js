@@ -10,13 +10,18 @@ const userSchema = new mongoose.Schema({
   image: String,
   role: {
     type: String,
-    enum: ["developer", "manager", "agentPart"],
+    enum: ["developer", "manager", "notification","createUser","Agent-notification"],
+    
     default: "manager",
   },
   password: {
     type: String,
     required: [true, "please provice a password"],
     select: false,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
   },
   /* passwordConferm:{
     type:String,
