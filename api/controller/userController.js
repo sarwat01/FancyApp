@@ -56,6 +56,7 @@ const getAll = catchAsync(async (req, res) => {
 });
 
 const getOne = catchAsync(async (req, res, next) => {
+   
   const user = await userSerivce.getOne(req.params.id);
   if (!user) {
     return next(new AppError("No User found with that ID", 404));
