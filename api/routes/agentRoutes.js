@@ -12,7 +12,13 @@ router
 router
   .route("/:id")
   .get(validate(agentValidation.getOne),agentController.getOne)
+
   .patch(validate(agentValidation.update),agentController.update)
   .delete(validate(agentValidation.deleteInfo),agentController.deleteAgent);
 
+  router
+  .route('/addressId/:addressId')
+  .get(agentController.getAgentsByAddressId)
+
+  
 module.exports = router;

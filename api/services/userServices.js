@@ -12,12 +12,12 @@ const getAll = async (req, res) => {
 };
 
 const getOne = async (id) => {
-  const user = await user.findById(id);
+  const user = await userModule.findById(id);
   return user;
 };
 
 const updateUser = async (id, newBody) => { 
-  const user = await user.findByIdAndUpdate(id, newBody, {
+  const user = await userModule.findByIdAndUpdate(id, newBody, {
     new: true,
     runValidators: true,
   });

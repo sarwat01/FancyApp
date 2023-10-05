@@ -41,6 +41,7 @@ import {MobileAgentComponent} from './Components/mobile/mobile-agent/mobile-agen
 import { MobileNotificationComponent } from './Components/mobile/mobile-notification/mobile-notification.component';
 import { MobileToturialsComponent } from './Components/mobile/mobile-toturials/mobile-toturials.component';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import {WebUserComponent } from './Components/Web/web-user/web-user.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,8 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     MobileAddressComponent,
     MobileAgentComponent,
     MobileNotificationComponent,
-    MobileToturialsComponent
+    MobileToturialsComponent,
+    WebUserComponent
     
     
   ],

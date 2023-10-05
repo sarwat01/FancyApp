@@ -16,7 +16,7 @@ import { MobileAddressComponent } from './Components/mobile/mobile-address/mobil
 import { MobileAgentComponent } from './Components/mobile/mobile-agent/mobile-agent.component';
 import { MobileNotificationComponent } from './Components/mobile/mobile-notification/mobile-notification.component';
 import { MobileToturialsComponent } from './Components/mobile/mobile-toturials/mobile-toturials.component';
-
+import { WebUserComponent } from './Components/Web/web-user/web-user.component'; 
 const routes: Routes = [
   { path: '', component: BalanceComponent },
    {
@@ -45,6 +45,7 @@ const routes: Routes = [
       { path: 'Notification', component: NotificationComponent },
       { path: 'Agent', component: AgentsComponent },
       { path: 'address', component: AddressComponent },
+      { path: 'Users', component: WebUserComponent },
     ],
   },
  

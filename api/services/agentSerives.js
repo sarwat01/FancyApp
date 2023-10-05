@@ -11,6 +11,29 @@ const getAll = async (req, res) => {
   const Agent = agentModule.find().populate("addressId")
   return Agent;
 };
+
+const getAgentsByAddressId = async (filter)  =>{
+  console.log('asd');
+    const getAgents = await agentModule.aggregate([
+    { $match: filter },
+     {
+      $lookup: {
+        from: 'addressId',
+        localField: 'address',
+        foreignField: '_id',
+        as: 'addressId',
+      },
+    },
+    {
+      $unwind: {
+        path: '$addressId',
+        preserveNullAndEmptyArrays: true,
+      },
+    },
+  ]).exec();
+  return getAgents;
+ 
+}
  
 const getOne = async (id) => {
   const Agent = agentModule.findById(id).populate("addressId")
@@ -35,4 +58,5 @@ module.exports = {
   getOne,
   update,
   deleteAgent,
+  getAgentsByAddressId
 };
