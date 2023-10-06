@@ -31,15 +31,15 @@ export class MobileAgentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getAgents();
+    
     this.getAddress();
   }
 
-  getAgents() {
-    let path = `${environment.localserver}/api/v1/agent`;
+  getAgents(id) {
+    let path = `${environment.localserver}/api/v1/agent/addressId/${id}`;
     this.apiRest.get(path).subscribe((res: any) => {
-      this.data = res.data.agent;
-      console.log(this.data);
+      this.data = res;
+      console.log(res);
     });
   }
 
@@ -49,5 +49,9 @@ export class MobileAgentComponent implements OnInit {
       this.address = res.data.address;
     });
   }
-  selectAddress(value) {}
+  selectAddress(value) {
+    console.log(value._id);
+this.getAgents(value._id)
+    
+  }
 }

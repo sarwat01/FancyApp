@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
   image: String,
   role: {
     type: String,
-    enum: ["developer", "manager", "notification","createUser","Agent-notification"],
+    enum: ["developer", "manager", "notification","createAgent","Agent-notification"],
     
     default: "manager",
   },
