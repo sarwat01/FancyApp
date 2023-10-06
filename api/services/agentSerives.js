@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const agent = require("../modules/agentModule");
 const agentModule = require("../modules/agentModule");
 
@@ -12,26 +13,35 @@ const getAll = async (req, res) => {
   return Agent;
 };
 
-const getAgentsByAddressId = async (filter)  =>{
-  console.log('asd');
-    const getAgents = await agentModule.aggregate([
-    { $match: filter },
+const getAgentsByAddressId = async (id)  =>{
+  
+  const Agents = await agentModule.aggregate([
+    { $match: { addressId:new mongoose.Types.ObjectId(id) } },
+       {
+      $lookup:{
+        from:"addresses",
+        localField: "addressId",
+        foreignField:"_id",
+        as:"addressId"
+      } 
+     },
      {
-      $lookup: {
-        from: 'addressId',
-        localField: 'address',
-        foreignField: '_id',
-        as: 'addressId',
-      },
-    },
-    {
       $unwind: {
         path: '$addressId',
         preserveNullAndEmptyArrays: true,
       },
     },
-  ]).exec();
-  return getAgents;
+    {
+      $project: {
+        _id:1,
+        name:1,
+        phone1:1,
+        phone2:1,
+       addressId:1
+      },
+    },
+  ]) .exec();
+  return  Agents ;
  
 }
  

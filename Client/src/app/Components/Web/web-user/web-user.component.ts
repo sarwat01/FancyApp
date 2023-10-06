@@ -20,6 +20,8 @@ export class WebUserComponent implements OnInit {
   data:any
   model = { username: '', role: '',password:'' };
   getItem : any ={}
+  updatePassowrd : any ={}
+  user:any= {}
   constructor(
     private apiRest: RestApiService,
     public actRoute: ActivatedRoute,
@@ -32,6 +34,12 @@ export class WebUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNotification() 
+    this.getUserdata()
+  }
+
+  getUserdata(): void {
+    let temp = localStorage.getItem('userInfo') ?? '{}';
+    this.user = JSON.parse(temp);
   }
 
 getNotification(){
@@ -47,11 +55,13 @@ this.getItem.role = value
 }
   
 getOne(id){
-  let path = `${environment.localserver}/api/v1/user/`
+ let path = `${environment.localserver}/api/v1/user/`
   this.apiRest.getbyid(path,id).subscribe((res)=>{
     this.getItem = res 
 
   })
+ 
+  
  }
 
 addNotification(){
@@ -118,6 +128,14 @@ this.ngOnInit()
     })    
   }
 
+
+updateUserPassword(){
+  let path = `${environment.localserver}/api/v1/user/updateMyPassowrd`
+  this.apiRest.patchPassword(path,this.updatePassowrd).subscribe((res:any)=>{
+     this.toastService.success('بەسەرکەوتوی تێپەڕە ووشە نوێکرایەوە')
+  }) 
+
+}
 
 deleteNotification(id) {
   let path = `${environment.localserver}/api/v1/user/`

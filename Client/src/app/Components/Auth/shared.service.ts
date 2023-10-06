@@ -67,7 +67,15 @@ export class RestApiService {
     )
   }
 
-
+  patchPassword(link, employee): Observable<Employee> {
+    
+    return this.http.patch<Employee>(link, JSON.stringify(employee), this.httpOptions)
+     .pipe(
+       retry(0),
+        catchError(this.handleError)
+     )
+    
+  }
   update(link, employee): Observable<Employee> {
     return this.http.patch<Employee>(link, JSON.stringify(employee), this.httpOptions)
     .pipe(

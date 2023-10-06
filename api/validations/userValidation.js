@@ -4,7 +4,7 @@ const { password, objectId } = require('./customValidation');
 const create = {
   body: Joi.object().keys({
     username: Joi.string(),
-    role: Joi.string().required().valid("developer", "manager", "notification","createUser","Agent-notification"),
+    role: Joi.string().required().valid("developer", "manager", "notification","createAgent","Agent-notification"),
     password: Joi.string().custom(password),
     passwordChangedAt: Joi.string()
   }),
@@ -33,7 +33,7 @@ const update = {
   body: Joi.object()
     .keys({
       username: Joi.string(),
-      role: Joi.string().required().valid("developer", "manager", "notification","createUser","Agent-notification"),
+      role: Joi.string().required().valid("developer", "manager", "notification","createAgent","Agent-notification"),
    
     })
     .min(1),

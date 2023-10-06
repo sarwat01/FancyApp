@@ -5,7 +5,10 @@
       <div class="col-lg-12 mx-auto">
         <div class="text-white p-5 shadow-sm rounded banner">
           <h1 class="display-4">FANCY NET COMPANY</h1>
+          
           <p class="lead">For Internet service</p>
+          <h5 class="text-right">بەخێربێیت بەڕێز {{data.username}}</h5>
+          <h6 class="text-right" data-toggle="modal" data-target="#updateModalPassword" style="text-decoration: underline; color: blue;" >گۆڕینی پاسۆرد</h6>
           <!--   <p class="lead">Snippet by <a href="https://bootstrapious.com/snippets" class="text-reset"> 
                           Bootstrapious</a>, Images by <a href="https://unsplash.com" class="text-reset">Unsplash</a>.
             </p> -->
@@ -14,9 +17,9 @@
     </div>
    
     <!-- End -->  
-    <div class="row">
+    <div class="row" >
        <!-- Gallery item -->
-       <div class="col-xl-3 col-lg-4 col-md-6 mb-4"> 
+       <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf="data.role == 'developer' || data.role == 'manager' "> 
         <div class="bg-white rounded shadow-sm" routerLink="/Index/Users">
           <img 
             src="../../../../assets/images/user.jpeg"
@@ -24,9 +27,9 @@
             class="img-fluid card-img-top"
           />
           <div class="p-4">
-            <h5><a   class="text-dark">ئاگادارکردنەوە</a></h5>
+            <h5><a   class="text-dark">بەکارهێنەرەکان</a></h5>
             <p class="small text-muted mb-0">
-              ناردنی ئاگادارکەرەوە بۆ بەشداربوان
+              دروستکردنی بەکارهێنەر
             </p>
             <!--  <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
                 <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
@@ -38,7 +41,7 @@
       <!-- End -->
 
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4"> 
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf="data.role == 'developer' || data.role == 'manager'|| data.role == 'notification'|| data.role == 'Agent-notification'"> 
         <div class="bg-white rounded shadow-sm" routerLink="/Index/Notification">
           <img 
             src="../../../../assets//images/Notification.png"
@@ -60,7 +63,7 @@
       <!-- End -->
 
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf="data.role == 'developer' || data.role == 'manager'|| data.role == 'createAgent'|| data.role == 'Agent-notification'">
         <div class="bg-white rounded shadow-sm" routerLink="/Index/Agent">
           <img
             src="../../../../assets//images/Agent.jpeg"
@@ -82,7 +85,7 @@
       <!-- End -->
 
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf="data.role == 'developer' || data.role == 'manager'|| data.role == 'createAgent'|| data.role == 'Agent-notification'">
         
         <div class="bg-white rounded shadow-sm" routerLink="/Index/address">
           <img
@@ -105,7 +108,7 @@
       <!-- End -->
 
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf=" data.role == 'developer' ">
         <div class="bg-white rounded shadow-sm">
           <img
             src="../../../../assets//images/information.jpeg"
@@ -125,7 +128,7 @@
       <!-- End -->
 
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf="data.role == 'developer' ">
         <div class="bg-white rounded shadow-sm">
           <img
             src="../../../../assets//images/tutorials.jpg"
@@ -146,102 +149,46 @@
       </div>
       <!-- End -->
 
-      <!--  
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="https://bootstrapious.com/i/snippets/sn-gallery/img-6.jpg" alt="" class="img-fluid card-img-top">
-            <div class="p-4">
-              <h5> <a href="#" class="text-dark">Yellow banana</a></h5>
-              <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-                <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="https://bootstrapious.com/i/snippets/sn-gallery/img-7.jpg" alt="" class="img-fluid card-img-top">
-            <div class="p-4">
-              <h5> <a href="#" class="text-dark">Teal Gameboy</a></h5>
-              <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPEG</span></p>
-                <div class="badge badge-info px-3 rounded-pill font-weight-normal">Hot</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="https://bootstrapious.com/i/snippets/sn-gallery/img-8.jpg" alt="" class="img-fluid card-img-top">
-            <div class="p-4">
-              <h5> <a href="#" class="text-dark">Color in Guatemala.</a></h5>
-              <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">PNG</span></p>
-                <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg" alt="" class="img-fluid card-img-top">
-            <div class="p-4">
-              <h5> <a href="#" class="text-dark">Red paint cup</a></h5>
-              <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-                <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="https://bootstrapious.com/i/snippets/sn-gallery/img-2.jpg" alt="" class="img-fluid card-img-top">
-            <div class="p-4">
-              <h5> <a href="#" class="text-dark">Lorem ipsum dolor</a></h5>
-              <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">PNG</span></p>
-                <div class="badge badge-primary px-3 rounded-pill font-weight-normal">Trend</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="https://bootstrapious.com/i/snippets/sn-gallery/img-3.jpg" alt="" class="img-fluid card-img-top">
-            <div class="p-4">
-              <h5> <a href="#" class="text-dark">Lorem ipsum dolor</a></h5>
-              <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-                <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="https://bootstrapious.com/i/snippets/sn-gallery/img-4.jpg" alt="" class="img-fluid card-img-top">
-            <div class="p-4">
-              <h5> <a href="#" class="text-dark">Lorem ipsum dolor</a></h5>
-              <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPEG</span></p>
-                <div class="badge badge-success px-3 rounded-pill font-weight-normal">Hot</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-   -->
-    </div>
+     </div>
     <!-- <div class="py-5 text-right">
       <a href="#" class="btn btn-dark px-5 py-3 text-uppercase">Show me more</a>
     </div> -->
   </div>
+</div>
+
+
+
+
+
+ <!-- update Model Password -->
+ <div class="container" dir="ltr">
+      
+  <div class="modal fade" id="updateModalPassword" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content"  >
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">زیادکردن</h4>
+        </div>
+        <div class="modal-body text-right">
+          <p>current password</p>
+          <input type="text"  [(ngModel)]="updatePassowrd.passwordCurrent"  class="form-control text-right" placeholder="تکایە ناو نیشان بنوسە" >
+          <p>new password</p>
+          <input type="text"  [(ngModel)]="updatePassowrd.password"  class="form-control text-right" placeholder="تکایە ناو نیشان بنوسە" >
+          <p>conferm password</p>
+          <input type="text"  [(ngModel)]="updatePassowrd.confermPassword"  class="form-control text-right" placeholder="تکایە ناو نیشان بنوسە" >
+          
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="updateUserPassword()">نوێکردنەوە</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" >داخستن</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
 </div>

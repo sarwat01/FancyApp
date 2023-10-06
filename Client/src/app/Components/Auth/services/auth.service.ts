@@ -13,6 +13,7 @@ export class AuthService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private readonly translocoLang = 'translocoLang';
+  private readonly userInfo = 'userInfo';
   private loggedUser: string;
 
 
@@ -37,7 +38,8 @@ export class AuthService {
     return this.http
       .post<any>(`${environment.localserver}/api/v1/user/login`, payload)
       .pipe(
-        tap((token) => this.doLoginUser(token)),
+        tap((token) => this.doLoginUser(token)
+          ),
         mapTo(true),
         catchError((error) => {
           return of(false);
@@ -76,10 +78,9 @@ export class AuthService {
     return localStorage.getItem(this.JWT_TOKEN);
   }
 
-  private doLoginUser( token: any) {
+  private doLoginUser( token: any) { 
     this.storeTokens(token);
-   
-    
+     
   }
 
   private doLogoutUser() {
@@ -102,14 +103,14 @@ export class AuthService {
      localStorage.setItem(this.JWT_TOKEN, jwt.token);
     localStorage.setItem(this.REFRESH_TOKEN, jwt.token);
   }
- private storeTokens(data: any) {
+ private storeTokens(data: any) { 
+   localStorage.setItem("userInfo", JSON.stringify(data.data.user)); 
     localStorage.setItem(this.JWT_TOKEN,data.token);
     localStorage.setItem(this.REFRESH_TOKEN, data.token);
    
   }
 
   removeTokens() {
-    
      localStorage.removeItem(this.JWT_TOKEN);
      localStorage.removeItem(this.REFRESH_TOKEN);
      localStorage.removeItem(this.translocoLang);
