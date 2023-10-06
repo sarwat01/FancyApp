@@ -34,7 +34,7 @@ export class TokenInterceptor implements HttpInterceptor {
       } else {
          let arr=error.error.message.replaceAll('"','?').split('?');
         arr=arr.filter(item=>item!=="")
-        this.toastService.warning(error.error.message);
+         this.toastService.warning(error.error.message);
          return throwError(error.message);
       }
     }));
