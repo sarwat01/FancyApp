@@ -12,7 +12,6 @@ import { environment } from 'src/environments/environment';
   templateUrl: './balance.component.html',
   styleUrls: ['./balance.component.css'],
 })
-
 export class BalanceComponent implements OnInit {
   model: any = {};
 
@@ -21,33 +20,29 @@ export class BalanceComponent implements OnInit {
   loginForm: FormGroup;
   langList: any[] = [];
   currentLang: string;
-  
-  
+
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private router: Router,
     private tostService: ToastrService,
-    private service:TranslocoService, 
+    private service: TranslocoService,
     private translate: TranslocoService,
-    private apiRest: RestApiService,
+    private apiRest: RestApiService
   ) {
-    translate.langChanges$.subscribe(lang => {
+    translate.langChanges$.subscribe((lang) => {
       this.currentLang = lang;
       console.log('Language changed to', this.currentLang);
- 
-  });
-  
+    });
   }
 
-  ngOnInit() { 
-  this.authService.removeTokens(); 
- this.loginForm = this.formBuilder.group({
+  ngOnInit() {
+    this.authService.removeTokens();
+    this.loginForm = this.formBuilder.group({
       username: [''],
       password: [''],
       language: ['en'],
     });
-
 
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
@@ -55,15 +50,15 @@ export class BalanceComponent implements OnInit {
 
   setLang(l) {
     this.translate.setActiveLang(l.target.value);
-     
- } 
+  }
   encryption() {
     if (
       this.loginForm.value.username == '' ||
       this.loginForm.value.password == ''
     ) {
-      this.tostService.warning(this.translate.translate('balance.enptyUserPass')) 
-   
+      this.tostService.warning(
+        this.translate.translate('balance.enptyUserPass')
+      );
     } else {
       const CryptoJS = require('crypto-js');
       const cypData = CryptoJS.AES.encrypt(
@@ -82,12 +77,10 @@ export class BalanceComponent implements OnInit {
       this.originalText = bytes.toString(CryptoJS.enc.Utf8);
     }
   }
- 
-  
+
   login() {
     this.authService.login(this.payload).subscribe((success) => {
       this.router.navigate(['/Home']);
-      
     });
   }
 }
