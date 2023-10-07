@@ -23,11 +23,11 @@ export class AuthService {
   
   login(payload:any): Observable<boolean> {
 /* /api/index.php/api/auth/login */
-    /* api/v1/user/login */
+    /* api/v1/user/login */ 
      return this.http.post<any>(`${environment.apiUrl}/api/index.php/api/auth/login`, payload)
     .pipe(
         tap(token => this.doLoginUser(token)),
-         mapTo(false),
+         mapTo(true),
         catchError(error => {
           return of(false);
         }));
@@ -104,8 +104,8 @@ export class AuthService {
     localStorage.setItem(this.REFRESH_TOKEN, jwt.token);
   }
  private storeTokens(data: any) { 
-   localStorage.setItem("userInfo", JSON.stringify(data.data.user)); 
-    localStorage.setItem(this.JWT_TOKEN,data.token);
+  /*  localStorage.setItem("userInfo", JSON.stringify(data.data.user)); 
+   */  localStorage.setItem(this.JWT_TOKEN,data.token);
     localStorage.setItem(this.REFRESH_TOKEN, data.token);
    
   }
