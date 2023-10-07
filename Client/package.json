@@ -32,6 +32,7 @@
     "@ngneat/transloco-persist-lang": "^4.0.0",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "7.0.0",
+    "@rxjs/rx": "^4.1.0",
     "@vicoders/reactive-form": "^1.0.134",
     "angular-http-interceptor": "^2.0.1",
     "angular-ng-autocomplete": "^2.0.12",
