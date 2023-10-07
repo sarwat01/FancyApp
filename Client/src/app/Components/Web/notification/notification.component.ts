@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment'; 
+import { environment } from 'src/environments/environment';
 import { RestApiService } from '../../Auth/shared.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -7,18 +7,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TranslocoService } from '@ngneat/transloco';
 import { AuthService } from '../../Auth/services/auth.service';
 import { Router } from '@angular/router';
-import { Title } from '@angular/platform-browser'; 
-import{MainComponent} from '../../mobile/main/main.component'
+import { Title } from '@angular/platform-browser';
+import { MainComponent } from '../../mobile/main/main.component';
+
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.css']
+  styleUrls: ['./notification.component.css'],
 })
 export class NotificationComponent implements OnInit {
- a:MainComponent
-  data:any
+  width: number = 0;
+  a: MainComponent;
+  data: any;
   model = { title: '', detail: '' };
-  getItem : any ={}
+  getItem: any = {};
   constructor(
     private apiRest: RestApiService,
     public actRoute: ActivatedRoute,
@@ -26,101 +28,95 @@ export class NotificationComponent implements OnInit {
     private http: HttpClient,
     private translate: TranslocoService,
     private translocoService: TranslocoService,
-    private authService: AuthService,   
-  ) { }
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
-    this.getNotification() 
+    this.getNotification();
   }
 
-getNotification(){
-  let path = `${environment.localserver}/api/v1/sendFcmNotification`
-this.apiRest.get(path).subscribe((res:any)=>{
-  this.data = res.data.notification 
-}) 
-}
+  getNotification() {
+    let path = `${environment.localserver}/api/v1/sendFcmNotification`;
+    this.apiRest.get(path).subscribe((res: any) => {
+      this.data = res.data.notification;
+    });
+  }
 
-  
-getOne(id){
-  let path = `${environment.localserver}/api/v1/sendFcmNotification/`
-  this.apiRest.getbyid(path,id).subscribe((res)=>{
-    this.getItem = res 
+  getOne(id) {
+    let path = `${environment.localserver}/api/v1/sendFcmNotification/`;
+    this.apiRest.getbyid(path, id).subscribe((res) => {
+      this.getItem = res;
+    });
+  }
 
-  })
- }
+  addNotification() {
+    let path = `${environment.localserver}/api/v1/sendFcmNotification`;
+    Object.entries(this.model).forEach((item) => {
+      const [key, value] = item;
+      if (value === '') {
+        delete this.model[key];
+      }
+    });
+    this.apiRest.post(path, this.model).subscribe((req) => {
+      this.ngOnInit();
+    });
+  }
 
-addNotification(){
-   let path = `${environment.localserver}/api/v1/sendFcmNotification`
-   Object.entries(this.model).forEach((item) => {
-    const [key, value] = item;
-    if (value === '') {
-      delete this.model[key];
-    }
-  });
-  this.apiRest.post(path,this.model).subscribe((req)=>{
-    this.ngOnInit();
-    
-  })
-}
-
- 
-
-sendNoti(title , detail){
-
-  let sendData = {
-    notification: {
-      title: title,
-      body:detail 
-     },
-  to:''
-    }
+  sendNoti(title, detail) {
+    let sendData = {
+      notification: {
+        title: title,
+        body: detail,
+      },
+      to: '',
+    };
     let headers;
-    let path = `${environment.localserver}/api/v1/fcm`
-    this.apiRest.get(path).subscribe((res:any)=>{
+    let path = `${environment.localserver}/api/v1/fcm`;
+    this.apiRest.get(path).subscribe((res: any) => {
+      console.log(res);
 
+      for (let index = 0; index < res.length; index++) {
+        this.width = index/index * 100;
 
-       for (let index = 0; index < res.length; index++) {
-      const element = res[index].fcmToken; 
-       sendData.to = element
-        
-       
-       const headers = { 
+        const element = res[index].fcmToken;
+        sendData.to = element;
+
+     
+      const headers = { 
         Authorization: 'Bearer AAAAWxuwUeY:APA91bHgLO0QiMTXAYfq19rlf5Z7QxNwHDEQ4H9KiPF7fcRRPx-3YwMlO94qVUwpHfxFufrzKppBghr7X3hNzOsA6--odXShtLQT1KXQNpHlvCHRFv5atmHlx5goDI82cZCQRJkdu7eW',
         'Content-MD5': 'application/json', }; 
        this.http.post<any>('https://fcm.googleapis.com/fcm/send', sendData, { headers }).subscribe(data => {
          
-       });
-           
-   }
-    }) 
-  
- }
+       });  
+      }
+      this.toastService.success('سوپاس بەڕێزم ئاگادارییەکەت بەسەرکەوتوی نێردرا')
+      /* document.getElementById('close')!.click(); */
+    });
+  }
 
-  updateNotification(id){ 
-    let payload = this.getItem
-    delete payload._id,delete payload.createdAt,delete payload.__v
-     
+ 
+
+  updateNotification(id) {
+    let payload = this.getItem;
+    delete payload._id, delete payload.createdAt, delete payload.__v;
+
     Object.entries(payload).forEach((item) => {
       const [key, value] = item;
       if (value === '') {
         delete this.model[key];
       }
     });
-      let path = `${environment.localserver}/api/v1/sendFcmNotification/`
-    this.apiRest.patch(path,id,payload).subscribe((res)=>{
-this.ngOnInit()
-    })  
+    let path = `${environment.localserver}/api/v1/sendFcmNotification/`;
+    this.apiRest.patch(path, id, payload).subscribe((res) => {
+      this.ngOnInit();
+    });
   }
 
-
-deleteNotification(id) {
-  let path = `${environment.localserver}/api/v1/sendFcmNotification/`
-  this.apiRest.delete(path, id).subscribe((data: {}) => { 
-    this.toastService.success('بەسەرکەوتووی زانیارییەکات سڕایەوە')
-    this.ngOnInit();
-  });
-}
-
- 
-
+  deleteNotification(id) {
+    let path = `${environment.localserver}/api/v1/sendFcmNotification/`;
+    this.apiRest.delete(path, id).subscribe((data: {}) => {
+      this.toastService.success('بەسەرکەوتووی زانیارییەکات سڕایەوە');
+      this.ngOnInit();
+    });
+  }
 }
