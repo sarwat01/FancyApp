@@ -1,5 +1,4 @@
- 
-  <div class="main-content">
+   <div class="main-content">
     <div class="container mt-2">
       <!-- Table -->
        <h2 class="mb-5 text-center" >Send Notification</h2><div class="row">
@@ -30,7 +29,7 @@
                     </td>
                     <td>{{info.detail}}</td>
                     <td>{{info.createdAt | date:'dd-MM-yyyy'}}</td>
-                    <td> <i style="color: green;" (click)="sendNoti(info.title , info.detail)" class="fas fa-bell" title="ناردنی ئاگاداری"></i></td>
+                    <td> <i style="color: green;" class="btn btn-info btn-lg" (click)="getOne(info._id)" data-toggle="modal" data-target="#Notification" class="fas fa-bell" title="ناردنی ئاگاداری"></i></td>
                     <td style="color: red;"> <i (click)="deleteNotification(info._id)" class="fas fa-minus"></i></td>
                        </tr>
                 </tbody>
@@ -44,7 +43,40 @@
     </div>
   </div>
    
+
  
+
+    <!-- sendNotification -->
+<div class="container" dir="ltr">
+     
+    
+  
+  <div class="modal fade" id="Notification" role="dialog">
+    <div class="modal-dialog">
+      <div class="container">
+        <h4 class="text-right"> ... ناردنی ئاگاداری  </h4>
+        <div class="progress" dir="rtl">
+          <div  class="progress-bar progress-bar-striped progress-bar-animated " style="width:{{width}}%;" >{{width}}</div>
+        </div>
+      </div>
+      <!-- Modal content-->
+      <div class="modal-content"  >
+      <div class="text-right">
+        <p style="margin: 10px;">{{getItem.title}} :ناونیشان </p>
+        <p style="margin: 10px; margin-top: 15px;"><i class="fas fa-angle-down"></i>  وردەکاری</p>
+        <p style="margin: 10px; "> {{getItem.detail}}</p>
+       <p></p>
+      </div>
+        <div class="modal-footer " style="display: flex;justify-content: center;">
+         <button  type="button"    class="btn btn-success text-center"  (click)="sendNoti(getItem.title , getItem.detail)">ناردن</button>
+          <button  type="button"   class="btn btn-warning" data-dismiss="modal" >پەشیمان بونەوە</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
 
   <!-- add Modal -->
 <div class="container" dir="ltr">
