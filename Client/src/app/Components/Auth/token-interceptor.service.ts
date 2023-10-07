@@ -25,8 +25,7 @@ export class TokenInterceptor implements HttpInterceptor {
       request = this.addToken(request, this.authService.getJwtToken());  
   
     }
-     
-   
+      
   return next.handle(request).pipe(catchError(error => {
        const route = error.url.split('/')[error.url.split('/').length - 1];
       if (error instanceof HttpErrorResponse && error.status === 401 && route!=='login') {
@@ -48,14 +47,7 @@ export class TokenInterceptor implements HttpInterceptor {
     });
   }
 
-  private addTokenFancy(request: HttpRequest<any>, token: string) {
-     return request.clone({
-      setHeaders: {
-        'Authorization': `Bearer ${token}`
-      }
-    });
-  }
-
+  
 
   private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
       

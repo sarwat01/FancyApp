@@ -86,11 +86,7 @@ export class BalanceComponent implements OnInit {
   
   login() {
     this.authService.login(this.payload).subscribe((success) => {
-      if (success) {
-        
-      } else {
-        this.router.navigate(['/Home']);
-      }
+      this.router.navigate(['/Home']);
       
     });
   }
