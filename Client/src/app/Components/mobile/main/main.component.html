@@ -4,7 +4,7 @@
       <div class="row">
         <div routerLink="/Home/activrCard" class="col-md-4">
           <div
-            class="card-counter"
+            class="card-counter" 
             style="background-color: #1f2935; color: white; text-align: right"
           >
             <span class="count-numbers" *transloco="let t; read: 'main'">{{
@@ -72,11 +72,14 @@
             class="card-counter"
             style="background-color: #1f2935; color: white; text-align: right"
           >
-            <span class="count-numbers" *transloco="let t; read: 'main'">فێڕکاری</span>
+          
+            <span class="count-numbers" *transloco="let t; read: 'main'">{{
+              t("main_tutorial")
+            }}</span>
 
             <i
               style="display: flex; justify-content: end"
-              class="fas fa-bell"
+              class="fas fa-video"
               aria-hidden="true"
             ></i>
           </div>
