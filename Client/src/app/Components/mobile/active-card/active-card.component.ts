@@ -80,9 +80,12 @@ export class ActiveCardComponent implements OnInit {
     const link = `${environment.apiUrl}/api/index.php/api/packages`;
     this.apiRest.get(link).subscribe((ptr: any) => {
       this.packages = ptr.data;
+      console.log(ptr);
+      
     });
   }
 
+  /* {"page":1,"count":10,"sortBy":"id","direction":"desc"} */
   onChange(value: string): void {
     this.changePackage.new_service = value;
     this.encryption();

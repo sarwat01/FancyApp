@@ -1,27 +1,26 @@
 {
-  "sharedNavbar":{
-"infoMassage":"بەشداربووی بەڕێز ناوت تۆمار نەکراوە بۆ تۆمار کردن پەیوەندی بکە بە کۆمپانیاوە"
+  "sharedNavbar": {
+    "infoMassage": "بەشداربووی بەڕێز ناوت تۆمار نەکراوە بۆ تۆمار کردن پەیوەندی بکە بە کۆمپانیاوە"
   },
   "balance": {
     "username": "کۆدی بەکارهێنەر ",
     "password": "تێپەڕە ووشە",
     "login": "چوونەژورەوە",
-    "enptyUserPass":"تکایە کۆد و پاسۆرد بنوسە"
-
+    "enptyUserPass": "تکایە کۆد و پاسۆرد بنوسە"
   },
   "main": {
-    "userFullName":"ناوی بەکارهێنەر",
-    "main_card": "پڕکردنەوەی هێڵەکەت ",
+    "userFullName": "ناوی بەکارهێنەر",
+    "main_card": "چالاککردن",
     "main_person_info": "زانیاری کەسی",
     "main_service": "خزمەتگوزارییەکان",
     "main_agents": "بریکارەکان",
     "main_notification": "ئاگادارکردنەوە",
-   
-    "remainigDays":"ڕۆژی ماوە"
+    "main_tutorial": "فێرکاری",
+    "remainigDays": "ڕۆژی ماوە"
   },
   "notification": {
     "main_pageNotification": "لاپەڕەی ئاگادارکردنەوەکان"
-   },
+  },
   "activeCard": {
     "title": "تکایە لەکاتی کارت داغڵکردن",
     "subTitle": "دڵنیابە لە جۆری کارتەکەت",
@@ -52,15 +51,15 @@
   },
   "agents": {
     "details": "بریکارەکانی فانسی نێت",
-    "select":"تکایە شوێنەکەت دیاری بکە",
+    "select": "تکایە شوێنەکەت دیاری بکە",
     "name": "ناو",
     "address": "ناونیشان",
     "phone1": "ژ.موبایل ١ ",
     "phone2": "ژ.موبایل ٢",
     "note": "تێبینی"
-     
   },
-  "mobileToturials":{
-    "tplink_change_Password":"گۆڕینی پاسۆردی TP-Link"
-     }
+  "mobileToturials": {
+    "tplink_change_Password": "گۆڕینی پاسۆردی TP-Link",
+    "tether_change_Password": " چۆنێتی بەکارهێنانی بەرنامەی - tether"
+    }
 }

@@ -49,8 +49,7 @@ export class MobileAgentComponent implements OnInit {
       this.address = res.data.address;
     });
   }
-  selectAddress(value) {
-    console.log(value._id);
+  selectAddress(value) { 
 this.getAgents(value._id)
     
   }

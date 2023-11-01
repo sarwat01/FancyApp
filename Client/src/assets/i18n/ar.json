@@ -12,12 +12,13 @@
   },
   "main": {
     "userFullName":"الاسم المستخدم :",
-    "main_card": "ادخال البطاقة ",
+    "main_card": "تفعیل",
     "main_person_info": "معلومات المستخدم",
     "main_service": "مرکز الخدمات",
     "main_agents": "الوكلاء",
     "main_notification": "إشعار",
-    "remainigDays":"یوم المتبقية"
+    "remainigDays":"ایام المتبقية",
+    "main_tutorial": "تعلیم"
     
   },
   "notification": {
@@ -63,6 +64,8 @@
      
   }, 
   "mobileToturials":{
- "tplink_change_Password":"تغيير كلمة المرور TP-Link"
+ "tplink_change_Password":"تغيير كلمة المرور TP-Link",
+  "tether_change_Password": "كيفية استخدام برنامج - tether"
+
   }
 }
