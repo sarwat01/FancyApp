@@ -16,7 +16,9 @@
     "main_agents": "بریکارەکان",
     "main_notification": "ئاگادارکردنەوە",
     "main_tutorial": "فێرکاری",
-    "remainigDays": "ڕۆژی ماوە"
+    "remainigDays": "ڕۆژی ماوە",
+    "home":"سەرەتا",
+    "exit":"چونە دەرەوە"
   },
   "notification": {
     "main_pageNotification": "لاپەڕەی ئاگادارکردنەوەکان"
@@ -62,4 +64,6 @@
     "tplink_change_Password": "گۆڕینی پاسۆردی TP-Link",
     "tether_change_Password": " چۆنێتی بەکارهێنانی بەرنامەی - tether"
     }
+
+    
 }

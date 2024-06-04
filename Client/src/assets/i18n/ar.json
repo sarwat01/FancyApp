@@ -18,7 +18,9 @@
     "main_agents": "الوكلاء",
     "main_notification": "إشعار",
     "remainigDays":"ایام المتبقية",
-    "main_tutorial": "تعلیم"
+    "main_tutorial": "تعلیم",
+    "home":"رئيسي",
+    "exit":"خروج"
     
   },
   "notification": {

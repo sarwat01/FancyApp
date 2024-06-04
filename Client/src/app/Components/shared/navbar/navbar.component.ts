@@ -45,6 +45,8 @@ export class NavbarComponent implements OnInit {
  
 
   setLang(l) {
+    console.log(l);
+    
     this.translate.setActiveLang(l.target.value);
   }
 

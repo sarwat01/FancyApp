@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class UserInfoComponent implements OnInit {
 
-  data:any={}
+data:any={}
 balanceInfo:any = {}
 balanceSize:number
 dashboard : any = {}
@@ -33,9 +33,7 @@ currentLang: string;
     private router: Router,) { 
       translate.langChanges$.subscribe(lang => {
         this.currentLang = lang;
-        console.log('Language changed to', this.currentLang);
-  
-      });
+        });
     }
 
   ngOnInit(): void {
@@ -54,8 +52,7 @@ currentLang: string;
   getBalanceInfo(){
     const link = `${environment.apiUrl}/api/index.php/api/service`;
     this.apiRest.get(link).subscribe((ptr: any) => {
-     this.balanceInfo = ptr.data
-     console.log(ptr);
+     this.balanceInfo = ptr.data 
      
     }); 
   }

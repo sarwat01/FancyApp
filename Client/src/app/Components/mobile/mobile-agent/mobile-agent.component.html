@@ -1,68 +1,70 @@
-<div class="my-container" >
-  <div class="container"> 
-<div class="  table-responsive py-5">
+<div class="my-container">
+  <div class="container">
+    <div class="table-responsive py-5">
+      <p
+        style="text-align: center; font-size: 22px; color: floralwhite"
+        *transloco="let t; read: 'agents'"
+      >
+        {{ t("details") }}
+      </p>
 
-  <p
-    style="text-align: center; font-size: 22px;color: floralwhite;"
-    *transloco="let t; read: 'agents'"
-  >
-    {{ t("details") }}
-  </p>
-  <div class="modal-body text-center" style="margin: 10px 0px 0px 10px;">
-    <!--  <p style="text-align: center;" *transloco="let t; read: 'agents'">{{ t("select") }} </p>
-        -->
-    <ng-autocomplete dir="auto"   
-      [initialValue]="selectCity"
-      [data]="address"
-      [searchKeyword]="keyword"
-      [itemTemplate]="itemTemplate"
-      *transloco="let t; read: 'agents'"
-      placeholder="{{ t('select') }}"
-      [notFoundTemplate]="notFoundTemplate"
-      (selected)="selectAddress($event)"
-    >
-    </ng-autocomplete>
+      <div class="modal-body text-center" style="margin: 10px 0px 0px 10px">
+        <ng-autocomplete
+          dir="auto"
+          [data]="address"
+          [searchKeyword]="keyword"
+          [itemTemplate]="itemTemplate"
+          *transloco="let t; read: 'agents'"
+          placeholder="{{ t('select') }}"
+          [notFoundTemplate]="notFoundTemplate"
+          (selected)="selectAddress($event)"
+        >
+        </ng-autocomplete>
 
-    <ng-template #itemTemplate let-item>
-      <a [innerHTML]="item.name"></a>
-    </ng-template>
+        <ng-template #itemTemplate let-item>
+          <a [innerHTML]="item.name"></a>
+        </ng-template>
 
-    <ng-template #notFoundTemplate let-notFound>
-      <div [innerHTML]="notFound"></div>
-    </ng-template>
+        <ng-template #notFoundTemplate let-notFound>
+          <div [innerHTML]="notFound"></div>
+        </ng-template>
+      </div>
+      <table class="table table-bordered table-hover">
+        <thead style="background-color: rgb(155, 205, 20); color: #1f2935">
+          <tr class="text-center">
+            <th>#</th>
+            <th style="min-width: 20px" *transloco="let t; read: 'agents'">
+              {{ t("name") }}
+            </th>
+            <th style="min-width: 110px" *transloco="let t; read: 'agents'">
+              {{ t("address") }}
+            </th>
+            <th style="min-width: 110px" *transloco="let t; read: 'agents'">
+              {{ t("phone1") }}
+            </th>
+            <th style="min-width: 110px" *transloco="let t; read: 'agents'">
+              {{ t("phone2") }}
+            </th>
+            <th style="min-width: 210px" *transloco="let t; read: 'agents'">
+              {{ t("note") }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            style="color: aliceblue"
+            class="text-center"
+            *ngFor="let info of data; let i = index"
+          >
+            <td>{{ i + 1 }}</td>
+            <td>{{ info.name }}</td>
+            <td>{{ info.addressId.name }}</td>
+            <td>{{ info.phone1 }}</td>
+            <td>{{ info.phone2 }}</td>
+            <td>{{ info.note }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <table class="table table-bordered table-hover">
-    <thead style="  background-color: rgb(155, 205, 20); color: #1f2935;">
-      <tr class="text-center">
-        <th>#</th>
-        <th style="min-width: 20px" *transloco="let t; read: 'agents'">
-          {{ t("name") }}
-        </th>
-        <th style="min-width: 110px" *transloco="let t; read: 'agents'">
-          {{ t("address") }}
-        </th>
-        <th style="min-width: 110px" *transloco="let t; read: 'agents'">
-          {{ t("phone1") }}
-        </th>
-        <th style="min-width: 110px" *transloco="let t; read: 'agents'">
-          {{ t("phone2") }}
-        </th>
-        <th style="min-width: 210px" *transloco="let t; read: 'agents'">
-          {{ t("note") }}
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="color: aliceblue;" class="text-center" *ngFor="let info of data; let i = index">
-        <td >{{ i + 1 }}</td>
-        <td >{{ info.name }}</td>
-        <td>{{ info.addressId.name }}</td>
-        <td>{{ info.phone1 }}</td>
-        <td>{{ info.phone2 }}</td>
-        <td>{{ info.note }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
 </div>

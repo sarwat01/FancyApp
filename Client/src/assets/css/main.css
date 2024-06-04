@@ -1,3 +1,4 @@
+ 
 /*!=========================================================
 * ArchitectUI HTML Theme Dashboard - v1.0.0
 =========================================================
@@ -9064,7 +9065,7 @@ button,
 .app-header__logo .logo-src {
   height: 23px;
   width: 97px;
-  background: url(assets/images/logo-inverse.png);
+  background: url(../images/logo-inverse.png);
 }
 .app-header__menu,
 .app-header__mobile-menu {
@@ -9229,7 +9230,7 @@ button,
   background: rgba(255, 255, 255, 0.8);
 }
 .app-header.header-text-light .app-header__logo .logo-src {
-  background: url(assets/images/logo.png);
+  background: url(../images/logo.png);
 }
 .app-header.header-text-light .app-header__mobile-menu .hamburger-inner,
 .app-header.header-text-light .app-header__mobile-menu .hamburger-inner::before,
@@ -9348,7 +9349,7 @@ button,
   background: rgba(0, 0, 0, 0.8);
 }
 .app-header.header-text-dark .app-header__logo .logo-src {
-  background: url(assets/images/logo-inverse.png);
+  background: url(../images/logo-inverse.png);
 }
 .app-sidebar {
   width: 280px;
@@ -9585,7 +9586,7 @@ button,
   background: rgba(255, 255, 255, 0.2);
 }
 .app-sidebar.sidebar-text-light .app-header__logo .logo-src {
-  background: url(assets/images/logo.png);
+  background: url(../images/logo.png);
 }
 .app-sidebar.sidebar-text-light .app-header__logo .hamburger-inner,
 .app-sidebar.sidebar-text-light .app-header__logo .hamburger-inner::before,
@@ -14170,12 +14171,12 @@ legend {
   font-family: "font awesome 5 free";
   font-style: normal;
   font-weight: 900;
-  src: url(assets/fonts/fa-solid-900.eot);
-  src: url(assets/fonts/fa-solid-900.eot?#iefix) format("embedded-opentype"),
-    url(assets/fonts/fa-solid-900.woff2) format("woff2"),
-    url(assets/fonts/fa-solid-900.woff) format("woff"),
-    url(assets/fonts/fa-solid-900.ttf) format("truetype"),
-    url(assets/fonts/fa-solid-900.svg#fontawesome) format("svg");
+  src: url(../fonts/fa-solid-900.eot);
+  src: url(../fonts/fa-solid-900.eot?#iefix) format("embedded-opentype"),
+    url(../fonts/fa-solid-900.woff2) format("woff2"),
+    url(../fonts/fa-solid-900.woff) format("woff"),
+    url(../fonts/fa-solid-900.ttf) format("truetype"),
+    url(../fonts/fa-solid-900.svg#fontawesome) format("svg");
 }
 .fa,
 .fas {
@@ -18363,12 +18364,12 @@ legend {
 }
 @font-face {
   font-family: pe-icon-7-stroke;
-  src: url(assets/fonts/Pe-icon-7-stroke.eot);
-  src: url(assets/fonts/Pe-icon-7-stroke.eot?#iefixd7yf1v)
+  src: url(../fonts/Pe-icon-7-stroke.eot);
+  src: url(../fonts/Pe-icon-7-stroke.eot?#iefixd7yf1v)
       format("embedded-opentype"),
-    url(assets/fonts/Pe-icon-7-stroke.woff) format("woff"),
-    url(assets/fonts/Pe-icon-7-stroke.ttf) format("truetype"),
-    url(assets/fonts/Pe-icon-7-stroke.svg#Pe-icon-7-stroke) format("svg");
+    url(../fonts/Pe-icon-7-stroke.woff) format("woff"),
+    url(../fonts/Pe-icon-7-stroke.ttf) format("truetype"),
+    url(../fonts/Pe-icon-7-stroke.svg#Pe-icon-7-stroke) format("svg");
   font-weight: 400;
   font-style: normal;
 }
