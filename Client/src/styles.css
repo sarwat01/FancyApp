@@ -3,12 +3,18 @@
 @import "~ng-pick-datetime/assets/style/picker.min.css";
 @import "~bootstrap/dist/css/bootstrap.css"; 
 @import "~font-awesome/css/font-awesome.css"; 
-
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
 
 /* position */
+@font-face {
+  font-family: "05_Sarchia_Abdulrahman_3";
+  src: url("assets/fonts/05_Sarchia_Abdulrahman_3.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 .toast-center-center {
   top: 50%;
   left: 50%;
