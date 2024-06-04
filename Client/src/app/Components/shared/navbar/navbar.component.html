@@ -30,27 +30,43 @@
          </select>
         </div>
         
-        <div>
-          <i
-            class="fa fa-home"
-            aria-hidden="true"
-            style="color: #1f2935; font-size: 30px;"
-            (click)="home()"
-            
-          ></i>
-         </div>
+        
         </div>
        
         
   
     </nav>
     
+    
     <!-- partial -->
     <div class="customBody">
       <router-outlet></router-outlet>
-      
+      <body >
+        <nav class="mobile-nav">
+          <button  routerLink="/Home/user" class="bloc-icon"style="display: flex; flex-direction: column;border:none; background:none">
+            <i style="font-size: 20px;" class="fa fa-user" aria-hidden="true"></i>
+            <p style="margin-bottom: -10px;" *transloco="let t; read: 'main'">{{
+              t("main_person_info")}}</p>
+          </button> 
+          <button (click)="home()" class="bloc-icon"style="display: flex; flex-direction: column;border:none; background:none">
+            <i style="font-size: 20px; " class="fa fa-home" aria-hidden="true"></i>
+            <p style="margin-bottom: -10px;" *transloco="let t; read: 'main'">{{
+              t("home")}}</p>
+            
+        </button> 
+         <!-- 
+            <button  (click)="logout()" href="#" class="bloc-icon"style="display: flex; flex-direction: column;border:none; background:none">
+            <i style="font-size: 20px;" class="fa fa-window-close" aria-hidden="true"></i>
+            <p style="margin-bottom: -10px;" *transloco="let t; read: 'main'">{{
+              t("exit")}}</p>
+          </button>  -->
+         
+          
+            
+        </nav>
+      </body>
       <!-- main-panel ends -->
     </div>
-    <!-- page-body-wrapper ends -->
+   
   </div>
   

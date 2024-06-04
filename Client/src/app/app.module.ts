@@ -9,7 +9,7 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TokenInterceptor } from 'src/app/Components/Auth/token-interceptor.service';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 import { RestApiService } from './Components/Auth/shared.service';
 import { AuthService } from './Components/Auth/services/auth.service';
 import { AuthGuard } from './Components/Auth/guards/auth.guard';
@@ -42,8 +42,10 @@ import { MobileNotificationComponent } from './Components/mobile/mobile-notifica
 import { MobileToturialsComponent } from './Components/mobile/mobile-toturials/mobile-toturials.component';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 import {WebUserComponent } from './Components/Web/web-user/web-user.component'
+import { FilterPipe } from './filter.pipe';
 @NgModule({
   declarations: [
+    FilterPipe,
     AppComponent,
     UserInfoComponent,
     BalanceComponent,
@@ -76,8 +78,9 @@ import {WebUserComponent } from './Components/Web/web-user/web-user.component'
     FormsModule,
     BrowserAnimationsModule, 
     ReactiveFormsModule,
-    RouterModule,
+    RouterModule, 
     CommonModule,
+    NgSelectModule,
     TranslocoRootModule,
     TranslateModule.forRoot({
       loader: {

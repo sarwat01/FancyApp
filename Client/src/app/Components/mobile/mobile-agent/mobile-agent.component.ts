@@ -15,10 +15,10 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./mobile-agent.component.css'],
 })
 export class MobileAgentComponent implements OnInit {
-  data: any = {};
+  
+  data: any = [];
   keyword = 'name';
-  address: any = {};
-  selectCity: any;
+  address: any = {}; 
   constructor(
     private apiRest: RestApiService,
     public actRoute: ActivatedRoute,
@@ -31,15 +31,21 @@ export class MobileAgentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    
-    this.getAddress();
+     this.getAddress();
+     this.getAllAgents();
+  }
+
+  getAllAgents() {
+    let path = `${environment.localserver}/api/v1/agent/addressId`;
+    this.apiRest.get(path).subscribe((res: any) => {
+      this.data = res; 
+    });
   }
 
   getAgents(id) {
     let path = `${environment.localserver}/api/v1/agent/addressId/${id}`;
     this.apiRest.get(path).subscribe((res: any) => {
-      this.data = res;
-      console.log(res);
+      this.data = res; 
     });
   }
 
@@ -47,10 +53,12 @@ export class MobileAgentComponent implements OnInit {
     let path = `${environment.localserver}/api/v1/address`;
     this.apiRest.get(path).subscribe((res: any) => {
       this.address = res.data.address;
-    });
+      });
   }
   selectAddress(value) { 
 this.getAgents(value._id)
     
   }
+  
+ 
 }

@@ -20,7 +20,7 @@ export class ActiveCardComponent implements OnInit {
   cardData: FormGroup;
   cardPin: any;
   data: any = {};
-  packages: any = {};
+  packages: any = [];
   currentPackage: any = {};
   Api = environment.apiUrl;
   langList: any[] = [];
