@@ -13,7 +13,9 @@ export class AppComponent {
 
   }
   ngOnint(){
-    this.toastService.success('ahsd')
+    window.addEventListener('message', (event) => {
+      alert('Message received from React Native: ' + event.data);
+    });
   }
   
 }

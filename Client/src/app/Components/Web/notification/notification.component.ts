@@ -73,19 +73,15 @@ export class NotificationComponent implements OnInit {
     let headers;
     let path = `${environment.localserver}/api/v1/fcm`;
     this.apiRest.get(path).subscribe((res: any) => {
-      console.log(res);
-
-      for (let index = 0; index < res.length; index++) {
+       for (let index = 0; index < res.length; index++) {
         this.width = index/index * 100;
 
         const element = res[index].fcmToken;
-        sendData.to = element;
-
-     
-      const headers = { 
+        sendData.to = element; 
+         const headers = { 
         Authorization: 'Bearer AAAAWxuwUeY:APA91bHgLO0QiMTXAYfq19rlf5Z7QxNwHDEQ4H9KiPF7fcRRPx-3YwMlO94qVUwpHfxFufrzKppBghr7X3hNzOsA6--odXShtLQT1KXQNpHlvCHRFv5atmHlx5goDI82cZCQRJkdu7eW',
         'Content-MD5': 'application/json', }; 
-       this.http.post<any>('https://fcm.googleapis.com/fcm/send', sendData, { headers }).subscribe(data => {
+         this.http.post<any>('https://fcm.googleapis.com/fcm/send', sendData, { headers }).subscribe(data => {
          
        });  
       }

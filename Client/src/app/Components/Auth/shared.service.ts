@@ -39,9 +39,7 @@ export class RestApiService {
  
  
   post(link,employee): Observable<Employee> {
-    console.log(employee);
-    
-     return this.http.post<Employee>(link, JSON.stringify(employee), this.httpOptions)
+      return this.http.post<Employee>(link, JSON.stringify(employee), this.httpOptions)
     .pipe(
       retry(0),
       catchError(this.handleError)
