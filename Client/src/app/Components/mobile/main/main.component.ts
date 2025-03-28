@@ -16,11 +16,11 @@ export class MainComponent implements OnInit {
   data: any = {};
   balanceInfo: number;
   balanceSize: number;
-  dayRemainder:string="ڕۆژ"
+  dayRemainder: string = 'ڕۆژ';
   Api = environment.apiUrl;
   langList: any[] = [];
   currentLang: string;
- direction:''
+  direction: '';
   constructor(
     private apiRest: RestApiService,
     public actRoute: ActivatedRoute,
@@ -34,9 +34,7 @@ export class MainComponent implements OnInit {
     translate.langChanges$.subscribe((lang) => {
       this.currentLang = lang;
       console.log('Language changed to', this.currentLang);
-     
-    });  
- 
+    });
   }
 
   ngOnInit(): void {
@@ -44,7 +42,6 @@ export class MainComponent implements OnInit {
     this.getBalanceInfo();
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
- 
   }
 
   getInfo() {
@@ -57,8 +54,6 @@ export class MainComponent implements OnInit {
       }
     });
   }
-
-  
 
   getBalanceInfo() {
     const link = `${environment.apiUrl}/api/index.php/api/dashboard`;

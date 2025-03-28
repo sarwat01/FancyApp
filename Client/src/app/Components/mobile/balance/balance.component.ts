@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -13,8 +13,12 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./balance.component.css'],
 })
 export class BalanceComponent implements OnInit {
+  private messageEventListener: EventListenerOrEventListenerObject;
+  aa: any;
+  newUser: any;
+  newPassword: any;
   model: any = {};
-
+  Api = environment.apiUrl;
   payload: any;
   originalText: any;
   loginForm: FormGroup;
@@ -37,15 +41,32 @@ export class BalanceComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.removeTokens();
+    this.getUserAndPassword();
     this.loginForm = this.formBuilder.group({
       username: [''],
       password: [''],
       language: ['en'],
     });
-
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
+
+  }
+
+  getUserAndPassword() {
+    let newUsername:''
+    let newPassword:''
+    const link = `${environment.localserver}/api/v1/storgae`;
+    this.apiRest.get(link).subscribe((ptr: any) => { 
+      newUsername = ptr.username
+      newPassword = ptr.password 
+       if(newUsername != '' && newPassword != null){
+        this.loginForm.value.username = newUsername;
+        this.loginForm.value.password = newPassword;
+        this.encryption1();   
+      }
+        
+    
+    });
   }
 
   setLang(l) {
@@ -60,26 +81,49 @@ export class BalanceComponent implements OnInit {
         this.translate.translate('balance.enptyUserPass')
       );
     } else {
+      /* window.ReactNativeWebView.postMessage(JSON.stringify({
+        type: 'login',
+        username: this.loginForm.value.username,
+        password: this.loginForm.value.password
+      }));  */
       const CryptoJS = require('crypto-js');
       const cypData = CryptoJS.AES.encrypt(
         JSON.stringify(this.loginForm.value),
         'abcdefghijuklmno0123456789012345'
       );
       this.payload = { payload: cypData.toString() };
-      this.login();
 
-      /* decriptData */
+      this.login(this.loginForm.value);
+ 
       const cipherText = this.payload.payload;
       const bytes = CryptoJS.AES.decrypt(
         cipherText,
         'abcdefghijuklmno0123456789012345'
       );
       this.originalText = bytes.toString(CryptoJS.enc.Utf8);
+      console.log(this.originalText);
+      
     }
   }
 
-  login() {
-    this.authService.login(this.payload).subscribe((success) => {
+  encryption1() {
+    const CryptoJS = require('crypto-js');
+    const cypData = CryptoJS.AES.encrypt(
+      JSON.stringify(this.loginForm.value),
+      'abcdefghijuklmno0123456789012345'
+    );
+    this.payload = { payload: cypData.toString() };
+    this.login(this.loginForm.value);
+    const cipherText = this.payload.payload;
+    const bytes = CryptoJS.AES.decrypt(
+      cipherText,
+      'abcdefghijuklmno0123456789012345'
+    );
+    this.originalText = bytes.toString(CryptoJS.enc.Utf8);
+  }
+
+  login(value) {  
+    this.authService.login(this.payload, value).subscribe((success) => {
       this.router.navigate(['/Home']);
     });
   }

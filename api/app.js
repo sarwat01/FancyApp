@@ -17,7 +17,7 @@ const helmet = require("helmet");
 const xss = require("xss-clean");
 const hpp = require("hpp");
 const fileUpload = require('express-fileupload')
-
+const localStorage = require("./routes/localStorage");
 
 app.use(cors());
 app.use(
@@ -25,6 +25,8 @@ app.use(
     origin: "*",
   })
 );
+
+
 app.use(helmet());
 
 app.use(morgan("dev"));
@@ -55,7 +57,7 @@ app.use("/api/v1/information", informationRouter);
 app.use("/api/v1/fcm", fcmRoutes);
 app.use("/api/v1/sendFcmNotification", sendFcmNotification);
 app.use("/api/v1/user", auth);
-
+app.use("/api/v1/storgae", localStorage);
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
