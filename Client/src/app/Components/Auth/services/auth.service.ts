@@ -18,11 +18,12 @@ export class AuthService {
 
   constructor(private http: HttpClient, private tostService: ToastrService) {}
 
-  login(payload: any): Observable<boolean> {
+  login(payload: any,value:any): Observable<boolean> {
+    
     return this.http
       .post<any>(`${environment.apiUrl}/api/index.php/api/auth/login`, payload)
       .pipe(
-        tap((token) => this.doLoginUser(token)),
+        tap((token) => this.doLoginUser(token,value)),
         mapTo(true),
         catchError((error) => {
           return of(false);
@@ -34,7 +35,7 @@ export class AuthService {
     return this.http
       .post<any>(`${environment.localserver}/api/v1/user/login`, payload)
       .pipe(
-        tap((token) => this.doLoginUser(token)),
+        tap((token) => this.doLoginUser(token,'a')),
         mapTo(true),
         catchError((error) => {
           return of(false);
@@ -75,10 +76,31 @@ export class AuthService {
     return localStorage.getItem(this.JWT_TOKEN);
   }
 
-  private doLoginUser(token: any) {
-    this.storeTokens(token);
+  async doLoginUser(token: any,value:any) {
+
+  await  this.loginMob(value)
+  await this.loginWeb(token)
+   /* this.storeTokens(token);
+    window.ReactNativeWebView.postMessage(JSON.stringify({
+      type: 'login',
+      username: value.username,
+      password: value.password
+    }));  */
   }
 
+  async loginMob(value){
+  
+    
+ await   window.ReactNativeWebView.postMessage(JSON.stringify({
+      type: 'login',
+      username: value.username,
+      password: value.password
+    }));
+  }
+
+ async  loginWeb(token){
+   await this.storeTokens(token);
+  }
   private doLogoutUser() {
     this.loggedUser = null;
     this.removeTokens();
@@ -105,8 +127,12 @@ export class AuthService {
   }
 
   removeTokens() {
-    localStorage.removeItem(this.JWT_TOKEN);
+   window.ReactNativeWebView.postMessage(JSON.stringify({
+        type: 'logout',
+      })); 
+    /* localStorage.removeItem(this.JWT_TOKEN);
     localStorage.removeItem(this.REFRESH_TOKEN);
-    localStorage.removeItem(this.translocoLang);
+    localStorage.removeItem(this.translocoLang); */
+    
   }
 }

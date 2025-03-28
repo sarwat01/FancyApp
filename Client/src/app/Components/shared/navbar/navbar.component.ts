@@ -9,7 +9,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Auth/services/auth.service'; 
  
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -45,9 +44,7 @@ export class NavbarComponent implements OnInit {
  
 
   setLang(l) {
-    console.log(l);
-    
-    this.translate.setActiveLang(l.target.value);
+     this.translate.setActiveLang(l.target.value);
   }
 
   CloseSide() {
@@ -68,7 +65,14 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-     this.router.navigate(['/']);
+ //await this.authService.removeTokens();
+ localStorage.clear();  // Clear web's localStorage
+  sessionStorage.clear();
+ window.ReactNativeWebView.postMessage(JSON.stringify({
+  type: 'logout',
+})); 
+   this.router.navigate(['/']); 
+
   }
 
   home() {
