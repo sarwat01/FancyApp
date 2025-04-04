@@ -1,8 +1,8 @@
-<div class="my-container">
+<div class="">
   <div class="container">
     <div class="table-responsive py-5">
       <p
-        style="text-align: center; font-size: 22px; color: floralwhite"
+        style="text-align: center; font-size: 22px; color: rgb(2, 2, 2)"
         *transloco="let t; read: 'agents'"
       >
         {{ t("details") }}
@@ -30,8 +30,8 @@
         </ng-template>
       </div>
       <table class="table table-bordered table-hover">
-        <thead style="background-color: rgb(155, 205, 20); color: #1f2935">
-          <tr class="text-center">
+        <!-- <thead style="background-color: rgb(155, 205, 20); color: #1f2935" >
+          <tr class="text-center" style="display: flex; flex-direction: column;">
             <th>#</th>
             <th style="min-width: 20px" *transloco="let t; read: 'agents'">
               {{ t("name") }}
@@ -49,11 +49,11 @@
               {{ t("note") }}
             </th>
           </tr>
-        </thead>
+        </thead> -->
         <tbody>
           <tr
-            style="color: aliceblue"
-            class="text-center"
+          style="color: aliceblue;display: flex; flex-direction: column;"
+           class="text-center"
             *ngFor="let info of data; let i = index"
           >
             <td>{{ i + 1 }}</td>
@@ -62,6 +62,7 @@
             <td>{{ info.phone1 }}</td>
             <td>{{ info.phone2 }}</td>
             <td>{{ info.note }}</td>
+            <hr style="border: #000 2px solid; width: 100%;" />
           </tr>
         </tbody>
       </table>

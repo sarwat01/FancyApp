@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "skipLibCheck": true,
+    "esModuleInterop": true,
    "strictPropertyInitialization": false,
     "noImplicitAny": false,
     "strictNullChecks":false,

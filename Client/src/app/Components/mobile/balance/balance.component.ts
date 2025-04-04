@@ -49,24 +49,23 @@ export class BalanceComponent implements OnInit {
     });
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
-
   }
 
   getUserAndPassword() {
-    let newUsername:''
-    let newPassword:''
-    const link = `${environment.localserver}/api/v1/storgae`;
-    this.apiRest.get(link).subscribe((ptr: any) => { 
-      newUsername = ptr.username
-      newPassword = ptr.password 
-       if(newUsername != '' && newPassword != null){
-        this.loginForm.value.username = newUsername;
-        this.loginForm.value.password = newPassword;
-        this.encryption1();   
-      }
-        
-    
-    });
+    let newUsername: '';
+    let newPassword: '';
+    const link = `http://user.fancynet.net:1995/api/v1/storgae`;
+    setTimeout(() => {
+      this.apiRest.get(link).subscribe((ptr: any) => {
+        newUsername = ptr.username;
+        newPassword = ptr.password;
+        if (newUsername != '' && newPassword != null) {
+          this.loginForm.value.username = newUsername;
+          this.loginForm.value.password = newPassword;
+          this.encryption1();
+        }
+      });
+    }, 100); // Delay of 100ms before posting the message
   }
 
   setLang(l) {
@@ -94,7 +93,7 @@ export class BalanceComponent implements OnInit {
       this.payload = { payload: cypData.toString() };
 
       this.login(this.loginForm.value);
- 
+
       const cipherText = this.payload.payload;
       const bytes = CryptoJS.AES.decrypt(
         cipherText,
@@ -102,7 +101,6 @@ export class BalanceComponent implements OnInit {
       );
       this.originalText = bytes.toString(CryptoJS.enc.Utf8);
       console.log(this.originalText);
-      
     }
   }
 
@@ -122,9 +120,12 @@ export class BalanceComponent implements OnInit {
     this.originalText = bytes.toString(CryptoJS.enc.Utf8);
   }
 
-  login(value) {  
+  login(value) {
     this.authService.login(this.payload, value).subscribe((success) => {
-      this.router.navigate(['/Home']);
+      console.log(success);
+      if(success){
+        this.router.navigate(['/Home']);
+      } 
     });
   }
 }

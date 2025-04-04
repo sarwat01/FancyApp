@@ -2,7 +2,38 @@
   <div class="screen">
     <div class="screen__content">
       <div class="row">
-        <div routerLink="/Home/activrCard" class="col-md-4">
+        <div routerLink="/Home/activrCard" class="col-md-12">
+          <div
+            class="card-counter"
+            style="
+              background-color: #1f2935;
+              color: white;
+              text-align: right;
+              opacity: 1;
+            "
+          >
+            <p class="titleCustomer">{{ data.name }}</p>
+            <p class="detailCustomer">{{ data.phone }}</p>
+            <p class="detailCustomer" >  
+               <span>{{ newDate | date:'yyyy-MM-dd - hh:mm a' }}</span>
+             </p>
+
+            <i
+              style="display: flex; justify-content: end"
+              class="fa fa-credit-card-alt"
+              aria-hidden="true"
+            ></i>
+          </div>
+        </div>
+      </div>
+
+
+     
+
+      <!-- <div class="screen__content">
+      <div class="row"> 
+         
+       <div routerLink="/Home/activrCard" class="col-md-2">
           <div
             class="card-counter" 
             style="background-color: #1f2935; color: white; text-align: right"
@@ -16,23 +47,8 @@
               aria-hidden="true"
             ></i>
           </div>
-        </div>
-
-       <!--  <div routerLink="/Home/user" class="col-md-4">
-          <div
-            class="card-counter"
-            style="background-color: #1f2935; color: white; text-align: right"
-          >
-            <span class="count-numbers" *transloco="let t; read: 'main'">{{
-              t("main_person_info")
-            }}</span>
-            <i
-              style="display: flex; justify-content: end"
-              class="fa fa-user"
-              aria-hidden="true"
-            ></i>
-          </div>
-        </div> -->
+        </div> 
+ 
 
         <div routerLink="/Home/mobileAgent" class="col-md-4">
           <div
@@ -41,7 +57,7 @@
           >
             <span class="count-numbers" *transloco="let t; read: 'main'">{{
               t("main_agents")
-            }}</span>
+            }} </span>
 
             <i
               style="display: flex; justify-content: end"
@@ -67,92 +83,141 @@
             ></i>
           </div>
         </div>
-        <!-- <div routerLink="/Home/mobileToturials" class="col-md-4">
-          <div
-            class="card-counter"
-            style="background-color: #1f2935; color: white; text-align: right"
-          >
-          
-            <span class="count-numbers" *transloco="let t; read: 'main'">{{
-              t("main_tutorial")
-            }}</span>
+         
+      </div>
+    </div> -->
 
-            <i
-              style="display: flex; justify-content: end"
-              class="fas fa-video"
-              aria-hidden="true"
-            ></i>
+      <div class="container mt-5">
+        <div class="row">
+          <!-- First Card -->
+          <div class="col-6 col-md-3 mb-4 card-1">
+            <div class="card text-center" routerLink="/Home/activrCard">
+              <div class="card-body text-center">
+                <!-- Circle icon -->
+                <div class="circle-icon">
+                  <i class="fa fa-credit-card"></i>
+                </div>
+                <h5 class="card-title" *transloco="let t; read: 'main'">
+                  {{ t("main_card") }}
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Card -->
+          <div class="col-6 col-md-3 mb-4 card-1">
+            <div class="card text-center">
+              <div class="card-body" routerLink="/Home/mobileAgent">
+                <!-- Circle icon -->
+                <div class="circle-icon">
+                  <i class="fas fa-user"></i>
+                </div>
+                <h5 class="card-title" *transloco="let t; read: 'main'">
+                  {{ t("main_agents") }}
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div routerLink="/Home/activrCard" class="col-md-12">
+            <div
+              class="card-counter"
+              style="
+                background-color: #1f2935;
+                color: white;
+                text-align: center;
+                opacity: 1;
+              "
+            >
+            <p style="font-size: 24px; margin-bottom: -7px;font-weight: bolder;">{{ balanceInfo }}  </p>
+            <h2 *transloco="let t; read: 'main'"
+            >
+              {{ t("remainigDays") }} </h2>
+  
+               
+            </div>
+          </div>
+        </div>
+ 
+<!-- 
+        <div class="remaining-days">
+          <p>{{ balanceInfo }}  </p>
+          <h2 *transloco="let t; read: 'main'"
+          >
+            {{ t("remainigDays") }} </h2>
+          
+        </div> -->
+        <!-- <div
+          style="
+            margin: 20px;
+            border: 10px solid #f7f8f9;
+            border-radius: 50%;
+            width: 330px;
+            height: 330px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              border: 10px solid #1f2935;
+              border-radius: 50%;
+              width: 300px;
+              height: 300px;
+              margin: 5px;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+              "
+            >
+              <td
+                style="font-weight: bold; font-size: 130px; color: #66bb6a"
+                *ngIf="balanceInfo >= 10"
+              >
+                {{ balanceInfo }}
+              </td>
+              <td
+                style="
+                  font-weight: bold;
+                  font-size: 150px;
+                  color: rgb(229, 163, 32);
+                "
+                *ngIf="balanceInfo < 10 && balanceInfo > 0"
+              >
+                {{ balanceInfo }}
+              </td>
+              <td
+                style="
+                  font-weight: bold;
+                  font-size: 150px;
+                  color: red;
+                  margin-top: -1px;
+                "
+                *ngIf="balanceInfo <= 0"
+              >
+                {{ balanceInfo }}
+              </td>
+              <td
+                style="
+                  color: black;
+                  font-size: 20px;
+                  font-weight: bolder;
+                  margin-bottom: 30px;
+                  text-align: center;
+                "
+                *transloco="let t; read: 'main'"
+              >
+                {{ t("remainigDays") }}
+              </td>
+            </div>
           </div>
         </div> -->
       </div>
     </div>
-
-    <div
-      style="
-        margin: 20px;
-        border: 10px solid #f7f8f9;
-        border-radius: 50%;
-        width: 330px;
-        height: 330px;
-      "
-    >
-      <div
-        style="
-          display: flex;
-          justify-content: center;
-          border: 10px solid #1f2935;
-          border-radius: 50%;
-          width: 300px;
-          height: 300px;
-          margin: 5px;
-        "
-      >
-        <div
-          style="display: flex; justify-content: center; flex-direction: column"
-        >
-          <td
-            style="font-weight: bold; font-size: 130px; color: #66bb6a"
-            *ngIf="balanceInfo >= 10"
-          >
-            {{ balanceInfo }}
-          </td>
-          <td
-            style="
-              font-weight: bold;
-              font-size: 150px;
-              color: rgb(229, 163, 32);
-            "
-            *ngIf="balanceInfo < 10 && balanceInfo > 0"
-          >
-            {{ balanceInfo }}
-          </td>
-          <td
-            style="
-              font-weight: bold;
-              font-size: 150px;
-              color: red;
-              margin-top: -1px;
-            "
-            *ngIf="balanceInfo <= 0"
-          >
-            {{ balanceInfo }}
-          </td>
-          <td
-            style="
-              color: black;
-              font-size: 20px;
-              font-weight: bolder;
-              margin-bottom: 30px;
-              text-align: center;
-            "
-            *transloco="let t; read: 'main'"
-          >
-            {{ t("remainigDays") }}
-          </td>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
-
-

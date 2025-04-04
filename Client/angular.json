@@ -14,7 +14,9 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
-              "rxjs-compat" 
+              "rxjs-compat" ,
+               "flat",
+            "@ngneat/transloco"
            ],
             "outputPath": "dist/client",
             "index": "src/index.html",

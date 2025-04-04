@@ -2,7 +2,12 @@ const catchAsync = require("../utils/catchAsync");
 const appError = require("../utils/appError");
 const fcmService = require('../services/fcmServices');
 
+const postToken = catchAsync(async (req, res) => {
+    const token = await fcmService.createFCM();
+      res.send({'token':token})
+});
 
+  
 const create = catchAsync(async (req, res) => { 
  const fcm = await fcmService.create(req.body)
 res.send(fcm)
@@ -30,6 +35,7 @@ module.exports = {
     create,
     getAll,
     getOne,
-    deleteFcm
+    deleteFcm,
+    postToken
 
 }

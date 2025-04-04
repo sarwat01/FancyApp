@@ -3,6 +3,7 @@ const router = express.Router()
 const fcmController = require('../controller/fcmController')
 
 
+router.route('/fcm').post(fcmController.postToken)
 router
 .route('/')
 .post(fcmController.create)

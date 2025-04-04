@@ -20,12 +20,11 @@ updatePassowrd : any ={}
     this.getUserdata()
   }
   getUserdata(): void {
-     let temp = localStorage.getItem('userInfo') ?? '{}';
+   let temp = localStorage.getItem('userInfo') ?? '{}';
     this.data = JSON.parse(temp);
    }
 
-   updateUserPassword(){
-    console.log(this.updatePassowrd.passwordCurrent);
+   updateUserPassword(){ 
     if(this.updatePassowrd.passwordCurrent != '' && this.updatePassowrd.passwordCurrent != null && this.updatePassowrd.passwordCurrent != undefined){
       if(this.updatePassowrd.password !=this.updatePassowrd.confermPassword ){
 
