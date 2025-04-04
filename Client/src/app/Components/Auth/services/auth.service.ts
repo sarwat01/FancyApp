@@ -15,15 +15,18 @@ export class AuthService {
   private readonly translocoLang = 'translocoLang';
   private readonly userInfo = 'userInfo';
   private loggedUser: string;
+  username:any
+  password:any
 
   constructor(private http: HttpClient, private tostService: ToastrService) {}
 
   login(payload: any,value:any): Observable<boolean> {
-    
+    this.username = value.username
+    this.password = value.password
     return this.http
       .post<any>(`${environment.apiUrl}/api/index.php/api/auth/login`, payload)
       .pipe(
-        tap((token) => this.doLoginUser(token,value)),
+        tap((token) => this.doLoginUser(token)),
         mapTo(true),
         catchError((error) => {
           return of(false);
@@ -35,7 +38,7 @@ export class AuthService {
     return this.http
       .post<any>(`${environment.localserver}/api/v1/user/login`, payload)
       .pipe(
-        tap((token) => this.doLoginUser(token,'a')),
+        tap((token) => this.doLoginUser(token)),
         mapTo(true),
         catchError((error) => {
           return of(false);
@@ -76,30 +79,42 @@ export class AuthService {
     return localStorage.getItem(this.JWT_TOKEN);
   }
 
-  async doLoginUser(token: any,value:any) {
+  async doLoginUser(token: any) {
+  
+   this.storeTokens(token);
+  console.log(JSON.stringify({
+    type: 'login',
+    username: this.username,
+    password: this.password
+  }));
+  
+  await  window.ReactNativeWebView.postMessage(JSON.stringify({
+    type: 'login',
+    username: this.username,
+    password: this.password
+  }));  
+}
+/*   async doLoginUser(token: any) {
+  await  this.storeTokens(token); 
+     window.ReactNativeWebView.postMessage(JSON.stringify({
+      type: 'login',
+      username: this.username,
+      password: this.password
+    }));  
+   } */
 
-  await  this.loginMob(value)
-  await this.loginWeb(token)
-   /* this.storeTokens(token);
+  loginMob(value){
     window.ReactNativeWebView.postMessage(JSON.stringify({
       type: 'login',
       username: value.username,
       password: value.password
-    }));  */
-  }
-
-  async loginMob(value){
-  
-    
- await   window.ReactNativeWebView.postMessage(JSON.stringify({
-      type: 'login',
-      username: value.username,
-      password: value.password
     }));
+
+    
   }
 
- async  loginWeb(token){
-   await this.storeTokens(token);
+   loginWeb(token){
+    this.storeTokens(token);
   }
   private doLogoutUser() {
     this.loggedUser = null;
@@ -120,19 +135,24 @@ export class AuthService {
     localStorage.setItem(this.JWT_TOKEN, jwt.token);
     localStorage.setItem(this.REFRESH_TOKEN, jwt.token);
   }
-  private storeTokens(data: any) {
+  private async storeTokens(data: any) {
+ 
     localStorage.setItem(this.JWT_TOKEN, data.token);
     localStorage.setItem(this.REFRESH_TOKEN, data.token);
-    localStorage.setItem('userInfo', JSON.stringify(data.data.user));
+ 
+   /*  else if(data.data.user){
+      localStorage.setItem('userInfo', JSON.stringify(data.data.user));
+    } */
+ 
+ 
   }
 
   removeTokens() {
-   window.ReactNativeWebView.postMessage(JSON.stringify({
-        type: 'logout',
-      })); 
-    /* localStorage.removeItem(this.JWT_TOKEN);
+    localStorage.removeItem(this.JWT_TOKEN);
     localStorage.removeItem(this.REFRESH_TOKEN);
-    localStorage.removeItem(this.translocoLang); */
-    
+    localStorage.removeItem(this.translocoLang);  
+    window.ReactNativeWebView.postMessage(JSON.stringify({
+      type: 'logout',
+    })); 
   }
 }

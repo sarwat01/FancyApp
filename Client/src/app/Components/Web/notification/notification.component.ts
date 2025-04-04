@@ -16,11 +16,15 @@ import { MainComponent } from '../../mobile/main/main.component';
   styleUrls: ['./notification.component.css'],
 })
 export class NotificationComponent implements OnInit {
+  token:any
+  devicesToken:any
   width: number = 0;
   a: MainComponent;
+  get: any = [];
   data: any;
   model = { title: '', detail: '' };
   getItem: any = {};
+  notification = { jwtClient: 'https://www.googleapis.com/auth/firebase.messaging'};
   constructor(
     private apiRest: RestApiService,
     public actRoute: ActivatedRoute,
@@ -33,7 +37,16 @@ export class NotificationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNotification();
+    this.getTokent()
   }
+
+  getTokent (){ 
+    let link = `${environment.localserver}/api/v1/fcm/fcm`
+      this.apiRest.post(link,this.notification).subscribe((res:any) => {
+       this.token = res.token  
+     })  
+   }
+   
 
   getNotification() {
     let path = `${environment.localserver}/api/v1/sendFcmNotification`;
@@ -46,6 +59,9 @@ export class NotificationComponent implements OnInit {
     let path = `${environment.localserver}/api/v1/sendFcmNotification/`;
     this.apiRest.getbyid(path, id).subscribe((res) => {
       this.getItem = res;
+
+      console.log(res);
+      
     });
   }
 
@@ -75,11 +91,10 @@ export class NotificationComponent implements OnInit {
     this.apiRest.get(path).subscribe((res: any) => {
        for (let index = 0; index < res.length; index++) {
         this.width = index/index * 100;
-
         const element = res[index].fcmToken;
         sendData.to = element; 
          const headers = { 
-        Authorization: 'Bearer AAAAWxuwUeY:APA91bHgLO0QiMTXAYfq19rlf5Z7QxNwHDEQ4H9KiPF7fcRRPx-3YwMlO94qVUwpHfxFufrzKppBghr7X3hNzOsA6--odXShtLQT1KXQNpHlvCHRFv5atmHlx5goDI82cZCQRJkdu7eW',
+        Authorization: `Bearer ${this.token}`,
         'Content-MD5': 'application/json', }; 
          this.http.post<any>('https://fcm.googleapis.com/fcm/send', sendData, { headers }).subscribe(data => {
          
@@ -90,6 +105,51 @@ export class NotificationComponent implements OnInit {
     });
   }
 
+  
+
+
+ sendNotificatoin( ) {
+
+  let sendData = {
+       message: {
+        token: "",
+        notification: {
+          title:this.getItem.title,
+          body: this.getItem.detail
+        },
+        apns: {
+          payload: {
+            aps: {
+              alert: {
+                title: this.getItem.title,
+                body: this.getItem.detail
+              },
+              sound: "alarm.caf"  // Sound to be played when the notification is received
+            }
+          }
+        }
+      }
+    } 
+  
+   
+  let path = `${environment.localserver}/api/v1/fcm`;
+  this.apiRest.get(path).subscribe((res: any) => {
+    
+     for (let index = 0; index < res.length; index++) {
+       const element = res[index].fcmToken;
+      
+      sendData.message.token = element; 
+      const headers = { 
+      Authorization: `Bearer ${this.token}`,
+      'Content-MD5': 'application/json', }; 
+     this.http.post<any>('https://fcm.googleapis.com/v1/projects/fancynet-94963/messages:send', sendData, { headers }).subscribe(data => {
+       
+     });   
+    }
+    this.toastService.success('سوپاس بەڕێزم ئاگادارییەکەت بەسەرکەوتوی نێردرا') 
+    
+  });
+}
  
 
   updateNotification(id) {
