@@ -12,9 +12,8 @@ import { RestApiService } from '../../Auth/shared.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  model: any = {};
-  private messageEventListener: EventListenerOrEventListenerObject;
-message:any
+  model: any = {}; 
+  message:any
   payload: any;
   originalText: any;
   loginForm: FormGroup;
@@ -32,49 +31,31 @@ message:any
   ) {
     translate.langChanges$.subscribe((lang) => {
       this.currentLang = lang;
+       
       console.log('Language changed to', this.currentLang);
     });
   }
 
   ngOnInit() {
-   
-      
-    this.authService.removeTokens();
+    this.langList = this.translate.getAvailableLangs();
+    this.currentLang = this.translate.getActiveLang();
     this.loginForm = this.formBuilder.group({
       username: [''],
       password: [''],
       language: ['en'],
     });
 
-    this.langList = this.translate.getAvailableLangs();
-    this.currentLang = this.translate.getActiveLang();
   }
 
   setLang(l) {
     this.translate.setActiveLang(l.target.value);
   }
-  event: MessageEvent
-
-  receiveMessage(event: MessageEvent) {
-    alert(event.data)
-
-    /*  alert(event.data); */
-    console.log('Raw message received from React Native:', event.data);
-    try {
-      console.log();
-      
-      this.message = event.data
-
-       this.login()
-    } catch (error) {
-      console.error('Error parsing message data:', error);
-    }
-  }
+   
   login() {
 
-    /* const payload = this.loginForm.value; */
-    this.authService.loginFancy(this.message).subscribe((success) => {
-      if (success == true) {
+     const payload = this.loginForm.value; 
+    this.authService.loginFancy(payload).subscribe((success) => {
+      if (success = true) {
         this.router.navigate(['/Index']);
       } else {
       } 

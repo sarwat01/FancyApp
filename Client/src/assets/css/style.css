@@ -18881,7 +18881,7 @@ input:focus {
 }
 
 .navbar.default-layout-navbar .navbar-brand-wrapper {
-  background:rgb(155, 205, 20);
+  background:#1f2935;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
@@ -18932,7 +18932,7 @@ input:focus {
 }
 
 .navbar.default-layout-navbar .navbar-menu-wrapper {
-  background: rgb(155, 205, 20);
+  background: #1f2935;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;

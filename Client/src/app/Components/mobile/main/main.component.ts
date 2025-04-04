@@ -13,6 +13,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
+  currentDate = new Date(); // Current date
+  newDate: any;
+
+  futureDate: Date;
+
   data: any = {};
   balanceInfo: number;
   balanceSize: number;
@@ -40,6 +45,7 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.getInfo();
     this.getBalanceInfo();
+    this.getBalanceInfoDate();
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
   }
@@ -58,8 +64,16 @@ export class MainComponent implements OnInit {
   getBalanceInfo() {
     const link = `${environment.apiUrl}/api/index.php/api/dashboard`;
     this.apiRest.get(link).subscribe((ptr: any) => {
-      this.balanceInfo = ptr.data.remaining_days;
+      this.balanceInfo = ptr.data.remaining_days + 1;
       this.balanceSize = ptr.data.remaining_days * 3.33;
+    });
+  }
+
+  getBalanceInfoDate() {
+    const link = `${environment.apiUrl}/api/index.php/api/service`;
+    this.apiRest.get(link).subscribe((ptr: any) => {
+      console.log(ptr);
+      this.newDate = ptr.data.expiration;
     });
   }
 
