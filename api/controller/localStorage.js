@@ -1,90 +1,47 @@
-const catchAsync = require("../utils/catchAsync"); // Wrapper to handle async errors without try/catch
+const catchAsync = require("../utils/catchAsync");
 
-// Global variables to temporarily store credentials
-let username = "";
-let password = "";
+// Temp one-request credentials map
+const tempStore = new Map();
 
 /**
  * POST /storage
- * This route receives username and password in the request body,
- * stores them in memory (temporarily), and responds with success.
+ * Stores credentials in a short-lived map (only for one request cycle)
  */
 const storage = catchAsync(async (req, res) => {
-  // Get username and password from request body, trimming extra spaces
-  username = req.body.username?.trim() || "";
-  password = req.body.password?.trim() || "";
+  const { username, password } = req.body;
 
-  // Basic validation to ensure both fields are provided
   if (!username || !password) {
     return res.status(400).json({ message: "Username and password are required." });
   }
 
-  // Respond with a success message (you can also return the data if needed)
-  res.status(200).json({ message: "Credentials stored successfully." });
+  // Generate a simple key (can be device id, IP, or a random UUID)
+  const key = req.ip; // IP-based, works if devices are distinct
+  tempStore.set(key, { username, password });
+
+  // Auto-delete after 1 second
+  setTimeout(() => tempStore.delete(key), 1000);
+
+  res.status(200).json({ message: "Credentials stored temporarily." });
 });
 
 /**
  * GET /getUserAndPawword
- * This route returns the stored credentials (username + password)
- * but only once — after responding, it clears the stored data.
+ * Returns stored credentials ONCE then deletes them
  */
 const getUserAndPawword = catchAsync(async (req, res) => {
-  try {
-    // Check if credentials are present; if not, return no content
-    if (!username || !password) {
-      return res.status(204).send(); // No Content — nothing to return
-    }
+  const key = req.ip;
 
-    // Return stored username and password
-    res.status(200).json({ username, password });
-  } finally {
-    // Reset credentials to ensure they are only used once
-    username = "";
-    password = "";
+  if (!tempStore.has(key)) {
+    return res.status(204).send(); // Nothing to return
   }
+
+  const { username, password } = tempStore.get(key);
+  tempStore.delete(key); // Remove after reading
+
+  res.status(200).json({ username, password });
 });
 
 module.exports = {
   storage,
   getUserAndPawword,
 };
-
-
-/* const catchAsync = require("../utils/catchAsync");
-
-let username = "";
-let password = "";
-
-const storagee = catchAsync(async (req, res) => {
-  username = " ";
-  password = " ";
-  username = req.body.username;
-  password = req.body.password;
-  res.send({ username, password });
-});
-
-const storage = catchAsync(async (req, res) => {
-  username = req.body.username || "";
-  password = req.body.password || "";
-  res.send({ username, password });
-});
-
-
-const getUserAndPawword = catchAsync(async (req, res) => {
-  try {
-    // Send response
-    res.status(200).json({
-      username,
-      password
-    });
-  } finally {
-    // Reset values in the finally block to ensure they are cleared
-    username = " ";
-    password = " ";
-  }
-});
-module.exports = {
-  storage,
-  getUserAndPawword,
-};
- */
