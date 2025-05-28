@@ -64,7 +64,7 @@ export class MainComponent implements OnInit {
   getBalanceInfo() {
     const link = `${environment.apiUrl}/api/index.php/api/dashboard`;
     this.apiRest.get(link).subscribe((ptr: any) => {
-      this.balanceInfo = ptr.data.remaining_days + 1;
+      this.balanceInfo = ptr.data.remaining_days ;
       this.balanceSize = ptr.data.remaining_days * 3.33;
     });
   }

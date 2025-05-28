@@ -5,6 +5,12 @@
     background: linear-gradient(130deg, #1f2935, #597494);
   }
 
+   
+  .modal-body {
+    max-height: 1500px;  /* Adjust the max height as needed */
+    overflow-y: 300px;   /* Allows scrolling if content is too large */
+  }
+
   .table{
     box-shadow: 0 4px 8px 0 rgba(222, 63, 63, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			-webkit-box-shadow: 0 2px 8px 0 rgb(155, 205, 20), 0 6px 20px 0 rgba(232, 220, 220, 0.928);

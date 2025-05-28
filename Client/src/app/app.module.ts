@@ -15,7 +15,7 @@ import { AuthService } from './Components/Auth/services/auth.service';
 import { AuthGuard } from './Components/Auth/guards/auth.guard';
 import { RandomGuard } from './Components/Auth/guards/random.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr'; 
 import {LoginComponent } from './Components/Web/login/login.component'
 import { BalanceComponent } from './Components/mobile/balance/balance.component';
 import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
