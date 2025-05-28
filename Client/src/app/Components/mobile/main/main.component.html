@@ -2,7 +2,7 @@
   <div class="screen">
     <div class="screen__content">
       <div class="row">
-        <div routerLink="/Home/activrCard" class="col-md-12">
+        <div class="col-md-12">
           <div
             class="card-counter"
             style="
@@ -30,62 +30,7 @@
 
      
 
-      <!-- <div class="screen__content">
-      <div class="row"> 
-         
-       <div routerLink="/Home/activrCard" class="col-md-2">
-          <div
-            class="card-counter" 
-            style="background-color: #1f2935; color: white; text-align: right"
-          >
-            <span class="count-numbers" *transloco="let t; read: 'main'">{{
-              t("main_card")
-            }}</span>
-            <i
-              style="display: flex; justify-content: end"
-              class="fa fa-credit-card-alt"
-              aria-hidden="true"
-            ></i>
-          </div>
-        </div> 
- 
-
-        <div routerLink="/Home/mobileAgent" class="col-md-4">
-          <div
-            class="card-counter"
-            style="background-color: #1f2935; color: white; text-align: right"
-          >
-            <span class="count-numbers" *transloco="let t; read: 'main'">{{
-              t("main_agents")
-            }} </span>
-
-            <i
-              style="display: flex; justify-content: end"
-              class="fas fa-store-alt"
-              aria-hidden="true"
-            ></i>
-          </div>
-        </div>
-
-        <div routerLink="/Home/mobileNotification" class="col-md-4">
-          <div
-            class="card-counter"
-            style="background-color: #1f2935; color: white; text-align: right"
-          >
-            <span class="count-numbers" *transloco="let t; read: 'main'">{{
-              t("main_notification")
-            }}</span>
-
-            <i
-              style="display: flex; justify-content: end"
-              class="fas fa-bell"
-              aria-hidden="true"
-            ></i>
-          </div>
-        </div>
-         
-      </div>
-    </div> -->
+       
 
       <div class="container mt-5">
         <div class="row">
@@ -97,10 +42,11 @@
                 <div class="circle-icon">
                   <i class="fa fa-credit-card"></i>
                 </div>
-                <h5 class="card-title" *transloco="let t; read: 'main'">
-                  {{ t("main_card") }}
-                </h5>
+                
               </div>
+              <h5 class="card-title" *transloco="let t; read: 'main'">
+                {{ t("main_card") }}
+              </h5>
             </div>
           </div>
 
@@ -112,15 +58,16 @@
                 <div class="circle-icon">
                   <i class="fas fa-user"></i>
                 </div>
-                <h5 class="card-title" *transloco="let t; read: 'main'">
-                  {{ t("main_agents") }}
-                </h5>
+               
               </div>
+              <h5 class="card-title" *transloco="let t; read: 'main'">
+                {{ t("main_agents") }}
+              </h5>
             </div>
           </div>
         </div>
         <div class="row">
-          <div routerLink="/Home/activrCard" class="col-md-12">
+          <div  class="col-md-12">
             <div
               class="card-counter"
               style="

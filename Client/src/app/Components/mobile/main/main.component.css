@@ -6,7 +6,12 @@
         background-color: rgb(75, 229, 4);
       }
       
-       
+       .cardTitle{
+        color: #000000;
+        font-weight: normal;
+        margin-bottom: 1.25rem;
+        text-transform: capitalize; 
+       }
       .my-container {
       box-sizing: border-box;
       margin: 0;
@@ -137,7 +142,7 @@
 
   /* Card content spacing */
   .card-body {
-    padding: 2rem;
+    padding: center;
   }
 
   /* Adjusting icon sizes for specific cards */

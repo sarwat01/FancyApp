@@ -32,7 +32,7 @@ export class MobileAgentComponent implements OnInit {
 
   ngOnInit(): void {
      this.getAddress();
-     this.getAllAgents();
+     /* this.getAllAgents(); */
   }
 
   getAllAgents() {
