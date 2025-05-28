@@ -19,7 +19,7 @@ const storage = catchAsync(async (req, res) => {
   tempStore.set(key, { username, password });
 
   // Auto-delete after 1 second
-  setTimeout(() => tempStore.delete(key), 1000);
+  //setTimeout(() => tempStore.delete(key), 3000);
 
   res.status(200).json({ message: "Credentials stored temporarily." });
 });
@@ -30,6 +30,7 @@ const storage = catchAsync(async (req, res) => {
  */
 const getUserAndPawword = catchAsync(async (req, res) => {
   const key = req.ip;
+ 
 
   if (!tempStore.has(key)) {
     return res.status(204).send(); // Nothing to return

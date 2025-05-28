@@ -19,10 +19,7 @@ const hpp = require("hpp");
 const fileUpload = require('express-fileupload')
 const localStorage = require("./routes/localStorage");
 
- 
-// Middleware
-app.use(cors()); // Allow cross-origin requests (needed for frontend to access)
- 
+app.use(cors());
 app.use(
   cors({
     origin: "*",
