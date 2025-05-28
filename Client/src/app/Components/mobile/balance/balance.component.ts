@@ -52,59 +52,39 @@ export class BalanceComponent implements OnInit {
   }
 
   getUserAndPassword() {
-  const apiUrl = `http://user.fancynet.net:1995/api/v1/getUserAndPawword`;
+  const apiUrl = `http://user.fancynet.net:1995/api/v1/storage/getUserAndPawword`; // ✅ Fixed typo
 
-  // Add a delay before calling the API if needed (optional)
-  setTimeout(() => {
-    this.apiRest.get(apiUrl).subscribe(
-      (response: any) => {
-        const newUsername = response.username?.trim() || '';
-        const newPassword = response.password?.trim() || '';
+  this.apiRest.get(apiUrl).subscribe(
+    (response: any) => {
+      const newUsername = response.username?.trim() || '';
+      const newPassword = response.password?.trim() || '';
 
-        console.log({
-          user: newUsername,
+      // Only proceed if both values are not empty
+      if (newUsername !== '' && newPassword !== '') {
+        // Safely update form fields
+        this.loginForm.patchValue({
+          username: newUsername,
           password: newPassword
         });
 
-        // Only proceed if both values are not empty
-        if (newUsername !== '' && newPassword !== '') {
-          // Update form values safely using patchValue
+        // Immediately trigger your encryption/login logic
+        this.encryption1();
+
+        // Optional: Clear form after 1 second to avoid lingering credentials
+        setTimeout(() => {
           this.loginForm.patchValue({
-            username: newUsername,
-            password: newPassword
+            username: '',
+            password: ''
           });
-
-          // Call the encryption or login handler
-          this.encryption1();
-        }
-      },
-      (error) => {
-        console.error('Failed to fetch credentials:', error);
+        }, 100);
       }
-    );
-  }, 500); // Optional delay before making the call
+    },
+    (error) => {
+      console.error('Failed to fetch credentials:', error);
+    }
+  );
 }
-
-  /* getUserAndPassword() {
-    let newUsername ='';
-    let newPassword ='';
-     const link = `http://user.fancynet.net:1995/api/v1/getUserAndPawword`;
-    setTimeout(() => {
-      this.apiRest.get(link).subscribe((ptr: any) => {
-        newUsername = ptr.username;
-        newPassword = ptr.password;
-        console.log({"user":newUsername,
-          "password":newPassword});
-        
-        if (newUsername != '') {
-          this.loginForm.value.username = newUsername;
-          this.loginForm.value.password = newPassword;
-            this.encryption1();
-        }
-      });
-    }, 500); // Delay of 500ms before posting the message
-  } */
-
+ 
   setLang(l) {
     this.translate.setActiveLang(l.target.value);
   }
@@ -160,9 +140,9 @@ export class BalanceComponent implements OnInit {
   login(value) {
     this.authService.login(this.payload, value).subscribe((success) => {
       console.log(success);
-      if(success){
+      if (success) {
         this.router.navigate(['/Home']);
-      } 
+      }
     });
   }
 }

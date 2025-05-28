@@ -7,7 +7,7 @@ router
 .route('/')
 .post(userController.storage)
 router
-.route('/')
+.route('/getUserAndPawword')
 .get(userController.getUserAndPawword)
 
  
