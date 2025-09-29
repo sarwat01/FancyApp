@@ -44,6 +44,8 @@ export class NotificationComponent implements OnInit {
     let link = `${environment.localserver}/api/v1/fcm/fcm`
       this.apiRest.post(link,this.notification).subscribe((res:any) => {
        this.token = res.token  
+       console.log(this.token);
+       
      })  
    }
    
@@ -92,7 +94,7 @@ export class NotificationComponent implements OnInit {
        for (let index = 0; index < res.length; index++) {
         this.width = index/index * 100;
         const element = res[index].fcmToken;
-        sendData.to = element; 
+        sendData.to = 'ddAx6KJob0DcluOqywh4ql:APA91bHvoSUk3litLwIQLxcz3eLpneRkEJ9kiqutvAG-_FX5J9Z0i6satUWFn8Qb9lVyTAwHuvipNFbFcFK5WfTVO9gjAz5vMw7415c5W4K0qMCakpGjfJ0'; 
          const headers = { 
         Authorization: `Bearer ${this.token}`,
         'Content-MD5': 'application/json', }; 
@@ -137,12 +139,11 @@ export class NotificationComponent implements OnInit {
     
      for (let index = 0; index < res.length; index++) {
        const element = res[index].fcmToken;
-      
-      sendData.message.token = element; 
+       sendData.message.token = element; 
       const headers = { 
       Authorization: `Bearer ${this.token}`,
       'Content-MD5': 'application/json', }; 
-     this.http.post<any>('https://fcm.googleapis.com/v1/projects/fancynet-94963/messages:send', sendData, { headers }).subscribe(data => {
+     this.http.post<any>('https://fcm.googleapis.com/v1/projects/fancynet-43f20/messages:send', sendData, { headers }).subscribe(data => {
        
      });   
     }

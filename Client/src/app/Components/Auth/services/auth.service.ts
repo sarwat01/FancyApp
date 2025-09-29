@@ -38,7 +38,7 @@ export class AuthService {
     return this.http
       .post<any>(`${environment.localserver}/api/v1/user/login`, payload)
       .pipe(
-        tap((token) => this.doLoginUser(token)),
+        tap((payload) => this.doLoginFancyUser(payload)),
         mapTo(true),
         catchError((error) => {
           return of(false);
@@ -79,16 +79,17 @@ export class AuthService {
     return localStorage.getItem(this.JWT_TOKEN);
   }
 
+  async doLoginFancyUser (data: any){
+ 
+    console.log(JSON.stringify(data.data.user));
+    
+   localStorage.setItem('userInfo', JSON.stringify(data.data.user));
+  this.storeTokens(data);  
+
+  }
   async doLoginUser(token: any) {
-  
-   this.storeTokens(token);
-  console.log(JSON.stringify({
-    type: 'login',
-    username: this.username,
-    password: this.password
-  }));
-  
-  await  window.ReactNativeWebView.postMessage(JSON.stringify({
+    this.storeTokens(token);
+   await  window.ReactNativeWebView.postMessage(JSON.stringify({
     type: 'login',
     username: this.username,
     password: this.password
@@ -154,5 +155,6 @@ export class AuthService {
     window.ReactNativeWebView.postMessage(JSON.stringify({
       type: 'logout',
     })); 
+    
   }
 }

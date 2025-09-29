@@ -17,6 +17,9 @@ import { MobileAgentComponent } from './Components/mobile/mobile-agent/mobile-ag
 import { MobileNotificationComponent } from './Components/mobile/mobile-notification/mobile-notification.component';
 import { MobileToturialsComponent } from './Components/mobile/mobile-toturials/mobile-toturials.component';
 import { WebUserComponent } from './Components/Web/web-user/web-user.component'; 
+import { MinBuyCardComponent } from './Components/onlinePayment/min-buy-card/min-buy-card.component';
+import { FIBComponent } from './Components/onlinePayment/fib/fib.component';
+import { CheckFibPaymentComponent } from './Components/Web/check-fib-payment/check-fib-payment.component';
 const routes: Routes = [
   { path: '', component: BalanceComponent },
    {
@@ -31,10 +34,12 @@ const routes: Routes = [
       { path: 'mobileAgent', component: MobileAgentComponent }, 
       { path: 'mobileNotification', component: MobileNotificationComponent }, 
       { path: 'mobileToturials', component: MobileToturialsComponent }, 
+      { path: 'mainBuyCard', component: MinBuyCardComponent }, 
+      { path: 'FIBComponents', component: FIBComponent }, 
     ],
   }, 
 
-  { path: 'adminPanelFancy', component: LoginComponent },
+  { path: 'adminFancyPanel', component: LoginComponent },
   
   {
       path: 'Index',
@@ -46,6 +51,7 @@ const routes: Routes = [
       { path: 'Agent', component: AgentsComponent },
       { path: 'address', component: AddressComponent },
       { path: 'Users', component: WebUserComponent },
+      { path: 'checkFibPaymennt', component: CheckFibPaymentComponent },
     ],
   },
  

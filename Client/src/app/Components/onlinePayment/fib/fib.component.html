@@ -1,0 +1,144 @@
+<div class="container py-5">
+
+  <h2 class="text-center mb-4 text-primary font-weight-bold">
+    <i class="fas fa-wallet mr-2"></i> Recharge Your Balance
+  </h2>
+
+  <!-- Step 1: Bank Selection -->
+  <div *ngIf="!selectedBank">
+    <h4 class="text-center mb-4">
+      <i class="fas fa-university mr-2"></i> Choose Your Bank
+    </h4>
+
+    <div class="row justify-content-center">
+      <div
+        class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+        *ngFor="let bank of banks">
+        <div
+          class="card glass-card h-100 text-center p-3 shadow-lg hover-effect"
+          (click)="selectBank(bank.id)"
+          style="cursor: pointer;">
+          <img [src]="bank.image" class="card-img-top img-fluid mx-auto" style="max-height: 100px;" />
+          <div class="card-body">
+            <h5 class="card-title mt-2">
+              <i class="fas fa-building mr-1 text-info"></i> {{ bank.name }}
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Step 2: Card Selection -->
+  <div *ngIf="selectedBank" class="mt-5">
+<div
+  *ngIf="!isProfileExpired"
+  class="alert alert-warning d-flex align-items-start shadow-sm rounded"
+  role="alert"
+  style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 1rem; direction: rtl; line-height: 1.5;">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+    class="bi bi-exclamation-circle-fill flex-shrink-0 me-3 text-warning mt-1" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.93 4.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 .875-.252 1.02-.598l.088-.416c.066-.31.022-.464-.288-.55l-.451-.081.082-.381 1.796-.287c.545 0 .875-.252 1.02-.598l.088-.416c.066-.31.022-.464-.288-.55l-.451-.081.082-.381zM8 13.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+  </svg>
+
+  <div style="text-align: right; flex: 1;">
+    <h5 class="fw-bold mb-2">کڕیارى بەڕێز</h5>
+    <p class="mb-2">
+      لە ئێستادا پاکێجی   <strong>{{ currentPackage | number }} دیناری چالاکە </strong> تاکو <strong>{{ expirationDateFormatted }}</strong> بەردەوامە.
+    </p>
+    <p class="mb-2">
+      گۆڕینی پاکێج تا کاتی کۆتایهاتنی ئەم پاکێجە ناچالاکە. لە ئێستادا تەنها دەتوانی هەمان پاکێی ئێستات بکڕیت.
+    </p>
+    <small class="text-muted fst-italic">
+      سوپاس بۆ تێگەیشتنتان.
+    </small>
+  </div>
+</div>
+
+    <h4 class="text-center mb-4">
+      <i class="fas fa-money-check-alt mr-2"></i> Select Recharge Amount
+    </h4>
+ 
+<div class="row justify-content-center mt-4">
+  <div
+    class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3"
+    *ngFor="let amount of cardAmounts">
+
+    <button
+  class="btn btn-block font-weight-bold py-3 rounded-lg shadow-sm transition"
+  [ngClass]="{
+    'btn-outline-success': amount.price === currentPackage,
+    'btn-outline-secondary': amount.price !== currentPackage
+  }"
+  [disabled]="!isProfileExpired && amount.price !== currentPackage"
+  (click)="confirmAndChange(amount.id, amount.price)"
+>
+  <i class="fas fa-credit-card mb-2 d-block"></i>
+  {{ amount.price | number }}<br><small>IQD</small>
+</button>
+
+  </div>
+</div>
+<!--   (click)="createPayment(amount.price)" -->
+
+    <!-- Loading -->
+    <div class="text-center mt-4" *ngIf="loading">
+      <div class="progress w-75 mx-auto" style="height: 8px;">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" style="width: 100%"></div>
+      </div>
+      <p class="mt-3 font-weight-bold text-muted">
+        <i class="fas fa-sync-alt fa-spin mr-1"></i> Processing your payment...
+      </p>
+    </div>
+
+    <!-- Error -->
+    <div class="alert alert-danger mt-4 text-center" *ngIf="errorMessage">
+      <i class="fas fa-exclamation-circle mr-2"></i> {{ errorMessage }}
+    </div>
+
+    <!-- Response -->
+    <div class="alert alert-success mt-4" *ngIf="paymentResponse">
+      <h5 class="text-success">
+        <i class="fas fa-check-circle mr-1"></i> Payment Created
+      </h5>
+
+      <!-- Show toggle button -->
+      <button class="btn btn-link btn-sm" (click)="showJson = !showJson">
+        <i class="fas fa-code mr-1"></i> {{ showJson ? 'Hide Details' : 'Show JSON' }}
+      </button>
+
+      <div *ngIf="showJson">
+        <pre class="bg-light p-3 rounded overflow-auto mt-2" style="max-height: 300px;">
+{{ paymentResponse | json }}
+        </pre>
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="text-center mt-4">
+      <button class="btn btn-outline-secondary btn-sm" (click)="reset()">
+        <i class="fas fa-arrow-left mr-1"></i> Back to Bank Selection
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- LOADING OVERLAY -->
+<div *ngIf="isLoading" class="loading-overlay">
+  <div class="loading-card text-center">
+    <!-- Spinner -->
+    <div class="spinner-border text-primary mb-4" role="status" style="width: 4rem; height: 4rem;">
+      <span class="sr-only">Loading...</span>
+    </div>
+
+    <!-- Loading Messages -->
+    <div class="loading-text">
+      <h5 class="mb-2 font-weight-bold">⏳ تکایە چاودێری بکە ...</h5> <!-- Kurdish -->
+      <h5 class="mb-2 font-weight-bold">⏳ الرجاء الانتظار ...</h5>   <!-- Arabic -->
+      <h6 class="text-muted">Please wait while the purchase is being processed.</h6>
+    </div>
+  </div>
+</div>

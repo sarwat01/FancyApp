@@ -153,50 +153,9 @@
       <!-- partial:assets/partials/_settings-panel.html -->
   
    
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item nav-profile">
-            <div class="nav-link">
-              <div class="profile-image">
-                <img
-                  src="../../../../assets/images/logo.png"
-                  alt="FancyNet"
-                />
-              </div>
-              
-            </div>
-          </li>
-           <li class="nav-item">
-            <a
-              class="nav-link"
-              routerLink="/Home"
-              (click)="CloseSide()"
-            >
-              <i class="fas fa-clock menu-icon"></i>
-              <span class="menu-title">داشبۆرد</span>
-            </a>
-          </li>
-     
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              routerLink="/Home/mobileAgent"
-              (click)="CloseSide()"
-            >
-              <i class="fas fa-clock menu-icon"></i>
-              <span class="menu-title" *transloco="let t; read: 'main'">{{
-                t("main_agents")
-              }}</span>
-            </a>
-          </li>
-        
-   
-    
-        
-        </ul>
-      </nav>
+      
       <!-- partial -->
-      <div class="main-panel">
+      <div class="main-panel w-100">
         <router-outlet></router-outlet>
       </div>
       <!-- main-panel ends -->

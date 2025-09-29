@@ -1,0 +1,121 @@
+<div class="container mt-5" dir="ltr">
+  <h3 class="mb-4">📋 Local Payments Overview</h3>
+
+  <!-- Filters Row -->
+ <div class="row g-3 mb-4">
+  <!-- 🔍 Search Input (Full Width) -->
+  <div class="col-10">
+    
+    <div class="input-group shadow-sm">
+      
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search username, bank, comment..."
+        [(ngModel)]="search"
+        (input)="fetchData()"
+      />
+      <span class="input-group-text bg-light " style="margin-left: -5px;">
+        <i class="fa fa-search"></i>
+      </span>
+    </div>
+  </div>
+
+  <!-- 💳 Card Status Filter -->
+  <!-- <div class="col-md-6 col-12 mt-3">
+    <label class="form-label fw-semibold d-flex align-items-center mb-1">
+      <i class="bi bi-credit-card-2-front me-2 text-primary fs-5"></i> Card Status
+    </label>
+    <select
+      class="form-select shadow-sm"
+      [(ngModel)]="cardStatusFilter"
+      (change)="fetchData()"
+    >
+      <option value="">All Card Statuses</option>
+      <option *ngFor="let card of uniqueCardStatuses" [value]="card">
+        {{ card }}
+      </option>
+    </select>
+  </div> -->
+
+  <!-- 📌 Payment Status Filter -->
+<!--   <div class="col-md-6 col-12 mt-3">
+    <label class="form-label fw-semibold d-flex align-items-center mb-1">
+      <i class="bi bi-flag me-2 text-primary fs-5"></i> Payment Status
+    </label>
+    <select
+      class="form-select shadow-sm"
+      [(ngModel)]="statusFilter"
+      (change)="fetchData()"
+    >
+      <option value="">All Statuses</option>
+      <option *ngFor="let status of uniqueStatuses" [value]="status">
+        {{ status }}
+      </option>
+    </select>
+  </div> -->
+</div>
+
+
+  <!-- Table -->
+  <div class="table-responsive shadow-sm rounded">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-dark text-center">
+        <tr>
+             <th class="pointer">*</th>
+          <th (click)="sortByField('username')" class="pointer">👤 Username</th>
+          <th (click)="sortByField('bankName')" class="pointer">🏦 Bank</th>
+          <th (click)="sortByField('amount')" class="pointer">💰 Amount</th>
+           <th (click)="sortByField('CardStatus')" class="pointer">💳 Card Status</th>
+          <th (click)="sortByField('status')" class="pointer">📌 Status</th>
+          <th (click)="sortByField('comment')" class="pointer">💬 Comment</th>
+          <th (click)="sortByField('createdAt')" class="pointer" style="min-width: 120px;">🕒 Created</th>
+          <th (click)="sortByField('updatedAt')" class="pointer" style="min-width: 120px;">🔄 Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data; let i = index">
+             <td>{{ i+1 }}</td>
+          <td>{{ item.username }}</td>
+          <td>{{ item.bankName }}</td>
+          <td>{{ item.amount | number }}</td>
+          <td [ngClass]="getCardStatusClass(item.CardStatus)">
+            {{ item.CardStatus }}
+          </td>
+          <td [ngClass]="getStatusClass(item.status)">
+            {{ item.status }}
+          </td>
+          <td>{{ item.comment }}</td>
+          <td>{{ item.createdAt | date: 'short' }}</td>
+          <td>{{ item.updatedAt | date: 'short' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+ <!-- Pagination -->
+<nav class="mt-4">
+  <ul class="pagination justify-content-center">
+    <!-- Previous Block -->
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" (click)="goToPrevPageBlock()">⏪</a>
+    </li>
+
+    <!-- Page Numbers -->
+    <li
+      class="page-item"
+      *ngFor="let page of visiblePages"
+      [class.active]="page === currentPage"
+    >
+      <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
+    </li>
+
+    <!-- Next Block -->
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <a class="page-link" (click)="goToNextPageBlock()">⏩</a>
+    </li>
+  </ul>
+</nav>
+
+</div>

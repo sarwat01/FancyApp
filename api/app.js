@@ -15,10 +15,14 @@ const auth = require("./routes/userRoute");
 const ratelimit = require("express-rate-limit");
 const helmet = require("helmet");
 const xss = require("xss-clean");
-const hpp = require("hpp");
-const fileUpload = require('express-fileupload')
+const hpp = require("hpp"); 
 const localStorage = require("./routes/localStorage");
-
+const paymentRoutes = require('./routes/paymentRoutes');
+const localPaymentRoutes = require('./routes/localPayment.route');
+const { startAutoRefresh } = require('./jobs/getFIBToken');
+const { startSecureLoginRefresh } = require('./jobs/getSasToken');
+const { startPaymentStatusMonitor } = require('./jobs/paymentStatusChecker'); 
+const { startPaymentPollingJob } = require('./jobs/checkPaymentToActiveBalance'); 
 app.use(cors());
 app.use(
   cors({
@@ -51,6 +55,12 @@ app.use((req, res, next) => {
   next();
 });
 
+ 
+// Start auto token fetching
+startSecureLoginRefresh(); 
+startAutoRefresh();  
+startPaymentStatusMonitor();  
+startPaymentPollingJob();
 app.use("/api/v1/address", addressRoute);
 app.use("/api/v1/agent", agentRoutes);
 app.use("/api/v1/information", informationRouter);
@@ -58,6 +68,10 @@ app.use("/api/v1/fcm", fcmRoutes);
 app.use("/api/v1/sendFcmNotification", sendFcmNotification);
 app.use("/api/v1/user", auth);
 app.use("/api/v1/storgae", localStorage);
+app.use('/api/v1/payments', paymentRoutes);
+app.use('/api/v1/localpayments', localPaymentRoutes);
+
+
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });

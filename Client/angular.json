@@ -14,20 +14,20 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
-              "rxjs-compat" ,
-               "flat",
-            "@ngneat/transloco"
-           ],
+              "rxjs-compat",
+              "flat",
+              "@ngneat/transloco"
+            ],
             "outputPath": "dist/client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [ 
+            "assets": [
               "src/assets"
             ],
             "styles": [
-               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
@@ -67,7 +67,11 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          
           "builder": "@angular-devkit/build-angular:dev-server",
+      "options": {
+      "proxyConfig": "proxy.conf.json"
+    },
           "configurations": {
             "production": {
               "browserTarget": "Client:build:production"
@@ -91,7 +95,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [ 
+            "assets": [
               "src/assets"
             ],
             "styles": [
