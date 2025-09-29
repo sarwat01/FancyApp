@@ -17,8 +17,28 @@
    
     <!-- End -->  
     <div class="row" >
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4"*ngIf="data.role != 'developer' "> 
+        <div class="bg-white rounded shadow-sm" routerLink="/Index/checkFibPaymennt">
+          <img 
+            src="../../../../assets/images/user.jpeg"
+            alt=""
+            class="img-fluid card-img-top"
+          />
+          <div class="p-4">
+            <h5><a   class="text-dark">بەکارهێنەرەکان</a></h5>
+            <p class="small text-muted mb-0">
+              دروستکردنی بەکارهێنەر
+            </p>
+            <!--  <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
+                <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div> 
+              </div>-->
+          </div>
+        </div>
+      </div>
+
        <!-- Gallery item -->
-       <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf="data.role == 'developer' || data.role == 'manager' "> 
+       <div class="col-xl-3 col-lg-4 col-md-6 mb-4"*ngIf="data.role == 'developer' "> 
         <div class="bg-white rounded shadow-sm" routerLink="/Index/Users">
           <img 
             src="../../../../assets/images/user.jpeg"
@@ -40,7 +60,7 @@
       <!-- End -->
 
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf="data.role == 'developer' || data.role == 'manager'|| data.role == 'notification'|| data.role == 'Agent-notification'"> 
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4"*ngIf="data.role == 'developer' "> 
         <div class="bg-white rounded shadow-sm" routerLink="/Index/Notification">
           <img 
             src="../../../../assets//images/Notification.png"
@@ -62,7 +82,7 @@
       <!-- End -->
 
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf="data.role == 'developer' || data.role == 'manager'|| data.role == 'createAgent'|| data.role == 'Agent-notification'">
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf="data.role == 'developer' ">
         <div class="bg-white rounded shadow-sm" routerLink="/Index/Agent">
           <img
             src="../../../../assets//images/Agent.jpeg"
@@ -84,7 +104,7 @@
       <!-- End -->
 
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf="data.role == 'developer' || data.role == 'manager'|| data.role == 'createAgent'|| data.role == 'Agent-notification'">
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4"*ngIf="data.role == 'developer' ">
         
         <div class="bg-white rounded shadow-sm" routerLink="/Index/address">
           <img
@@ -107,7 +127,7 @@
       <!-- End -->
 
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf=" data.role == 'developer' ">
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngIf="data.role == 'developer' ">
         <div class="bg-white rounded shadow-sm">
           <img
             src="../../../../assets//images/information.jpeg"

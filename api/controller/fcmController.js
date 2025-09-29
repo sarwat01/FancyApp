@@ -3,7 +3,7 @@ const appError = require("../utils/appError");
 const fcmService = require('../services/fcmServices');
 
 const postToken = catchAsync(async (req, res) => {
-    const token = await fcmService.createFCM();
+    const token = await fcmService.createFCM(req.body);
       res.send({'token':token})
 });
 
@@ -21,8 +21,7 @@ const getAll = catchAsync(async (req, res)=>{
 
 
 const getOne = catchAsync(async (req, res)=>{
-    console.log(req.params.id);
-    const fcm = await fcmService.getOne(req.params.id)
+     const fcm = await fcmService.getOne(req.params.id)
     res.send(fcm) 
 })
 

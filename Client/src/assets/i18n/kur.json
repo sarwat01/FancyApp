@@ -64,7 +64,11 @@
   "mobileToturials": {
     "tplink_change_Password": "گۆڕینی پاسۆردی TP-Link",
     "tether_change_Password": " چۆنێتی بەکارهێنانی بەرنامەی - tether"
-    }
+  },
 
+ "buyCard": {
+    "buy": "کڕین"
+  }
+  
     
 }

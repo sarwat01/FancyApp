@@ -51,20 +51,35 @@
           </div>
 
           <!-- Second Card -->
-          <div class="col-6 col-md-3 mb-4 card-1">
+         <!--  <div class="col-6 col-md-3 mb-4 card-1">
             <div class="card text-center">
               <div class="card-body" routerLink="/Home/mobileAgent">
-                <!-- Circle icon -->
-                <div class="circle-icon">
+                  <div class="circle-icon">
                   <i class="fas fa-user"></i>
                 </div>
-               
-              </div>
+               </div>
               <h5 class="card-title" *transloco="let t; read: 'main'">
                 {{ t("main_agents") }}
               </h5>
             </div>
+          </div> -->
+
+            <!-- Second Card -->
+          <div class="col-6 col-md-3 mb-4 card-1">
+            <div class="card text-center">
+              <div class="card-body" routerLink="/Home/FIBComponents">
+                <!-- Circle icon -->
+                <div class="circle-icon">
+                   <i class="fa fa-money-bill"></i>
+                </div>
+               
+              </div>
+              <h5 class="card-title" *transloco="let t; read: 'buyCard'">
+                {{ t("buy") }}  
+              </h5>
+            </div>
           </div>
+
         </div>
         <div class="row">
           <div  class="col-md-12">

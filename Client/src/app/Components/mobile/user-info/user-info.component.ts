@@ -53,8 +53,7 @@ currentLang: string;
     const link = `${environment.apiUrl}/api/index.php/api/service`;
     this.apiRest.get(link).subscribe((ptr: any) => {
      this.balanceInfo = ptr.data 
-     
-    }); 
+     }); 
   }
     getDashboardInfo(){
       const link = `${environment.apiUrl}/api/index.php/api/dashboard`;

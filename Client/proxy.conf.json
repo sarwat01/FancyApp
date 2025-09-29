@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://fib.stage.fib.iq",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

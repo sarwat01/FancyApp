@@ -1,12 +1,11 @@
 const catchAsync = require("../utils/catchAsync");
 
 // Temp one-request credentials map
+const { v4: uuidv4 } = require('uuid');
 const tempStore = new Map();
+let tempCredential = null
+ 
 
-/**
- * POST /storage
- * Stores credentials in a short-lived map (only for one request cycle)
- */
 const storage = catchAsync(async (req, res) => {
   const { username, password } = req.body;
 
@@ -14,30 +13,29 @@ const storage = catchAsync(async (req, res) => {
     return res.status(400).json({ message: "Username and password are required." });
   }
 
-  // Generate a simple key (can be device id, IP, or a random UUID)
-  const key = req.ip; // IP-based, works if devices are distinct
-  tempStore.set(key, { username, password });
+  // Only allow new credentials if none currently exist
+  if (tempCredential !== null) {
+    return res.status(409).json({ message: "A credential is already waiting to be read." });
+  }
 
-  // Auto-delete after 1 second
-  //setTimeout(() => tempStore.delete(key), 3000);
+  tempCredential = { username, password };
+
+  // Optional: Auto-delete after 5 seconds if not read
+  setTimeout(() => {
+    tempCredential = null;
+  }, 200);
 
   res.status(200).json({ message: "Credentials stored temporarily." });
 });
 
-/**
- * GET /getUserAndPawword
- * Returns stored credentials ONCE then deletes them
- */
 const getUserAndPawword = catchAsync(async (req, res) => {
-  const key = req.ip;
- 
-
-  if (!tempStore.has(key)) {
-    return res.status(204).send(); // Nothing to return
+  if (!tempCredential) {
+    return res.status(204).send(); // No credentials available
   }
 
-  const { username, password } = tempStore.get(key);
-  tempStore.delete(key); // Remove after reading
+  // Return credentials and clear them so others can't access
+  const { username, password } = tempCredential;
+  tempCredential = null;
 
   res.status(200).json({ username, password });
 });

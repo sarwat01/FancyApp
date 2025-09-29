@@ -43,9 +43,12 @@ import { MobileToturialsComponent } from './Components/mobile/mobile-toturials/m
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 import {WebUserComponent } from './Components/Web/web-user/web-user.component'
 import { FilterPipe } from './filter.pipe';
+import { FIBComponent } from './Components/onlinePayment/fib/fib.component';
+import { CheckFibPaymentComponent } from './Components/Web/check-fib-payment/check-fib-payment.component';
 @NgModule({
   declarations: [
     FilterPipe,
+    CheckFibPaymentComponent,
     AppComponent,
     UserInfoComponent,
     BalanceComponent,
@@ -63,7 +66,8 @@ import { FilterPipe } from './filter.pipe';
     MobileAgentComponent,
     MobileNotificationComponent,
     MobileToturialsComponent,
-    WebUserComponent
+    WebUserComponent,
+    FIBComponent
     
     
   ],

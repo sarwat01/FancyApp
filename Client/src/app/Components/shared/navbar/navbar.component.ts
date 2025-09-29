@@ -64,13 +64,10 @@ export class NavbarComponent implements OnInit {
       : body.classList.add('sidebar-icon-only');
   }
 
- async logout() {
-this.authService.removeTokens();
-/*  await localStorage.clear();  // Clear web's localStorage
- await sessionStorage.clear(); */
-/*  await window.ReactNativeWebView.postMessage(JSON.stringify({
-  type: 'logout',
-}));  */
+  logout() {
+ window.ReactNativeWebView?.postMessage(JSON.stringify({ type: 'logout' }));
+ 
+//this.authService.removeTokens();
    this.router.navigate(['/']); 
 
   }

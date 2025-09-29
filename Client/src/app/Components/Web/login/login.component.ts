@@ -30,13 +30,17 @@ export class LoginComponent implements OnInit {
     private apiRest: RestApiService
   ) {
     translate.langChanges$.subscribe((lang) => {
-      this.currentLang = lang;
-       
+      this.currentLang = lang; 
       console.log('Language changed to', this.currentLang);
     });
   }
 
   ngOnInit() {
+   
+     const currentUrl = this.router.url;
+  if (!this.authService.isLoggedIn() && currentUrl !== '/adminFancyPanel') {
+    this.router.navigate(['/adminFancyPanel']);
+  }
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
     this.loginForm = this.formBuilder.group({
@@ -52,13 +56,15 @@ export class LoginComponent implements OnInit {
   }
    
   login() {
-
-     const payload = this.loginForm.value; 
-    this.authService.loginFancy(payload).subscribe((success) => {
-      if (success = true) {
-        this.router.navigate(['/Index']);
-      } else {
-      } 
-    });
-  }
+  const payload = this.loginForm.value; 
+  this.authService.loginFancy(payload).subscribe((success) => {
+    if (success) {
+      this.router.navigate(['/Index']);
+    } else {
+      this.tostService.error('Login failed');
+    }
+  }, error => {
+    this.tostService.error('Login error: ' + error.message);
+  });
+}
 }
