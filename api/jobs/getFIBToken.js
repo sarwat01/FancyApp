@@ -1,14 +1,17 @@
 const https = require('https');
 const querystring = require('querystring');
+const FIB = require('../bacnkService/banckServices.json')
 
 let currentToken = null;
 
+
+
 async function fetchToken() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => { 
     const postData = querystring.stringify({
       grant_type: 'client_credentials',
-      client_id: 'fancynet-testing-payment',
-      client_secret: 'a0418a28-e8bf-4d3c-a3fb-dee4ac4a51fd'
+      client_id: FIB.client_id ,
+      client_secret: FIB.client_secret
     });
 
     const options = {

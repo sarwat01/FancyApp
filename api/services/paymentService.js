@@ -1,7 +1,7 @@
 const https = require('https'); 
 const { getCurrentToken } = require('../jobs/getFIBToken');
 const { createPayment } = require('./localPayment.service');
-  
+const FIB =require('../bacnkService/banckServices.json')
 // ✅ 1. Create FIB Payment
 const createFIBPayment = async (params) => {
   
@@ -11,8 +11,8 @@ const createFIBPayment = async (params) => {
   if (!token) throw new Error('Token not available yet.');
   const requestBody = JSON.stringify({
     monetaryValue: {
-       client_id: "fancynet-testing-payment",
-      client_secret: "a0418a28-e8bf-4d3c-a3fb-dee4ac4a51fd",
+      client_id: FIB.client_id,
+      client_secret:FIB.client_secret,
       amount: params.amount.toString(),
       currency: 'IQD',
     },
