@@ -1,13 +1,14 @@
 <div class="container py-5">
 
-  <h2 class="text-center mb-4 text-primary font-weight-bold">
-    <i class="fas fa-wallet mr-2"></i> Recharge Your Balance
+  <h2 class="text-center mb-4 text-primary font-weight-bold" *transloco="let t; read: 'buyCard'">
+    <i class="fas fa-wallet mr-2"></i> {{ t("Recharge_Your_Balance") }}  
   </h2>
+ 
 
   <!-- Step 1: Bank Selection -->
   <div *ngIf="!selectedBank">
-    <h4 class="text-center mb-4">
-      <i class="fas fa-university mr-2"></i> Choose Your Bank
+    <h4 class="text-center mb-4" *transloco="let t; read: 'buyCard'">
+      <i class="fas fa-university mr-2"></i> {{ t("Choose_Your_Bank") }}  
     </h4>
 
     <div class="row justify-content-center">
@@ -31,7 +32,7 @@
 
   
   <!-- Step 2: Card Selection -->
-  <div *ngIf="selectedBank" class="mt-5">
+<div *ngIf="selectedBank" class="mt-5">
 <div
   *ngIf="!isProfileExpired"
   class="alert alert-warning d-flex align-items-start shadow-sm rounded"
@@ -43,22 +44,22 @@
     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.93 4.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 .875-.252 1.02-.598l.088-.416c.066-.31.022-.464-.288-.55l-.451-.081.082-.381 1.796-.287c.545 0 .875-.252 1.02-.598l.088-.416c.066-.31.022-.464-.288-.55l-.451-.081.082-.381zM8 13.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
   </svg>
 
-  <div style="text-align: right; flex: 1;">
-    <h5 class="fw-bold mb-2">کڕیارى بەڕێز</h5>
+  <div style="text-align: right; flex: 1;" *transloco="let t; read: 'buyCard'">
+    <h5 class="fw-bold mb-2">{{ t("dearCustomer") }} </h5>
     <p class="mb-2">
-      لە ئێستادا پاکێجی   <strong>{{ currentPackage | number }} دیناری چالاکە </strong> تاکو <strong>{{ expirationDateFormatted }}</strong> بەردەوامە.
+      {{ t("Currently_the_package") }}   <strong>{{ currentPackage | number }}   {{ t("The_dinar_is_active") }} </strong> {{ t("until") }}  <strong>{{ expirationDateFormatted }}</strong> {{ t("continues") }} .
     </p>
     <p class="mb-2">
-      گۆڕینی پاکێج تا کاتی کۆتایهاتنی ئەم پاکێجە ناچالاکە. لە ئێستادا تەنها دەتوانی هەمان پاکێی ئێستات بکڕیت.
+     {{ t("Package_changes_disabled") }} 
     </p>
     <small class="text-muted fst-italic">
-      سوپاس بۆ تێگەیشتنتان.
+       {{ t("thanks") }} 
     </small>
   </div>
 </div>
 
-    <h4 class="text-center mb-4">
-      <i class="fas fa-money-check-alt mr-2"></i> Select Recharge Amount
+    <h4 class="text-center mb-4"  *transloco="let t; read: 'buyCard'">
+      <i class="fas fa-money-check-alt mr-2"></i> {{ t("Choose_Your_Bank") }} 
     </h4>
  
 <div class="row justify-content-center mt-4">
@@ -136,9 +137,9 @@
 
     <!-- Loading Messages -->
     <div class="loading-text">
-      <h5 class="mb-2 font-weight-bold">⏳ تکایە چاودێری بکە ...</h5> <!-- Kurdish -->
+      <h5 class="mb-2 font-weight-bold">⏳ تکایە چاوەڕوان بە ...</h5> <!-- Kurdish -->
       <h5 class="mb-2 font-weight-bold">⏳ الرجاء الانتظار ...</h5>   <!-- Arabic -->
-      <h6 class="text-muted">Please wait while the purchase is being processed.</h6>
+    <!--   <h6 class="text-muted">Please wait while the purchase is being processed.</h6> -->
     </div>
   </div>
 </div>

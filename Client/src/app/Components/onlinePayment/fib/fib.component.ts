@@ -34,14 +34,14 @@ export class FIBComponent implements OnInit {
   banks = [
     {
       id: 'FIB',
-      name: 'FIB Banks',
+      name: 'FIB',
       image: '../../../../assets/images/Desktop.png'
     },
-    {
+   /*  {
       id: 'Other',
-      name: 'FastPay Bank',
-      image: 'https://via.placeholder.com/80'
-    }
+      name: 'FastPay',
+ image: '../../../../assets/images/fastpay.png'
+    }  */
   ];
   cardAmounts: any = [];
   paymentResponse: any = null;
@@ -55,6 +55,7 @@ export class FIBComponent implements OnInit {
   password: any;
   fcm: any;
  isLoading = false;
+
   constructor(private http: HttpClient,
     private authService: AuthService,
     private toastService: ToastrService,

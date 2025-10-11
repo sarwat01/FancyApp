@@ -46,7 +46,7 @@ export class BalanceComponent implements OnInit {
 
   ngOnInit() {
     //this.decriptData()
-    setTimeout(() =>  this.getUserAndPassword(), 90);
+  //  setTimeout(() =>  this.getUserAndPassword(), 90);
    
     this.loginForm = this.formBuilder.group({
       username: [''],

@@ -69,5 +69,13 @@
  "tplink_change_Password":"تغيير كلمة المرور TP-Link",
   "tether_change_Password": "كيفية استخدام برنامج - tether"
 
+  },
+   "buyCard": {
+    "buy": "يشتري",
+    "Recharge_Your_Balance":"إعادة شحن رصيدك",
+    "Choose_Your_Bank":"اختر بنكك"
+
   }
+
+  
 }

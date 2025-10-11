@@ -16,6 +16,8 @@ import { MainComponent } from '../../mobile/main/main.component';
   styleUrls: ['./notification.component.css'],
 })
 export class NotificationComponent implements OnInit {
+   progressValue = 0;  // 0 to 100
+isSending = false;
   token:any
   devicesToken:any
   width: number = 0;
@@ -79,7 +81,7 @@ export class NotificationComponent implements OnInit {
       this.ngOnInit();
     });
   }
-
+/* 
   sendNoti(title, detail) {
     let sendData = {
       notification: {
@@ -103,11 +105,88 @@ export class NotificationComponent implements OnInit {
        });  
       }
       this.toastService.success('سوپاس بەڕێزم ئاگادارییەکەت بەسەرکەوتوی نێردرا')
-      /* document.getElementById('close')!.click(); */
+      
     });
-  }
+  } */
 
   
+
+sendNoti(title: string, detail: string) {
+  this.isSending = true;
+  this.width = 0;
+
+  const path = `${environment.localserver}/api/v1/fcm`;
+  const fcmUrl = 'https://fcm.googleapis.com/v1/projects/fancynet-43f20/messages:send';
+
+  this.apiRest.get(path).subscribe((res: any) => {
+    const total = res.length;
+    let sentCount = 0;
+
+    if (total === 0) {
+      this.isSending = false;
+      this.width = 100;
+      this.toastService.info('هیچ ئەندامێک نەدۆزرایەوە بۆ نێردن');
+      return;
+    }
+
+    res.forEach((device) => {
+      const message: any = {
+        message: {
+          token: device.fcmToken,
+          notification: {
+            title,
+            body: detail
+          },
+          data: {
+            customKey1: 'value1',
+            customKey2: 'value2'
+          }
+        }
+      };
+
+      if (device.platform === 'ios') {
+        message.message.apns = {
+          headers: { 'apns-priority': '10' },
+          payload: {
+            aps: {
+              alert: { title, body: detail },
+              badge: 1,
+              sound: 'default'
+            }
+          }
+        };
+      }
+
+      const headers = {
+        Authorization: `Bearer ${this.token}`,
+        'Content-Type': 'application/json'
+      };
+
+      this.http.post(fcmUrl, message, { headers }).subscribe(
+        () => {
+          sentCount++;
+          this.width = Math.round((sentCount / total) * 100);
+
+          if (sentCount === total) {
+            this.isSending = false;
+            this.toastService.success('سوپاس بەڕێزم ئاگادارییەکەت بەسەرکەوتوی نێردرا');
+          }
+        },
+        (error) => {
+          console.error('Error sending notification:', error);
+          sentCount++;
+          this.width = Math.round((sentCount / total) * 100);
+
+          if (sentCount === total) {
+            this.isSending = false;
+            this.toastService.success('سوپاس بەڕێزم ئاگادارییەکەت بەسەرکەوتوی نێردرا');
+          }
+        }
+      );
+    });
+  });
+}
+
 
 
  sendNotificatoin( ) {

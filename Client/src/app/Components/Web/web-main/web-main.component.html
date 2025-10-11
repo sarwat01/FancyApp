@@ -8,7 +8,7 @@
           
           <p class="lead">For Internet service</p>
           <h5 class="text-right">بەخێربێیت بەڕێز {{data.username}}</h5>
-          <h6 class="text-right" data-toggle="modal" data-target="#updateModalPassword" style="text-decoration: underline; color: blue;" >گۆڕینی پاسۆرد</h6>
+          <h6 *ngIf="data.role == 'developer' " class="text-right" data-toggle="modal" data-target="#updateModalPassword" style="text-decoration: underline; color: blue;" >گۆڕینی پاسۆرد</h6>
          
         </div>
       </div>
@@ -17,17 +17,34 @@
    
     <!-- End -->  
     <div class="row" >
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4"*ngIf="data.role != 'developer' "> 
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4"> 
         <div class="bg-white rounded shadow-sm" routerLink="/Index/checkFibPaymennt">
           <img 
-            src="../../../../assets/images/user.jpeg"
+            src="../../../../assets//images/bank.png"
+            alt=""
+            class="img-fluid card-img-top"
+          />
+          <div class="p-4 text-center">
+            <h5><a   class="text-dark">فرۆشتنی کارت</a></h5>
+            <p class="small text-muted mb-0">
+              فرۆشتنی کارت لە ڕێگەی بانکەوە 
+            </p>
+           
+          </div>
+        </div>
+      </div>
+
+       <div class="col-xl-3 col-lg-4 col-md-6 mb-4"> 
+        <div class="bg-white rounded shadow-sm" routerLink="/Index/Notification">
+          <img 
+            src="../../../../assets//images/Notification.png"
             alt=""
             class="img-fluid card-img-top"
           />
           <div class="p-4">
-            <h5><a   class="text-dark">بەکارهێنەرەکان</a></h5>
+            <h5><a   class="text-dark">ئاگادارکردنەوە</a></h5>
             <p class="small text-muted mb-0">
-              دروستکردنی بەکارهێنەر
+              ناردنی ئاگادارکەرەوە بۆ بەشداربوان
             </p>
             <!--  <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
                 <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
@@ -36,6 +53,8 @@
           </div>
         </div>
       </div>
+      
+      
 
        <!-- Gallery item -->
        <div class="col-xl-3 col-lg-4 col-md-6 mb-4"*ngIf="data.role == 'developer' "> 
@@ -57,28 +76,7 @@
           </div>
         </div>
       </div>
-      <!-- End -->
-
-      <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4"*ngIf="data.role == 'developer' "> 
-        <div class="bg-white rounded shadow-sm" routerLink="/Index/Notification">
-          <img 
-            src="../../../../assets//images/Notification.png"
-            alt=""
-            class="img-fluid card-img-top"
-          />
-          <div class="p-4">
-            <h5><a   class="text-dark">ئاگادارکردنەوە</a></h5>
-            <p class="small text-muted mb-0">
-              ناردنی ئاگادارکەرەوە بۆ بەشداربوان
-            </p>
-            <!--  <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-                <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div> 
-              </div>-->
-          </div>
-        </div>
-      </div>
+     
       <!-- End -->
 
       <!-- Gallery item -->
