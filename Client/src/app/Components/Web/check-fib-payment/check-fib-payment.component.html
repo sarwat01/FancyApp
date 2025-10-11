@@ -1,5 +1,5 @@
-<div class="container mt-5" dir="ltr">
-  <h3 class="mb-4">📋 Local Payments Overview</h3>
+<div class="container mt-5" dir="rtl">
+  <h3 class="mb-4 text-right">📋 زانیاری لەسەر کڕینی کارت لەلایەن بەشداربوانەوە</h3>
 
   <!-- Filters Row -->
  <div class="row g-3 mb-4">
@@ -11,11 +11,11 @@
       <input
         type="text"
         class="form-control"
-        placeholder="Search username, bank, comment..."
+        placeholder="گەڕان بەپێی کۆد ، ناوی بانک ، تێبینی ..."
         [(ngModel)]="search"
         (input)="fetchData()"
       />
-      <span class="input-group-text bg-light " style="margin-left: -5px;">
+      <span class="input-group-text bg-light " style="margin-right: -5px;">
         <i class="fa fa-search"></i>
       </span>
     </div>
@@ -63,14 +63,14 @@
       <thead class="table-dark text-center">
         <tr>
              <th class="pointer">*</th>
-          <th (click)="sortByField('username')" class="pointer">👤 Username</th>
-          <th (click)="sortByField('bankName')" class="pointer">🏦 Bank</th>
-          <th (click)="sortByField('amount')" class="pointer">💰 Amount</th>
-           <th (click)="sortByField('CardStatus')" class="pointer">💳 Card Status</th>
-          <th (click)="sortByField('status')" class="pointer">📌 Status</th>
-          <th (click)="sortByField('comment')" class="pointer">💬 Comment</th>
-          <th (click)="sortByField('createdAt')" class="pointer" style="min-width: 120px;">🕒 Created</th>
-          <th (click)="sortByField('updatedAt')" class="pointer" style="min-width: 120px;">🔄 Updated</th>
+          <th (click)="sortByField('username')" class="pointer">👤 کۆد</th>
+          <th (click)="sortByField('bankName')" class="pointer">🏦 بانک</th>
+          <th (click)="sortByField('amount')" class="pointer">💰 بڕی پارە</th>
+           <th (click)="sortByField('CardStatus')" class="pointer">💳 دۆغی پارەدان</th>
+          <th (click)="sortByField('status')" class="pointer">📌 پڕکردنەوەی هێڵ</th>
+          <th (click)="sortByField('comment')" class="pointer">💬 تێیبنی</th>
+          <th (click)="sortByField('createdAt')" class="pointer" style="min-width: 120px;">🕒 داواکراوە لە</th>
+          <th (click)="sortByField('updatedAt')" class="pointer" style="min-width: 120px;">🔄 نوێکراوەتەوە لە</th>
         </tr>
       </thead>
       <tbody>
@@ -85,7 +85,8 @@
           <td [ngClass]="getStatusClass(item.status)">
             {{ item.status }}
           </td>
-          <td>{{ item.comment }}</td>
+        <td>{{ item.comment === 'PAYMENT_EXPIRATION' ? ' پرۆسەی پارەدان سەرکەوتوو نەبوو ' : item.comment }}</td>
+
           <td>{{ item.createdAt | date: 'short' }}</td>
           <td>{{ item.updatedAt | date: 'short' }}</td>
         </tr>
