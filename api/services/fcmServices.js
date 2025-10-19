@@ -2,7 +2,7 @@ const fcmModule = require("../modules/fcmModule");
 const { google } = require('googleapis');
 const privateKey = require('../bacnkService/service_account.json');
 
- const createFCM = async () => {
+const createFCM = async () => {
   const jwtClient = new google.auth.JWT(
     privateKey.client_email,
     null,

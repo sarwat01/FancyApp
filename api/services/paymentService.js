@@ -1,18 +1,18 @@
-const https = require('https'); 
+const https = require('https');
 const { getCurrentToken } = require('../jobs/getFIBToken');
 const { createPayment } = require('./localPayment.service');
-const FIB =require('../bacnkService/banckServices.json')
+const FIB = require('../bacnkService/banckServices.json')
 // ✅ 1. Create FIB Payment
 const createFIBPayment = async (params) => {
-  
+
   const token = getCurrentToken();
- 
+
 
   if (!token) throw new Error('Token not available yet.');
   const requestBody = JSON.stringify({
     monetaryValue: {
       client_id: FIB.client_id,
-      client_secret:FIB.client_secret,
+      client_secret: FIB.client_secret,
       amount: params.amount.toString(),
       currency: 'IQD',
     },
@@ -84,44 +84,42 @@ const createLocalPayment = async (paymentResponse, originalParams) => {
     };
   }
 };
- 
+
 // ✅ 3. Main Function to Orchestrate
 const createNewPayment = async (params) => {
   try {
     console.log(params);
-    
+
     const fibPayment = await createFIBPayment(params);
     const localPayment = await createLocalPayment(fibPayment, params);
- 
-   const {
+
+    const {
       businessAppLink,
       corporateAppLink,
       personalAppLink
     } = fibPayment;
 
     console.log(fibPayment);
-    
-   const response = {
-  fibPayment: {
-    businessAppLink,
-    corporateAppLink,
-    personalAppLink
-  },
-  localPayment: localPayment.status === false
-    ? { status: false, message: localPayment.message }
-    : { status: true }
-};
 
-return response;
+    const response = {
+      fibPayment: {
+        businessAppLink,
+        corporateAppLink,
+        personalAppLink
+      },
+      localPayment: localPayment.status === false
+        ? { status: false, message: localPayment.message }
+        : { status: true }
+    };
+
+    return response;
   } catch (err) {
     console.error('❌ createPayment error:', err.message);
     throw err;
   }
 };
 
-
-
-
+ 
 module.exports = {
   createNewPayment,
   createFIBPayment,
