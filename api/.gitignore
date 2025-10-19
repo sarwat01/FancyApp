@@ -3,3 +3,4 @@ echo ".env" >> .gitignore
 echo "config.env" >> .gitignore
 echo "bacnkService/" >> .gitignore
 api/bacnkService/service_account.json
+bacnkService
