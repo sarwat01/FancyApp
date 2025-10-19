@@ -2,4 +2,8 @@ echo "node_modules/" > .gitignore
 echo ".env" >> .gitignore
 echo "config.env" >> .gitignore
 echo "bacnkService/" >> .gitignore 
+<<<<<<< HEAD
+=======
+api/bacnkService/service_account.json
+>>>>>>> eddfd8acf80c280d19249a46957446a032b3c78b
 bacnkService

@@ -13,19 +13,19 @@ const getAll = async (req, res) => {
   return Agent;
 };
 
-const getAgentsByAddressId = async (id)  =>{
-  
+const getAgentsByAddressId = async (id) => {
+
   const Agents = await agentModule.aggregate([
-    { $match: { addressId:new mongoose.Types.ObjectId(id) } },
-       {
-      $lookup:{
-        from:"addresses",
+    { $match: { addressId: new mongoose.Types.ObjectId(id) } },
+    {
+      $lookup: {
+        from: "addresses",
         localField: "addressId",
-        foreignField:"_id",
-        as:"addressId"
-      } 
-     },
-     {
+        foreignField: "_id",
+        as: "addressId"
+      }
+    },
+    {
       $unwind: {
         path: '$addressId',
         preserveNullAndEmptyArrays: true,
@@ -33,18 +33,18 @@ const getAgentsByAddressId = async (id)  =>{
     },
     {
       $project: {
-        _id:1,
-        name:1,
-        phone1:1,
-        phone2:1,
-       addressId:1
+        _id: 1,
+        name: 1,
+        phone1: 1,
+        phone2: 1,
+        addressId: 1
       },
     },
-  ]) .exec();
-  return  Agents ;
- 
+  ]).exec();
+  return Agents;
+
 }
- 
+
 const getOne = async (id) => {
   const Agent = agentModule.findById(id).populate("addressId")
   return Agent;
@@ -54,11 +54,11 @@ const update = async (id, newBody) => {
   const agent = await agentModule.findByIdAndUpdate(id, newBody, {
     new: true,
     runValidators: true,
-  }); 
+  });
   return agent;
 };
 
-const deleteAgent = async (id) => { 
+const deleteAgent = async (id) => {
   const agent = await agentModule.findByIdAndDelete(id);
   return agent;
 };
