@@ -18,7 +18,7 @@ async function checkPaymentsStatusBetweenDates() {
       const { paymentId } = payment;
       try {
         // 3. Call the external API to get payment status by paymentId
-        const response = await fetch(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}/status`, {
+        const response = await fetch(`https://fib.prod.fib.iq/protected/v1/payments/${paymentId}/status`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

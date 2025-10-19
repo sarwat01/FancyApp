@@ -20,6 +20,7 @@ import { WebUserComponent } from './Components/Web/web-user/web-user.component';
 import { MinBuyCardComponent } from './Components/onlinePayment/min-buy-card/min-buy-card.component';
 import { FIBComponent } from './Components/onlinePayment/fib/fib.component';
 import { CheckFibPaymentComponent } from './Components/Web/check-fib-payment/check-fib-payment.component';
+import { UserTrafficComponent } from './Components/mobile/user-traffic/user-traffic.component';
 const routes: Routes = [
   { path: '', component: BalanceComponent },
    {
@@ -36,6 +37,7 @@ const routes: Routes = [
       { path: 'mobileToturials', component: MobileToturialsComponent }, 
       { path: 'mainBuyCard', component: MinBuyCardComponent }, 
       { path: 'FIBComponents', component: FIBComponent }, 
+      { path: 'userTraffic', component: UserTrafficComponent }, 
     ],
   }, 
 

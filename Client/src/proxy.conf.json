@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://fib.stage.fib.iq",
+    "target": "https://fib.prod.fib.iq",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",

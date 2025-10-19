@@ -1,188 +1,190 @@
- 
   .container {
-    min-height: 100vh;
-    }
-      .my-container{
-        background-color: rgb(75, 229, 4);
-      }
-      
-       .cardTitle{
-        color: #000000;
-        font-weight: normal;
-        margin-bottom: 1.25rem;
-        text-transform: capitalize; 
-       }
-      .my-container {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;	
-      font-family: Raleway, sans-serif;
-      }
-      
-      .my-container {
-      background: linear-gradient(130deg,#1f2935, #597494 );		
-      }
- 
-.card-counter{
-    box-shadow: 2px 2px 10px #DADADA;
-    margin: 5px;
-    padding: 20px 10px;
-    background-color: #fff;
-    height: 100px;
-    border-radius: 5px;
-    transition: .3s linear all;
-  }
+   min-height: 100vh;
+ }
 
-  .card-counter:hover{
-    box-shadow: 4px 4px 20px #DADADA;
-    transition: .3s linear all;
+ .my-container {
+   background-color: rgb(75, 229, 4);
+ }
 
-  }
+ .cardTitle {
+   color: #000000;
+   font-weight: normal;
+   margin-bottom: 1.25rem;
+   text-transform: capitalize;
+ }
 
-  .card-counter.primary{
-    background-color: #007bff;
-    color: #FFF;
-  }
+ .my-container {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: Raleway, sans-serif;
+ }
 
-  .card-counter.danger{
-    background-color: #ef5350;
-    color: #FFF;
-  }
+ .my-container {
+   background: linear-gradient(130deg, #1f2935, #597494);
+ }
 
-  .card-counter.success{
-    background-color: #66bb6a;
-    color: #FFF;
-  }
+ .card-counter {
+   box-shadow: 2px 2px 10px #DADADA;
+   margin: 5px;
+   padding: 20px 10px;
+   background-color: #fff;
+   height: 100px;
+   border-radius: 5px;
+   transition: .3s linear all;
+ }
 
-  .card-counter.info{
-    background-color: #26c6da;
-    color: #FFF;
-  }
+ .card-counter:hover {
+   box-shadow: 4px 4px 20px #DADADA;
+   transition: .3s linear all;
 
-  .card-counter i{
-    font-size: 5em;
-    opacity: 0.2;
-  }
+ }
 
-  
-  .titleCustomer{
-    color: #FFF;
-    margin-top: -12px;
-    margin-bottom: 15px;
-    font-size: 20px;
-    font-weight: bolder;
-  }
+ .card-counter.primary {
+   background-color: #007bff;
+   color: #FFF;
+ }
 
-  .detailCustomer{
-    color: #FFF;
-    margin-bottom: -2px;
-    font-size: 16px;
-  }
-  .card-counter .count-numbers{
-    position: absolute;
-    right: 35px;
-    top: 20px;
-    font-size: 24px;
-    display: block;
-  }
+ .card-counter.danger {
+   background-color: #ef5350;
+   color: #FFF;
+ }
 
-  .card-counter .count-name{
-    position: absolute;
-    right: 35px;
-    top: 65px;
-    font-style: italic;
-    text-transform: capitalize;
-    opacity: 0.5;
-    display: block;
-    font-size: 18px;
-  }
- 
- 
-  .main-container {
-    min-height: 100vh;
-    display: flex;
-    display: -webkit-flex;
-    align-items: center;
-    -webkit-align-items: center;
-    height: 560px;
-    overflow: hidden;
-  }
-  
+ .card-counter.success {
+   background-color: #66bb6a;
+   color: #FFF;
+ }
 
-  
+ .card-counter.info {
+   background-color: #26c6da;
+   color: #FFF;
+ }
 
-  .circle-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid #000; /* Optional: Adds border around the circle */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-    transition: all 0.3s ease; /* Smooth transition */
-  }
+ .card-counter i {
+   font-size: 5em;
+   opacity: 0.2;
+ }
 
-  /* Hover effects for circle icons */
-  .circle-icon:hover {
-    transform: scale(1.1); /* Slightly enlarge the icon */
-    border-color: #007bff; /* Change border color on hover */
-  }
 
-  /* Card Shadow and Hover Effect */
-  .card {
-    border: 1px #000 solid;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out;
-   }
+ .titleCustomer {
+   color: #FFF;
+   margin-top: -12px;
+   margin-bottom: 15px;
+   font-size: 20px;
+   font-weight: bolder;
+ }
 
-  .card:hover {
-    box-shadow: 0 28px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
-  }
+ .detailCustomer {
+   color: #FFF;
+   margin-bottom: -2px;
+   font-size: 16px;
+ }
 
-  /* Card content spacing */
-  .card-body {
-    padding: center;
-  }
+ .card-counter .count-numbers {
+   position: absolute;
+   right: 35px;
+   top: 20px;
+   font-size: 24px;
+   display: block;
+ }
 
-  /* Adjusting icon sizes for specific cards */
-  .circle-icon i {
-    font-size: 50px; /* Adjust the icon size */
-  }
+ .card-counter .count-name {
+   position: absolute;
+   right: 35px;
+   top: 65px;
+   font-style: italic;
+   text-transform: capitalize;
+   opacity: 0.5;
+   display: block;
+   font-size: 18px;
+ }
 
-  /* Optional: Adding custom colors */
-  .card-1 .circle-icon {
-    border-color: rgb(75, 229, 4); /* Blue border */
-  }
-  .card-2 .circle-icon {
-    border-color: #28a745; /* Green border */
-  }
-  .card-3 .circle-icon {
-    border-color: #dc3545; /* Red border */
-  }
-  .card-4 .circle-icon {
-    border-color: #ffc107; /* Yellow border */
-  }
+
+ .main-container {
+   min-height: 100vh;
+   display: flex;
+   display: -webkit-flex;
+   align-items: center;
+   -webkit-align-items: center;
+   height: 560px;
+   overflow: hidden;
+ }
 
 
 
-  .remaining-days {
-    text-align: center;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    margin: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .remaining-days h2 {
-    color: #333;
-  }
-  
-  .remaining-days p {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #1f2935;
-  }
-  
-  
+
+ .circle-icon {
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   border: 2px solid #000;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 10px;
+   transition: all 0.3s ease;
+ }
+
+
+ .circle-icon:hover {
+   transform: scale(1.1);
+   border-color: #007bff;
+ }
+
+
+ .card {
+   border: 1px #000 solid;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   transition: box-shadow 0.3s ease-in-out;
+ }
+
+ .card:hover {
+   box-shadow: 0 28px 16px rgba(0, 0, 0, 0.2);
+ }
+
+
+ .card-body {
+   padding: center;
+ }
+
+
+ .circle-icon i {
+   font-size: 50px;
+ }
+
+ .card-1 .circle-icon {
+   border-color: rgb(75, 229, 4);
+ }
+
+ .card-2 .circle-icon {
+   border-color: #28a745;
+ }
+
+ .card-3 .circle-icon {
+   border-color: #dc3545;
+ }
+
+ .card-4 .circle-icon {
+   border-color: #ffc107;
+ }
+
+
+
+ .remaining-days {
+   text-align: center;
+   padding: 20px;
+   border: 2px solid #ccc;
+   border-radius: 8px;
+   margin: 20px;
+   background-color: #f9f9f9;
+ }
+
+ .remaining-days h2 {
+   color: #333;
+ }
+
+ .remaining-days p {
+   font-size: 1.5em;
+   font-weight: bold;
+   color: #1f2935;
+ } 

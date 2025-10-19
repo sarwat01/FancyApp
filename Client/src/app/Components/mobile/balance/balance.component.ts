@@ -45,8 +45,8 @@ export class BalanceComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.decriptData()
-  //  setTimeout(() =>  this.getUserAndPassword(), 90);
+    this.decriptData()
+    //this.getUserAndPassword();
    
     this.loginForm = this.formBuilder.group({
       username: [''],
@@ -55,21 +55,16 @@ export class BalanceComponent implements OnInit {
     });
     this.langList = this.translate.getAvailableLangs();
     this.currentLang = this.translate.getActiveLang();
-  
-    // Send a log to React Native WebView
+
   if (window.ReactNativeWebView) {
     window.ReactNativeWebView.postMessage(JSON.stringify({
       type: 'LOG',
       message: '📡 Angular is ready (ngOnInit triggered)',
     }));
   }
-
-  // Optionally: Request credentials
-  if (window.ReactNativeWebView) {
+if (window.ReactNativeWebView) {
     window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'REQUEST_CREDENTIALS' }));
-  }
-
-  // Listen for credentials
+  } 
   window.addEventListener('message', this.handleCredentialMessage);
 }
 
@@ -79,9 +74,7 @@ export class BalanceComponent implements OnInit {
  handleCredentialMessage = (event: MessageEvent) => {
   try {
     const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
-
-    if (data && data.username) {
-     
+   if (data && data.username) { 
       this.username = data.username
       this.password = data.password
       this.fcm= data.fcm
@@ -103,8 +96,7 @@ export class BalanceComponent implements OnInit {
     window.removeEventListener('message', this.handleCredentialMessage);
   }
 
-  autoLogin() {
-     
+  autoLogin() { 
    const loginForm = {
       username: this.username,
       password: this.password,
@@ -117,11 +109,7 @@ export class BalanceComponent implements OnInit {
       );
       this.payload = { payload: cypData.toString() };
 
- this.login(loginForm);
-
-     
-     
-     
+    this.login(this.payload)
   }
 
 
@@ -137,7 +125,7 @@ export class BalanceComponent implements OnInit {
     
   }
 
-  getUserAndPassword() {
+/*    getUserAndPassword() {
    const apiUrl = 'http://localhost:1995/api/v1/storgae'; // ✅ Fixed URL quotes
 
 this.apiRest.get(apiUrl).subscribe(
@@ -163,7 +151,7 @@ this.apiRest.get(apiUrl).subscribe(
     console.error('Failed to fetch credentials:', error);
   }
 );
-}
+}   */
  
   setLang(l) {
     this.translate.setActiveLang(l.target.value);
@@ -218,7 +206,7 @@ this.apiRest.get(apiUrl).subscribe(
     this.originalText = bytes.toString(CryptoJS.enc.Utf8);
   }
 
-  login(value) {
+/*   login(value) {
     this.authService.login(this.payload, value).subscribe((success) => {
    if (success) {
         this.router.navigate(['/Home']);
@@ -228,5 +216,16 @@ this.apiRest.get(apiUrl).subscribe(
           });
       }
     });
-  }
+  }  */
+
+    login(value) {
+   this.authService.login(this.payload, value).subscribe((success) => {
+  if (success) {
+    this.router.navigate(['/Home']);
+    this.loginForm.patchValue({ username: '', password: '' });
+   }
+});
+     }  
+
+
 }

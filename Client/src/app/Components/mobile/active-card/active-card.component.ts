@@ -79,10 +79,8 @@ export class ActiveCardComponent implements OnInit {
   getAllpackage(): void {
     const link = `${environment.apiUrl}/api/index.php/api/packages`;
     this.apiRest.get(link).subscribe((ptr: any) => {
-      this.packages = ptr.data;
-      console.log(ptr);
-      
-    });
+      this.packages = ptr.data; 
+     });
   }
 
   /* {"page":1,"count":10,"sortBy":"id","direction":"desc"} */

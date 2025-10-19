@@ -5,10 +5,10 @@ const userController = require('../controller/localStorage')
 
 router
 .route('/')
-.post(userController.storage)
+//.post(userController.storage)
 router
 .route('/')
-.get(userController.getUserAndPawword)
+//.get(userController.getUserAndPawword)
 
  
  
