@@ -41,7 +41,10 @@ export class MainComponent implements OnInit {
       console.log('Language changed to', this.currentLang);
     });
   }
-
+   isDarkMode = true;
+toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+  }
   ngOnInit(): void {
     this.getInfo();
     this.getBalanceInfo();

@@ -45,6 +45,8 @@ import {WebUserComponent } from './Components/Web/web-user/web-user.component'
 import { FilterPipe } from './filter.pipe';
 import { FIBComponent } from './Components/onlinePayment/fib/fib.component';
 import { CheckFibPaymentComponent } from './Components/Web/check-fib-payment/check-fib-payment.component';
+import {UserTrafficComponent} from './Components/mobile/user-traffic/user-traffic.component';
+ 
 @NgModule({
   declarations: [
     FilterPipe,
@@ -67,11 +69,13 @@ import { CheckFibPaymentComponent } from './Components/Web/check-fib-payment/che
     MobileNotificationComponent,
     MobileToturialsComponent,
     WebUserComponent,
-    FIBComponent
+    FIBComponent,
+    UserTrafficComponent
     
     
   ],
-  imports: [
+  imports: [ 
+    
     NgxYoutubePlayerModule,
     BrowserModule,
     AutocompleteLibModule,

@@ -31,8 +31,14 @@ export class TokenInterceptor implements HttpInterceptor {
       if (error instanceof HttpErrorResponse && error.status === 401 && route!=='login') {
         return this.handle401Error(request, next);
       } else {
+
          let arr=error.error.message.replaceAll('"','?').split('?');
         arr=arr.filter(item=>item!=="")
+        // Skip showing toast if the route is 'login'
+         if (route === 'login') {
+        // Just throw the error, don't show toast here
+        return throwError(error);
+      }
          this.toastService.warning(error.error.message);
          return throwError(error.message);
       }

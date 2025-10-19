@@ -16,14 +16,14 @@ const createFIBPayment = async (params) => {
       amount: params.amount.toString(),
       currency: 'IQD',
     },
-    statusCallbackUrl: 'https://fib.stage.fib.iq/api/payments/initiate',
+    statusCallbackUrl: 'https://fib.prod.fib.iq/api/payments/initiate',
     description: `FancyNet Card ${params.amount}, Code: ${params.username}`,
     redirectUri: 'fancynet://profile',
     category: 'ECOMMERCE',
   });
 
   const options = {
-    hostname: 'fib.stage.fib.iq',
+    hostname: 'fib.prod.fib.iq',
     path: '/protected/v1/payments',
     method: 'POST',
     headers: {
@@ -99,6 +99,8 @@ const createNewPayment = async (params) => {
       personalAppLink
     } = fibPayment;
 
+    console.log(fibPayment);
+    
    const response = {
   fibPayment: {
     businessAppLink,

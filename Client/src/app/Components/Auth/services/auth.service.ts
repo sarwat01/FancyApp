@@ -1,14 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { of, Observable } from 'rxjs';
-import { catchError, mapTo, tap } from 'rxjs/operators';
+import { catchError, mapTo, tap,map } from 'rxjs/operators';
 import { Tokens } from '../models/tokens.service';
 import { environment } from 'src/environments/environment';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr'; 
+
+
+const errorMessages: Record<string, string> = {
+  'err_invalid_login2': 'Invalid username or password. Please try again.',
+  'err_invalid_login1': 'Invalid username or password. Please try again.'
+  // add other codes/messages if you want
+};
+
+ 
 
 @Injectable({
   providedIn: 'root',
 })
+
+
+
+
 export class AuthService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
@@ -18,9 +31,14 @@ export class AuthService {
   username:any
   password:any
 
-  constructor(private http: HttpClient, private tostService: ToastrService) {}
 
-  login(payload: any,value:any): Observable<boolean> {
+  showToast(message: string) {
+  // Your toast implementation here, e.g., using Angular Material or any toast library
+  alert(message); // Just an example, replace with your toast UI
+}
+  constructor(private http: HttpClient, private tostService: ToastrService) {}
+ 
+/*   login(payload: any,value:any): Observable<boolean> {
     this.username = value.username
     this.password = value.password
     return this.http
@@ -32,8 +50,31 @@ export class AuthService {
           return of(false);
         })
       );
-  }
+  }   */
 
+  login(payload: any, value: any): Observable<boolean> {
+  this.username = value.username;
+  this.password = value.password;
+  return this.http.post<any>(`${environment.apiUrl}/api/index.php/api/auth/login`, payload)
+    .pipe(
+      tap((token) => this.doLoginUser(token)),
+      mapTo(true),
+   catchError((error) => {
+  console.log('catchError called');
+ 
+  if (error.error && error.error.message) {
+    const backendMsg = error.error.message;
+
+    if (errorMessages[backendMsg]) {
+      this.tostService.warning('ناوی بەکارهێنەر یان  تێپەڕە ووشە هەڵەیە .' )
+    }
+  } 
+ 
+  return of(false);
+})
+)
+}
+ 
   loginFancy(payload: any): Observable<boolean> {
     return this.http
       .post<any>(`${environment.localserver}/api/v1/user/login`, payload)

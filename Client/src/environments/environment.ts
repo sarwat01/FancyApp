@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-    apiUrl: 'http://biling.fancynet.net/user',
-    localserver: 'http://localhost:1995',
+    apiUrl: 'https://biling.fancynet.pro/user',
+    //localserver: 'http://localhost:1995',
+    localserver: 'http://192.168.22.228:1995',
+ 
 };
 /*
  * For easier debugging in development mode, you can import the following file

@@ -19,6 +19,7 @@
     "main_notification": "إشعار",
     "remainigDays":"ایام المتبقية",
     "main_tutorial": "تعلیم",
+     "traffic":"بیانات الاستهلاک",
     "home":"رئيسي",
     "exit":"خروج"
     
@@ -70,12 +71,26 @@
   "tether_change_Password": "كيفية استخدام برنامج - tether"
 
   },
-   "buyCard": {
+   "buyCards": {
     "buy": "يشتري",
     "Recharge_Your_Balance":"إعادة شحن رصيدك",
     "Choose_Your_Bank":"اختر بنكك"
 
+  },
+   "buyCard": {
+    "buy": "الشراء",
+    "Recharge_Your_Balance":"شراء الرصيد",
+    "choose_Your_banlancePrice":"تحدید الرصيد",
+    "Choose_Your_Bank":"اختيار البنك",
+    "warining":"بانکی خۆت هەڵبژێرە",
+    "dearCustomer":"الزبون العزیز",
+    "Currently_the_package":"باقة ال",
+    "The_dinar_is_active":"تستمر فعالة الى ",
+    "until":"تاريخ",
+    "continues":"بەردەوامە",
+    "Package_changes_disabled":" تعديل الباقةالى انتهاء صلاحيتها غير متاحة ٫  بامكانك الآن فقط شراء باقتك الحالية .",
+    "thanks":"شكرا لتفهمكم"
   }
-
+ 
   
 }

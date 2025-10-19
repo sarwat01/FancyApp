@@ -1,11 +1,10 @@
+
 {
-  "/api": {
-    "target": "https://fib.stage.fib.iq",
+  "/user/api": {
+    "target": "https://biling.fancynet.pro",
     "secure": false,
     "changeOrigin": true,
-    "logLevel": "debug",
-    "pathRewrite": {
-      "^/api": ""
-    }
+    "logLevel": "debug"
   }
 }
+ 

@@ -1,5 +1,6 @@
 
 {
-     "client_id": "fancynet-test-payment",
-     "client_secret": "d567a3ef-217d-481d-af4f-9a02f3399c49"
+     "client_id": "pg-fancy-net",
+     "client_secret": "76258514-7940-42a6-a68f-3d6180c8bf37",
+     "url":"https://fib.prod.fib.iq"
 }

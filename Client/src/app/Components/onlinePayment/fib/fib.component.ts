@@ -197,16 +197,32 @@ export class FIBComponent implements OnInit {
     }
  this.getBalanceStatus(payload.userId)
     const link = `${environment.localserver}/api/v1/payments/create`;
+    const isInReactNativeWebView = !!(window as any).ReactNativeWebView;
+    
+ 
     this.apiRest.post(link, payload).subscribe(
       (res: any) => {
         const appLink = res.data?.fibPayment?.personalAppLink;
-        if (appLink) {
+        this.toastService.warning(appLink)
+        /*  if (appLink) {
           window.ReactNativeWebView?.postMessage(JSON.stringify({
+          type: 'OPEN_UPI',
+          url: appLink
+    }));
+        this.getBalanceStatus(payload.userId)
+          } */
+         if (appLink) {
+  if (isInReactNativeWebView) {
+    // Inside React Native WebView → send message
+    (window as any).ReactNativeWebView.postMessage(JSON.stringify({
       type: 'OPEN_UPI',
       url: appLink
     }));
-        this.getBalanceStatus(payload.userId)
-          } else {
+  } else {
+    // In a regular browser → open the link directly
+    window.location.href = appLink;
+  }
+} else {
           console.error('App link is missing in the response');
         }
       },
@@ -220,9 +236,7 @@ export class FIBComponent implements OnInit {
 getBalanceStatus(userId: string) {
    
   this.isLoading = true;
-
   const link = `${environment.localserver}/api/v1/localpayments/latest/${userId}`;
-
   this.balanceStatusSubscription = interval(2000) // every 2 seconds
     .pipe(
       switchMap(() => this.apiRest.get(link)),
@@ -264,13 +278,13 @@ getBalanceStatus(userId: string) {
     }).then((result) => {
       if (result.isConfirmed) {
         this.onChange(value, price);
-        /*  Swal.fire({
+         Swal.fire({
            title: 'سەرکەوتووبوو',
            text: 'پەکەج بەسەرکەوتوویی گۆڕدرا',
            icon: 'success',
            timer: 2000,
            showConfirmButton: false,
-         }); */
+         }); 
       }
     });
   }

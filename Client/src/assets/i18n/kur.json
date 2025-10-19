@@ -2,7 +2,6 @@
   "sharedNavbar": {
     "infoMassage": "بەشداربووی بەڕێز ناوت تۆمار نەکراوە بۆ تۆمار کردن پەیوەندی بکە بە کۆمپانیاوە"
   },
-
   "balance": {
     "username": "کۆدی بەکارهێنەر ",
     "password": "تێپەڕە ووشە",
@@ -17,9 +16,10 @@
     "main_agents": "بریکارەکان",
     "main_notification": "ئاگادارکردنەوە",
     "main_tutorial": "فێرکاری",
+    "traffic": "بەکارهێنانی داتا",
     "remainigDays": "ڕۆژی ماوە",
-    "home":"سەرەتا",
-    "exit":"چونە دەرەوە"
+    "home": "سەرەتا",
+    "exit": "چونە دەرەوە"
   },
   "notification": {
     "main_pageNotification": "لاپەڕەی ئاگادارکردنەوەکان"
@@ -65,22 +65,18 @@
     "tplink_change_Password": "گۆڕینی پاسۆردی TP-Link",
     "tether_change_Password": " چۆنێتی بەکارهێنانی بەرنامەی - tether"
   },
-
- "buyCard": {
+  "buyCard": {
     "buy": "کڕین",
-    "Recharge_Your_Balance":"کڕینی باڵانس",
-    "Choose_Your_Bank":"تکایە جۆری پڕکردنەوەی باڵانس هەڵبژێرە",
-    "warining":"بانکی خۆت هەڵبژێرە",
-    "dearCustomer":"کڕیارى بەڕێز",
-    "Currently_the_package":"لە ئێستادا پاکێجی",
-    "The_dinar_is_active":"دیناری چالاکە",
-    "until":"تاکو",
-    "continues":"بەردەوامە",
-    "Package_changes_disabled":" گۆڕینی پاکێج تا کاتی کۆتایهاتنی ئەم پاکێجە ناچالاکە . لە ئێستادا تەنها دەتوانی هەمان پاکجی ئێستات بکڕیت .",
-    "thanks":"سوپاس بۆ تێگەیشتنتان"
-
-
+    "Recharge_Your_Balance": "کڕینی باڵانس",
+    "choose_Your_banlancePrice": "بڕی باڵانسەکە دیاری بکە",
+    "Choose_Your_Bank": "هەڵبژاردنی بانک",
+    "warining": "بانکی خۆت هەڵبژێرە",
+    "dearCustomer": "کڕیارى بەڕێز",
+    "Currently_the_package": "لە ئێستادا پاکێجی",
+    "The_dinar_is_active": "دیناری چالاکە",
+    "until": "تاکو",
+    "continues": "بەردەوامە",
+    "Package_changes_disabled": " گۆڕینی پاکێج تا کاتی کۆتایهاتنی ئەم پاکێجە ناچالاکە . لە ئێستادا تەنها دەتوانی هەمان پاکجی ئێستات بکڕیت .",
+    "thanks": "سوپاس بۆ تێگەیشتنتان"
   }
-  
-    
 }

@@ -15,7 +15,7 @@ async function fetchToken() {
     });
 
     const options = {
-      hostname: 'fib.stage.fib.iq',
+      hostname: 'fib.prod.fib.iq',
       path: '/auth/realms/fib-online-shop/protocol/openid-connect/token',
       method: 'POST',
       headers: {

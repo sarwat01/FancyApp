@@ -1,0 +1,118 @@
+ <div *ngIf="loading" class="text-center my-3">
+  <div class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+ 
+
+ <div class="container my-4">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title text-center">بینینی داتای بەکارهاتوو</h5>
+      <div class="row">
+        <div class="col-md-4 mb-2">
+    <label for="month">مانگ</label>
+    <select
+      id="month"
+      class="form-control"
+      [(ngModel)]="month"
+      (ngModelChange)="onDateChange()"
+    >
+      <option *ngFor="let name of monthNames; let i = index" [value]="i + 1">
+        {{ name }}
+      </option>
+    </select>
+  </div>
+
+        <div class="col-md-4 mb-2">
+          <label for="year">ساڵ</label>
+          <select id="yearSelect" class="form-control" [(ngModel)]="selectedYear" (change)="onYearChange()">
+      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
+          <!-- <input
+            id="year"
+            type="number"
+            class="form-control"
+            [(ngModel)]="year"
+             (ngModelChange)="onDateChange()"
+            min="2000"
+            max="2099"
+          /> -->
+        </div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <div class="container mt-4">
+  <th class="d-flex justify-content-center">بینینی بەکار هێنانی داتا بۆ مانگی -  {{ month }} - {{selectedYear}}</th>
+  <th class="d-flex justify-content-center"> {{ formatBytes(total) }}</th>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="thead-dark">
+        <tr class="text-center">
+          <th>Day</th>
+          <th>Download</th>
+          <th>Upload</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of trafficTable; let i = index" class="text-center">
+  <td>{{ i + 1 }}</td>
+  <td>{{ formatBytes(item.rx) }}</td>
+  <td>{{ formatBytes(item.tx) }}</td>
+  <td>{{ formatBytes(item.total) }}</td>
+</tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="container mt-4">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover shadow-sm">
+      <thead class="thead-dark text-center">
+        <tr>
+          <th>#</th>
+          <th>Start Time</th>
+          <th>Stop Time</th>
+           <th>Download</th>
+          <th>Upload</th>
+            <th>IP Address</th>
+          <th>MAC Address</th>  
+          <th>Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let session of data; let i = index" class="text-center align-middle">
+          <td>{{ i + 1 }}</td>
+          <td>{{ session.acctstarttime }}</td>
+          <td>
+            <span [ngClass]="{'text-success font-weight-bold': !session.acctstoptime}">
+              {{ session.acctstoptime || 'Online' }}
+            </span>
+          </td> 
+        <td>{{ session.acctstarttime | date: 'yyyy-MM-dd' }}</td>
+<td>
+  <span [ngClass]="{'text-success font-weight-bold': !session.acctstoptime}">
+    {{ session.acctstoptime ? (session.acctstoptime | date: 'yyyy-MM-dd') : 'Online' }}
+  </span>
+</td>
+          <td>{{ formatBytes(session.acctoutputoctets) }}</td>
+          <td>{{ formatBytes(session.acctinputoctets) }}</td>
+         <td>{{ session.framedipaddress }}</td>
+          <td>{{ session.callingstationid }}</td>  
+          <td>{{ session.profile_details?.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+ -->
